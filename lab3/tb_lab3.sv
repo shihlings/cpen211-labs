@@ -57,34 +57,34 @@ module tb_lab3();
 		     exp_state, tb_lab3.dut.state);
 	    err = 1;
 	 end
-	 if (tb_lab3.dut.hex0 !== exp_hex0) begin
+	 if (tb_lab3.dut.HEX0 !== exp_hex0) begin
 	    $display("Expected hex0 %b, got %b",
-		     exp_hex0, tb_lab3.dut.hex0);
+		     exp_hex0, tb_lab3.dut.HEX0);
 	    err = 1;
 	 end
-	 if (tb_lab3.dut.hex1 !== exp_hex1) begin
+	 if (tb_lab3.dut.HEX1 !== exp_hex1) begin
 	    $display("Expected hex1 %b, got %b",
-		     exp_hex1, tb_lab3.dut.hex1);
+		     exp_hex1, tb_lab3.dut.HEX1);
 	    err = 1;
 	 end
-	 if (tb_lab3.dut.hex2 !== exp_hex2) begin
+	 if (tb_lab3.dut.HEX2 !== exp_hex2) begin
 	    $display("Expected hex2 %b, got %b",
-		     exp_hex2, tb_lab3.dut.hex2);
+		     exp_hex2, tb_lab3.dut.HEX2);
 	    err = 1;
 	 end
-	 if (tb_lab3.dut.hex3 !== exp_hex3) begin
+	 if (tb_lab3.dut.HEX3 !== exp_hex3) begin
 	    $display("Expected hex3 %b, got %b",
-		     exp_hex3, tb_lab3.dut.hex3);
+		     exp_hex3, tb_lab3.dut.HEX3);
 	    err = 1;
 	 end
-	 if (tb_lab3.dut.hex4 !== exp_hex4) begin
+	 if (tb_lab3.dut.HEX4 !== exp_hex4) begin
 	    $display("Expected hex4 %b, got %b",
-		     exp_hex4, tb_lab3.dut.hex4);
+		     exp_hex4, tb_lab3.dut.HEX4);
 	    err = 1;
 	 end
-	 if (tb_lab3.dut.hex5 !== exp_hex5) begin
+	 if (tb_lab3.dut.HEX5 !== exp_hex5) begin
 	    $display("Expected hex5 %b, got %b",
-		     exp_hex5, tb_lab3.dut.hex5);
+		     exp_hex5, tb_lab3.dut.HEX5);
 	    err = 1;
 	 end
       end
