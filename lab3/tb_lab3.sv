@@ -98,6 +98,10 @@ module tb_lab3();
    end
 
    initial begin
+      //iverilog setup
+      $dumpfile("tb_lab3.vcd");
+      $dumpvars(0, tb_lab3);
+      
       reset = 0;
       #2;
       reset = 1;
