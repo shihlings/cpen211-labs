@@ -6,6 +6,21 @@
 `define dig_2 7'b0100100
 `define dig_3 7'b0110000
 `define dig_4 7'b0011001
+`define dig_5 7'b0010010
+`define dig_6 7'b0000011
+`define dig_7 7'b1111000
+`define dig_8 7'b0000000
+`define dig_9 7'b0100000
+
+`define char_O 7'b1000000
+`define char_C 7'b1110000
+`define char_E 7'b0110000
+`define char_r 7'b0101111
+`define char_P 7'b0001100
+`define char_n 7'b0101000
+`define char_L 7'b1000111
+`define char_s 7'b0010010
+`define char_D 7'b1000000
 
 // Buttons go low when pressed
 // Reset is synchronous
