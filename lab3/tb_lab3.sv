@@ -110,3 +110,4 @@ module tb_lab3();
    end 
 
 endmodule: tb_lab3
+// Run iverilog with -g2005-sv for SystemVerilog
