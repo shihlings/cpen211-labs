@@ -1,13 +1,18 @@
 `timescale 1 ps/ 1 ps
 
+// 7-segment digits and characters
+`define dig_0 7'b1000000
+`define dig_1 7'b1111001
+`define dig_2 7'b0100100
+`define dig_3 7'b0110000
+`define dig_4 7'b0011001
+
 // Buttons go low when pressed
 // Reset is synchronous
 // Number display should be updated in real time
 
-
-
 module tb_lab3();
-   //inputs
+   //inputs (active low)
    reg enter;
    reg reset;
    reg [3:0] input_num;
@@ -67,6 +72,22 @@ module tb_lab3();
 		     exp_hex5, tb_lab3.dut.hex5);
 	    err = 1;
 	 end
-	 
+      end
+   endtask // checker
+   
+   initial forever begin
+      enter = 1;
+      #1;
+      enter = 0;
+      #1;
+   end
+
+   initial begin
+      reset = 0;
+      #2;
+      reset = 1;
+      
+      // Test sequence here
+   end 
 
 endmodule: tb_lab3
