@@ -8,4 +8,6 @@ module lab3_top(SW,KEY,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,LEDR);
   wire rst_n = KEY[3]; // this is your reset; your reset should be synchronous and active-low
 
   // put your solution code here!
+   reg [3:0] state;
+   
 endmodule

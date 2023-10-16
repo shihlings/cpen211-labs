@@ -40,7 +40,13 @@ module tb_lab3();
    reg[6:0]	     hex4;
    reg[6:0]	     hex5;
 
-   reg		     err; //Error tracing   
+   reg		     err; //Error tracing
+
+   lab3_top dut({6'b000000, input_num}, // SW
+		{reset, 2'b00, enter}, // KEY
+		hex0, hex1, hex2, hex3,
+		hex4, hex5, ); // Don't care about LEDR
+   
 
    // Task to check state and outputs
    task checker;
@@ -107,6 +113,8 @@ module tb_lab3();
       reset = 1;
       
       // Test sequence here
+
+      $finish;
    end 
 
 endmodule: tb_lab3
