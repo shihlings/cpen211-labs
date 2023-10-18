@@ -19,7 +19,7 @@
 `define char_P 7'b0001100
 `define char_n 7'b0101000
 `define char_L 7'b1000111
-`define char_s 7'b0010010
+`define char_S 7'b0010010
 `define char_D 7'b1000000
 `define OFF 7'b1111111
 
@@ -214,7 +214,31 @@ module tb_lab3();
       #10;
       input_num = `in_6;
       #10;
-      checker(`closed, `OFF, `OFF, `OFF, `OFF, `OFF, `OFF); // Fix HEX
+      checker(`closed, `char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
+      #10;
+      checker(`closed, `char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
+      #1;
+      reset = 0;
+      #9;
+      
+      // Check wrong input midway through
+      reset = 1;
+      input_num = `in_1;
+      #10;
+      input_num = `in_2;
+      #10;
+      input_num = `in_3;
+      #1;
+      checker(`cor_3, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
+      #9;
+      input_num = 4'b0000;
+      #10;
+      input_num = `in_5;
+      #10;
+      input_num = `in_6;
+      #10;
+      checker(`closed, `char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
+      
             
       #10;
       
