@@ -1,5 +1,5 @@
 `define seg0 7'b0111111
-`define seg1 7'b0000011
+`define seg1 7'b0000110
 `define seg2 7'b1011011
 `define seg3 7'b1001111
 `define seg4 7'b1100110
@@ -15,9 +15,24 @@
 `define segC 7'b0111001
 `define segL 7'b0111000
 `define segS 7'b1101101
-`define segD 7'b1011110
+`define segD 7'b0111111
 `define segr 7'b1010000
 `define OFF  7'b0000000
+
+`define dis_ErrOr  {`OFF, `segE, `segr, `segr, `segO, `segr}
+`define dis_OPEn   {`OFF, `OFF, `segO, `segP, `segE, `segn}
+`define dis_CLOSED {`segC, `segL, `segO, `segS, `segE, `segD}
+`define dis_0 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg0}
+`define dis_1 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg1}
+`define dis_2 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg2}
+`define dis_3 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg3}
+`define dis_4 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg4}
+`define dis_5 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg5}
+`define dis_6 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg6}
+`define dis_7 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg7}
+`define dis_8 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg8}
+`define dis_9 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg9}
+
 `define T0   4'b0000
 `define T1   4'b0001
 `define T2   4'b0010
@@ -32,191 +47,350 @@
 `define F5   4'b1101
 `define F6   4'b1110
 
-// Gate level simulation use
-`timescale 1 ps/ 1 ps
-
 module tb_lab3();
    // declaration for all input/outputs for lab3_top
-   reg [9:0] SW;
-   reg	     clk;
-   reg	     rst;
-   reg	     err;
-   reg	     unlock;
-   reg [6:0] expectedHEX0;
-   reg [3:0] expectedState;
-   reg [9:0] LEDR;
-   
-   wire [6:0] HEX0;
-   wire [6:0] HEX1;
-   wire [6:0] HEX2;
-   wire [6:0] HEX3;
-   wire [6:0] HEX4;
-   wire [6:0] HEX5;
+   reg [9:0]      SW;
+   reg		  clk;
+   reg		  rst;
+   reg		  err;
+   reg		  unlock;
+   reg [41:0]	  expectedHEX;
+   reg [3:0]	  expectedState;
+   reg [9:0]	  LEDR;
+   reg [0:59]	  test_inputs;
+   wire [6:0]	  HEX0;
+   wire [6:0]	  HEX1;
+   wire [6:0]	  HEX2;
+   wire [6:0]	  HEX3;
+   wire [6:0]	  HEX4;
+   wire [6:0]	  HEX5;
 
    // declare a DUT with the corresponding i/o
    // For KEY[2:1], they are always 1 as they're not used (buttons are 1 when not preseed)
    lab3_top DUT(.SW(SW), .KEY({rst, 2'b1, ~clk}), .LEDR(LEDR), .HEX0(HEX0), .HEX1(HEX1), 
 		.HEX2(HEX2), .HEX3(HEX3), .HEX4(HEX4), .HEX5(HEX5));
-
-   // initialize a clock, period = 2 ps, 
+   
+   // initialize a clock, period = 4 ps
    initial begin
-     forever begin
-	clk = 1'b0; #1;
-        clk = 1'b1; #1;
-	clk = 1'b0;
-     end
+      // do not start clock at the beginning while testing HEX functionality
+      clk = 1'b0;
+      #48;
+      forever begin
+	 clk = 1'b1; #2;
+	 clk = 1'b0; #2;
+	 clk = 1'b1;
+      end
    end
-
+   
    // a checker to see if the HEX0 value matches the expected value
-   task HEX0_checker;
-      input [6:0] expectedHEX0;
+   task HEX_checker;
+      input [41:0] expectedHEX;
       begin
-	 if (tb_lab3.DUT.HEX0 != expectedHEX0) begin
+	 if (tb_lab3.DUT.displayHEX != expectedHEX) begin
 	    $display("ERROR! HEX0 is not displaying the correct output value");
-	    $display("       Current Value: %d, Expected: %b, Actual: %b", tb_lab3.DUT.SW, expectedHEX0, tb_lab3.DUT.HEX0);
+	    $display("       Current Value: %d, Expected: %b, Actual: %b", 
+		     tb_lab3.DUT.SW, expectedHEX[6:0], tb_lab3.DUT.displayHEX[6:0]);
 	    err = 1'b1;
 	 end
+	 else begin
+	    $display("PASS,  displaying %d, %b", SW, tb_lab3.DUT.displayHEX[6:0]);
+	 end
       end
-   endtask // HEX0_checker
-
+   endtask // HEX_checker
+   
    // a checker to see if the state transition is expected
    task testState;
       input [3:0] expectedState;
       begin
 	 if (tb_lab3.DUT.currentState != expectedState) begin
 	    $display("ERROR! Unexpected state transition");
-	    $display("       Current Value: %d, Expected: %b, Actual: %b", tb_lab3.DUT.SW, expectedState, tb_lab3.DUT.currentState);
+	    $display("       Current Value: %d, Expected: %b, Actual: %b", 
+		     tb_lab3.DUT.SW, expectedState, tb_lab3.DUT.currentState);
 	    err = 1'b1;
+	 end
+	 else begin
+	    $display("PASS,  Current Value: %d, Current State: %b", 
+		     tb_lab3.DUT.SW, tb_lab3.DUT.currentState);
 	 end
       end
    endtask // checkState
-
+   
    // a checker to see if the lock is at the correct final state
    task checkFinal;
       input unlock;
       begin
 	 if (unlock) begin
-	    if (HEX5 != `OFF | HEX4 != `OFF) begin
-	       $display("ERROR! Unused display not turned off");
-	       err = 1'b1;
-	    end
-	    if (HEX3 != `segO | HEX2 != `segP | HEX1 != `segE | HEX0 != `segn) begin
+	    if (tb_lab3.DUT.displayHEX != `dis_OPEn) begin
 	       $display("ERROR! OPEn not displayed");
 	       err = 1'b1;
 	    end
+	    else begin
+	       $display("PASS,  Displaying OPEn on HEX");
+	    end
 	 end
 	 else begin
-	    if (HEX5 != `segC | HEX4 != `segL | HEX3 != `segO | HEX2 != `segS | HEX1 != `segE | HEX0 != `segD) begin
+	    if (tb_lab3.DUT.displayHEX != `dis_CLOSED) begin
 	       $display("ERROR! CLOSED not displayed");
 	       err = 1'b1;
+	    end
+	    else begin
+	       $display("PASS,  Displaying CLOSED on HEX");
 	    end
 	 end // else: !if(unlock)
       end
    endtask // checkFinal
 
+   // takes in a set of inputs and checks if the state machine works properly
+   task checkTransition;
+      input [0:59] num_in;
+      begin
+	 // put in first digit
+	 SW = num_in[0:9];
+	 #2;
+	 // check against correct answer: 722297
+	 if (SW == 10'd7) begin
+	    expectedState = `T1;
+	 end
+	 else begin
+	    expectedState = `F1;
+	 end
+	 #1;
+	 // check state
+	 testState(expectedState);
+	 #1;
 
+	 // put in second digit
+	 SW = num_in[10:19];
+	 #2;
+	 // check against correct answer: 722297
+	 if (SW == 10'd2 && expectedState == `T1) begin
+	    expectedState = `T2;
+	 end
+	 else begin
+	    expectedState = `F2;
+	 end
+	 #1;
+	 testState(expectedState);
+	 #1;
+
+	 // put in third digit 
+	 SW = num_in[20:29];
+	 #2;
+	 // check against correct answer: 722297
+	 if (SW == 10'd2 && expectedState == `T2) begin
+	    expectedState = `T3;
+	 end
+	 else begin
+	    expectedState = `F3;
+	 end
+	 #1;
+	 testState(expectedState);
+	 #1;
+
+	 // put in 4th digit
+	 SW = num_in[30:39];
+	 #2;
+	 // check against correct answer: 722297
+	 if (SW == 10'd2 && expectedState == `T3) begin
+	    expectedState = `T4;
+	 end
+	 else begin
+	    expectedState = `F4;
+	 end
+	 #1;
+	 testState(expectedState);
+	 #1;
+
+	 // put in fifth digit
+	 SW = num_in[40:49];
+	 #2;
+	 // check against correct answer: 722297
+	 if (SW == 10'd9 && expectedState == `T4) begin
+	    expectedState = `T5;
+	 end
+	 else begin
+	    expectedState = `F5;
+	 end
+	 #1;
+	 testState(expectedState);
+	 #1;
+
+	 // put in 6th digit (last)
+	 SW = num_in[50:59];
+	 #2;
+	 // check against correct answer: 722297
+	 if (SW == 10'd7 && expectedState == `T5) begin
+	    expectedState = `T6;
+	 end
+	 else begin
+	    expectedState = `F6;
+	 end
+	 #1;
+	 testState(expectedState);
+	 #1;
+
+	 // check if this conbination should unlock
+	 if (expectedState == `T6) begin
+	    unlock = 1'b1;
+	 end
+	 else begin
+	    unlock = 1'b0;
+	 end
+
+	 // check if the lock is actually unlocked
+	 checkFinal(unlock);
+
+	 // check if the self loop at the end works
+	 #4;
+	 testState(expectedState);
+
+	 // change an input and see if the self loop still works
+	 SW = 10'b0;
+	 #4;
+	 testState(expectedState);
+      end
+   endtask // checkTransition
+   
    //start running testbench tasks
    initial begin
       //iverilog and GTKWave use only
       $dumpfile("waveform.vcd");
       $dumpvars(0, tb_lab3);
-            
+      
       // reset error indicator
       err = 1'b0;
       SW = 10'b0;
-            
+      
       // reset the lock -- synchronous reset
       rst = 1'b1;
-      #2;
+      #4;
       rst = 1'b0;
       #2;
+      if (tb_lab3.DUT.currentState != `T0) begin
+	 err = 1'b1;
+	 $display("ERROR! Reset did not return to state T0");
+	 $display("       Current value: %d, Expected State: %b, Actual State: %b", 
+		  SW, `T0, tb_lab3.DUT.currentState);
+      end
+      else begin
+	 $display("PASS,  Reset success");
+      end
       rst = 1'b1;
       
       // test HEX0 for displaying digits
       repeat(10) begin
 	 // assign an expected value for the checker
 	 case (SW)
-	   0: expectedHEX0 = `seg0;
-	   1: expectedHEX0 = `seg1;
-	   2: expectedHEX0 = `seg2;
-	   3: expectedHEX0 = `seg3;
-	   4: expectedHEX0 = `seg4;
-	   5: expectedHEX0 = `seg5;
-	   6: expectedHEX0 = `seg6;
-	   7: expectedHEX0 = `seg7;
-	   8: expectedHEX0 = `seg8;
-	   9: expectedHEX0 = `seg9;
-	   default: expectedHEX0 = 7'bx;
+	   0: expectedHEX = `dis_0;
+	   1: expectedHEX = `dis_1;
+	   2: expectedHEX = `dis_2;
+	   3: expectedHEX = `dis_3;
+	   4: expectedHEX = `dis_4;
+	   5: expectedHEX = `dis_5;
+	   6: expectedHEX = `dis_6;
+	   7: expectedHEX = `dis_7;
+	   8: expectedHEX = `dis_8;
+	   9: expectedHEX = `dis_9;
+	   default: expectedHEX = 42'bx;
 	 endcase // case (SW)
-	 #1;
+	 #4;
 	 
 	 // run checker to display errors and modify error flag
-	 HEX0_checker(expectedHEX0);
-
+	 HEX_checker(expectedHEX);
+	 
 	 //increment to next "valid" digit check
 	 SW += 9'b1;
-	 #1;
       end // repeat (10)
-
+      
       // test HEX0 for displaying ErrOr using a random "invalid" digit
-      SW = 11;
-      #1;
-
+      SW = 10;
+      #2;
+      
       // if not showing ErrOr, then print an error
-      if(HEX5 != `OFF | HEX4 != `segE | HEX3 != `segr | HEX2 != `segr | HEX1 != `segO | HEX0 != `segr) begin
+      if(tb_lab3.DUT.displayHEX != `dis_ErrOr) begin
 	 $display("ERROR! ErrOr is not printing on the display");
 	 err = 1'b1;
       end
-      #1;
-
-      rst = 1'b0;
+      else begin
+	 $display("PASS,  ErrOr is printing on the display");
+      end
       #2;
-      rst = 1'b1;
-            
-      // test entering the correct set of student number (722297)
-      unlock = 1'b1; //setting to true for a expected unlock test case
-      SW = 7;
-      expectedState = `T1;
-      #1;
-      testState(expectedState);
-      #1;
-      
-      SW = 2;
-      expectedState = `T2;
-      #1;
-      testState(expectedState);
-      #1;
-      
-      SW = 2;
-      expectedState = `T3;
-      #1;
-      testState(expectedState);
-      #1;
-      
-      SW = 2;
-      expectedState = `T4;
-      #1;
-      testState(expectedState);
-      #1;
-      
-      SW = 9;
-      expectedState = `T5;
-      #1;
-      testState(expectedState);
-      #1;
-      
-      SW = 7;
-      expectedState = `T6;
-      #1;
-      testState(expectedState);
-      #1;
 
-      checkFinal(unlock);
-                  
+      // resetting to ensure a fresh start
+      rst = 1'b0;
+      #4;
+      rst = 1'b1;
+
+      // TEST CASE 1: 722297 (correct input)
+      $display("---TEST CASE 1: 722297---");
+      test_inputs = {10'd7, 10'd2, 10'd2, 10'd2, 10'd9, 10'd7};
+      checkTransition(test_inputs);
+      
+      // resetting to ensure a fresh start
+      rst = 1'b0;
+      #4;
+      rst = 1'b1;
+
+      // TEST CASE 2: 702297
+      $display("---TEST CASE 2: 702297---");
+      test_inputs = {10'd7, 10'd0, 10'd2, 10'd2, 10'd9, 10'd7};
+      checkTransition(test_inputs);
+      
+      // resetting to ensure a fresh start
+      rst = 1'b0;
+      #4;
+      rst = 1'b1;
+
+      // TEST CASE 3: 723297      
+      $display("---TEST CASE 3: 723297---");
+      test_inputs = {10'd7, 10'd2, 10'd3, 10'd2, 10'd9, 10'd7};
+      checkTransition(test_inputs);
+      
+      // resetting to ensure a fresh start
+      rst = 1'b0;
+      #4;
+      rst = 1'b1;
+
+      // TEST CASE 4: 722497
+      $display("---TEST CASE 4: 722497---");
+      test_inputs = {10'd7, 10'd2, 10'd2, 10'd4, 10'd9, 10'd7};
+      checkTransition(test_inputs);
+      
+      // resetting to ensure a fresh start
+      rst = 1'b0;
+      #4;
+      rst = 1'b1;
+
+      // TEST CASE 5: 722257
+      $display("---TEST CASE 5: 722257---");
+      test_inputs = {10'd7, 10'd2, 10'd2, 10'd2, 10'd5, 10'd7};
+      checkTransition(test_inputs);
+      
+      // resetting to ensure a fresh start
+      rst = 1'b0;
+      #4;
+      rst = 1'b1;
+
+      
+      // TEST CASE 6: 722296
+      $display("---TEST CASE 6: 722296---");
+      test_inputs = {10'd7, 10'd2, 10'd2, 10'd2, 10'd9, 10'd6};
+      checkTransition(test_inputs);
+      
+      // resetting to ensure a fresh start
+      rst = 1'b0;
+      #4;
+      rst = 1'b1;
+
+      // TEST CASE 7: 012345
+      $display("---TEST CASE 7: 012345---");
+      test_inputs = {10'd0, 10'd1, 10'd2, 10'd3, 10'd4, 10'd5};
+      checkTransition(test_inputs);
+      
       if (~err)
-	$display("PASSED");
+	$display("TEST PASSED");
       else
-	$display("ERROR FOUND");
-      $stop;
+	$display("TEST FAILED: ERROR(S) FOUND");
+      $finish;
    end
 endmodule: tb_lab3
