@@ -128,7 +128,8 @@ module lab3_top(SW,KEY,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,LEDR);
       else if (moore_out == `display_open) begin
 	 {HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} = {`OFF, `OFF, `char_O, `char_P, `char_E, `char_n};
       end
-      
+		else
+		{HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} = {6{7'bxxxxxxx}};   
    end 
    
 endmodule
