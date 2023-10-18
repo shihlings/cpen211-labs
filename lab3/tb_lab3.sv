@@ -22,6 +22,8 @@
 `define char_s 7'b0010010
 `define char_D 7'b1000000
 
+// Sequence: 722297
+
 // Buttons go low when pressed
 // Reset is synchronous
 // Number display should be updated in real time
