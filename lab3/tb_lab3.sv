@@ -21,12 +21,46 @@
 `define char_L 7'b1000111
 `define char_s 7'b0010010
 `define char_D 7'b1000000
+`define OFF 7'b1111111
+
+// State encoding:
+// 0xxx -> All inputs so far correct
+// 1xxx -> At least one incorrect input
+// 0000 -> First input
+// x001 -> Second input
+// x011 -> Third input
+// x010 -> Fourth input
+// x110 -> Fifth input
+// x111 -> Sixth input
+// x101 -> Open/Closed
+`define cor_1 4'b0000
+`define cor_2 4'b0001
+`define inc_2 4'b1001
+`define cor_3 4'b0011
+`define inc_3 4'b1011
+`define cor_4 4'b0010
+`define inc_4 4'b1010
+`define cor_5 4'b0110
+`define inc_5 4'b1110
+`define cor_6 4'b0111
+`define inc_6 4'b1111
+`define open 4'b0101
+`define closed 4'b1101
+
+// Moore machine output encoding:
+`define display_digit 2'b00
+`define display_closed 2'b01
+`define display_open 2'b10
 
 // Sequence: 722297
+// Sequence macros:
+`define in_1 4'b0111
+`define in_2 4'b0010
+`define in_3 4'b0010
+`define in_4 4'b0010
+`define in_5 4'b1001
+`define in_6 4'b0111
 
-// Buttons go low when pressed
-// Reset is synchronous
-// Number display should be updated in real time
 
 module tb_lab3();
    //inputs (active low)
@@ -35,12 +69,12 @@ module tb_lab3();
    reg [3:0] input_num;
 
    //outputs (7-segment)
-   reg[6:0]	     hex0;
-   reg[6:0]	     hex1;
-   reg[6:0]	     hex2;
-   reg[6:0]	     hex3;
-   reg[6:0]	     hex4;
-   reg[6:0]	     hex5;
+   wire[6:0]	     hex0;
+   wire[6:0]	     hex1;
+   wire[6:0]	     hex2;
+   wire[6:0]	     hex3;
+   wire[6:0]	     hex4;
+   wire[6:0]	     hex5;
 
    reg		     err; //Error tracing
 
@@ -113,8 +147,9 @@ module tb_lab3();
       reset = 0;
       #2;
       reset = 1;
+
+      #2;
       
-      // Test sequence here
 
       $finish;
    end 
