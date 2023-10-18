@@ -20,34 +20,87 @@
 `define char_s 7'b0010010
 `define char_D 7'b1000000
 
+// State encoding:
+// 0xxx -> All inputs so far correct
+// 1xxx -> At least one incorrect input
+// 0000 -> First input
+// x001 -> Second input
+// x011 -> Third input
+// x010 -> Fourth input
+// x110 -> Fifth input
+// x111 -> Sixth input
+// x101 -> Open/Closed
+`define cor_1 4'b0000
+`define cor_2 4'b0001
+`define inc_2 4'b1001
+`define cor_3 4'b0011
+`define inc_3 4'b1011
+`define cor_4 4'b0010
+`define inc_4 4'b1010
+`define cor_5 4'b0110
+`define inc_5 4'b1110
+`define cor_6 4'b0111
+`define inc_6 4'b1111
+`define open 4'b0101
+`define closed 4'b1101
+
+// Moore machine output encoding:
+`define display_digit 2'b00
+`define display_closed 2'b01
+`define display_open 2'b10
+
+// Sequence: 722297
+// Sequence macros:
+`define in_1 4'b0111
+`define in_2 4'b0010
+`define in_3 4'b0010
+`define in_4 4'b0010
+`define in_5 4'b1001
+`define in_6 4'b0111
+
 module lab3_top(SW,KEY,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,LEDR);
    input [9:0] SW;
    input [3:0] KEY;
    output reg [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
-   output [9:0]	   LEDR;   // optional: use these outputs for debugging on your DE1-SoC
+   output [9:0]	    LEDR;   // optional: use these outputs for debugging on your DE1-SoC
 
-   wire	       clk = ~KEY[0];  // this is your clock
-   wire	rst_n = KEY[3]; // this is your reset; your reset should be synchronous and active-low
+   wire		    clk = ~KEY[0];  // this is your clock
+   wire		    rst_n = KEY[3]; // this is your reset; your reset should be synchronous and active-low
 
-   reg [3:0] state;
-   // State encoding:
-   // 0xxx -> All inputs so far correct
-   // 1xxx -> At least one incorrect input
-   // 0000 -> First input
-   // x001 -> Second input
-   // x011 -> Third input
-   // x010 -> Fourth input
-   // x110 -> Fifth input
-   // x111 -> Sixth input
-   // x101 -> Open/Closed
+   reg [3:0]	    state;
+   reg [1:0]	    moore_out;
 
-   always @(posedge clk) begin
-      if (reset) begin
-	 state = 4'b0000;
+   always_ff @(posedge clk) begin
+      if (~rst_n) begin
+	 state = `cor_1;
       end
       else begin
-	 if (state == 4'b0000) begin
-	    state = (KEY == '
+	 case (state)
+	   `cor_1: state = (SW[3:0] == `in_1) ? `cor_2 : `inc_2;
+	   `cor_2: state = (SW[3:0] == `in_2) ? `cor_3 : `inc_3;
+	   `cor_3: state = (SW[3:0] == `in_3) ? `cor_4 : `inc_4;
+	   `cor_4: state = (SW[3:0] == `in_4) ? `cor_5 : `inc_5;
+	   `cor_5: state = (SW[3:0] == `in_5) ? `cor_6 : `inc_6;
+	   `cor_6: state = (SW[3:0] == `in_6) ? `open : `closed;
+	   `open: state = `open;
+
+	   `inc_2: state = `inc_3;
+	   `inc_3: state = `inc_4;
+	   `inc_4: state = `inc_5;
+	   `inc_5: state = `inc_6;
+	   `inc_6: state = `closed;
+	   `closed: state = `closed;
+
+	   default: state = 4'bxxx;
+	 endcase // case (state)
+
+	 case (state)
+	   `open: moore_out = `display_open;
+	   `closed: moore_out = `display_closed;
+	   default: moore_out = `display_digit;
+	 endcase // case (state)
 	 
-   
+      end // else: !if(reset)
+   end // always @ (posedge clk)
+      
 endmodule
