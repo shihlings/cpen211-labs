@@ -17,7 +17,7 @@
 `define char_P 7'b0001100
 `define char_n 7'b0101000
 `define char_L 7'b1000111
-`define char_s 7'b0010010
+`define char_S 7'b0010010
 `define char_D 7'b1000000
 
 // State encoding:
@@ -101,6 +101,31 @@ module lab3_top(SW,KEY,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,LEDR);
 	 endcase // case (state)
 	 
       end // else: !if(reset)
-   end // always @ (posedge clk)
+   end // always_ff @ (posedge clk)
+
+   always_comb begin
+      if (moore_out == `display_digit) begin
+	 case (SW[3:0])
+	   4'b0000: HEX0 = `dig_0;
+	   4'b0001: HEX0 = `dig_1;
+	   4'b0010: HEX0 = `dig_2;
+	   4'b0011: HEX0 = `dig_3;
+	   4'b0100: HEX0 = `dig_4;
+	   4'b0101: HEX0 = `dig_5;
+	   4'b0110: HEX0 = `dig_6;
+	   4'b0111: HEX0 = `dig_7;
+	   4'b1000: HEX0 = `dig_8;
+	   4'b1001: HEX0 = `dig_9;
+	   default: {HEX4, HEX3, HEX2, HEX1, HEX0} = {`char_E, `char_r, `char_r, `char_O, `char_r};
+	 endcase
+      end // if (moore_out == `display_digit)
+      else if (moore_out == `display_closed) begin
+	 {HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} = {`char_C, `char_L, `char_O, `char_S, `char_E, `char_D};
+      end
+      else if (moore_out == `display_open) begin
+	 {HEX3, HEX2, HEX1, HEX0} = {`char_O, `char_P, `char_E, `char_n};
+      end
       
+   end 
+   
 endmodule
