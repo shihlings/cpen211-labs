@@ -15,7 +15,7 @@
 `define segC 7'b0111001
 `define segL 7'b0111000
 `define segS 7'b1101101
-`define segd 7'b1011110
+`define segD 7'b1011110
 `define segr 7'b1010000
 `define OFF  7'b0000000
 `define T0   4'b0000
@@ -41,6 +41,12 @@ module lab3_top(SW,KEY,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,LEDR);
    wire		clk = ~KEY[0];  // this is your clock
    wire		rst_n = KEY[3]; // this is your reset; your reset should be synchronous and active-low
 
+   wire [3:0]	currentState;
+   reg [3:0]	nextState;
+	
+
+   vDFF #4 U0(nextState, currentState, clk, rst_n);
+      
   // put your solution code here!
 
    always @* begin
@@ -58,6 +64,38 @@ module lab3_top(SW,KEY,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,LEDR);
 	default: {HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} = 
 		 {`OFF, `segE, `segr, `segr, `segO, `segr};
       endcase // case (SW)
+
+      case (currentState)
+	`T0: nextState = (SW == 7) ? `T1:`F1;
+	`T1: nextState = (SW == 2) ? `T2:`F2;
+	`T2: nextState = (SW == 2) ? `T3:`F3;
+	`T3: nextState = (SW == 2) ? `T4:`F4;
+	`T4: nextState = (SW == 9) ? `T5:`F5;
+	`T5: nextState = (SW == 7) ? `T6:`F6;
+	`T6: nextState = `T6;
+	`F1: nextState = `F2;
+	`F2: nextState = `F3;
+	`F3: nextState = `F4;
+	`F4: nextState = `F5;
+	`F5: nextState = `F6;
+	`F6: nextState = `F6;
+	default: nextState = 4'bx;
+      endcase // case (currentState)
    end
    
 endmodule
+
+module vDFF (D, Q, clk, rst_n);
+   parameter n = 1;
+   input [n-1:0]      D;
+   output reg [n-1:0] Q;
+   input	      clk;
+   input	      rst_n;
+
+   always @(posedge clk) begin
+      if (rst_n)
+	Q <= D;
+      else
+	Q <= `T0;
+   end
+endmodule // vDFF

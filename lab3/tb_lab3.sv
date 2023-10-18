@@ -15,7 +15,7 @@
 `define segC 7'b0111001
 `define segL 7'b0111000
 `define segS 7'b1101101
-`define segd 7'b1011110
+`define segD 7'b1011110
 `define segr 7'b1010000
 `define OFF  7'b0000000
 `define T0   4'b0000
@@ -41,7 +41,10 @@ module tb_lab3();
    reg	     clk;
    reg	     rst;
    reg	     err;
-   reg [6:0] expectedHEX0;   
+   reg	     unlock;
+   reg [6:0] expectedHEX0;
+   reg [3:0] expectedState;
+   reg [9:0] LEDR;
    
    wire [6:0] HEX0;
    wire [6:0] HEX1;
@@ -64,17 +67,55 @@ module tb_lab3();
      end
    end
 
+   // a checker to see if the HEX0 value matches the expected value
    task HEX0_checker;
       input [6:0] expectedHEX0;
       begin
 	 if (tb_lab3.DUT.HEX0 != expectedHEX0) begin
 	    $display("ERROR! HEX0 is not displaying the correct output value");
-	    $display("       Current Value: %d, Expected: %b, Actual %b", tb_lab3.DUT.SW, expectedHEX0, tb_lab3.DUT.HEX0);
+	    $display("       Current Value: %d, Expected: %b, Actual: %b", tb_lab3.DUT.SW, expectedHEX0, tb_lab3.DUT.HEX0);
 	    err = 1'b1;
 	 end
       end
    endtask // HEX0_checker
-   
+
+   // a checker to see if the state transition is expected
+   task testState;
+      input [3:0] expectedState;
+      begin
+	 if (tb_lab3.DUT.currentState != expectedState) begin
+	    $display("ERROR! Unexpected state transition");
+	    $display("       Current Value: %d, Expected: %b, Actual: %b", tb_lab3.DUT.SW, expectedState, tb_lab3.DUT.currentState);
+	    err = 1'b1;
+	 end
+      end
+   endtask // checkState
+
+   // a checker to see if the lock is at the correct final state
+   task checkFinal;
+      input unlock;
+      begin
+	 if (unlock) begin
+	    if (HEX5 != `OFF | HEX4 != `OFF) begin
+	       $display("ERROR! Unused display not turned off");
+	       err = 1'b1;
+	    end
+	    if (HEX3 != `segO | HEX2 != `segP | HEX1 != `segE | HEX0 != `segn) begin
+	       $display("ERROR! OPEn not displayed");
+	       err = 1'b1;
+	    end
+	 end
+	 else begin
+	    if (HEX5 != `segC | HEX4 != `segL | HEX3 != `segO | HEX2 != `segS | HEX1 != `segE | HEX0 != `segD) begin
+	       $display("ERROR! CLOSED not displayed");
+	       err = 1'b1;
+	    end
+	 end // else: !if(unlock)
+      end
+   endtask // checkFinal
+
+
+   //start running testbench tasks
    initial begin
       //iverilog and GTKWave use only
       $dumpfile("waveform.vcd");
@@ -89,9 +130,11 @@ module tb_lab3();
       #2;
       rst = 1'b0;
       #2;
-
+      rst = 1'b1;
+      
       // test HEX0 for displaying digits
       repeat(10) begin
+	 // assign an expected value for the checker
 	 case (SW)
 	   0: expectedHEX0 = `seg0;
 	   1: expectedHEX0 = `seg1;
@@ -106,26 +149,74 @@ module tb_lab3();
 	   default: expectedHEX0 = 7'bx;
 	 endcase // case (SW)
 	 #1;
+	 
+	 // run checker to display errors and modify error flag
 	 HEX0_checker(expectedHEX0);
+
+	 //increment to next "valid" digit check
 	 SW += 9'b1;
 	 #1;
       end // repeat (10)
 
-      // test HEX0 for displaying ErrOr
+      // test HEX0 for displaying ErrOr using a random "invalid" digit
       SW = 11;
-      #1
+      #1;
+
+      // if not showing ErrOr, then print an error
       if(HEX5 != `OFF | HEX4 != `segE | HEX3 != `segr | HEX2 != `segr | HEX1 != `segO | HEX0 != `segr) begin
 	 $display("ERROR! ErrOr is not printing on the display");
 	 err = 1'b1;
       end
-      #1;      
+      #1;
+
+      rst = 1'b0;
+      #2;
+      rst = 1'b1;
+            
+      // test entering the correct set of student number (722297)
+      unlock = 1'b1; //setting to true for a expected unlock test case
+      SW = 7;
+      expectedState = `T1;
+      #1;
+      testState(expectedState);
+      #1;
       
+      SW = 2;
+      expectedState = `T2;
+      #1;
+      testState(expectedState);
+      #1;
+      
+      SW = 2;
+      expectedState = `T3;
+      #1;
+      testState(expectedState);
+      #1;
+      
+      SW = 2;
+      expectedState = `T4;
+      #1;
+      testState(expectedState);
+      #1;
+      
+      SW = 9;
+      expectedState = `T5;
+      #1;
+      testState(expectedState);
+      #1;
+      
+      SW = 7;
+      expectedState = `T6;
+      #1;
+      testState(expectedState);
+      #1;
+
+      checkFinal(unlock);
+                  
       if (~err)
 	$display("PASSED");
       else
 	$display("ERROR FOUND");
       $stop;
    end
-   
-   
 endmodule: tb_lab3
