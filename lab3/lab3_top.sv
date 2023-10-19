@@ -1,24 +1,24 @@
 // definition for each letter/number on 7 segment display (1 means on, 0 is off)
-`define seg0 7'b0111111
-`define seg1 7'b0000110
-`define seg2 7'b1011011
-`define seg3 7'b1001111
-`define seg4 7'b1100110
-`define seg5 7'b1101101
-`define seg6 7'b1111101
-`define seg7 7'b0000111
-`define seg8 7'b1111111
-`define seg9 7'b1101111
-`define segO 7'b0111111
-`define segP 7'b1110011
-`define segE 7'b1111001
-`define segn 7'b1010100
-`define segC 7'b0111001
-`define segL 7'b0111000
-`define segS 7'b1101101
-`define segD 7'b0111111
-`define segr 7'b1010000
-`define OFF  7'b0000000
+`define seg0 7'b1000000
+`define seg1 7'b1111001
+`define seg2 7'b0100100
+`define seg3 7'b0110000
+`define seg4 7'b0011001
+`define seg5 7'b0010010
+`define seg6 7'b0000010
+`define seg7 7'b1111000
+`define seg8 7'b0000000
+`define seg9 7'b0010000
+`define segO 7'b1000000
+`define segP 7'b0001100
+`define segE 7'b0000110
+`define segn 7'b0101011
+`define segC 7'b1000110
+`define segL 7'b1000111
+`define segS 7'b0010010
+`define segD 7'b1000000
+`define segr 7'b0101111
+`define OFF  7'b1111111
 
 // definition of all of the possible display combination used
 `define dis_ErrOr  {`OFF, `segE, `segr, `segr, `segO, `segr}
@@ -66,12 +66,12 @@ module lab3_top(SW,KEY,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,LEDR);
    // disassembling the displayHEX signal into individual 7-segment display
    // a not is used infront of all signals because 0 indicates on for the DE1
    // the definition used uses 1 as on
-   assign HEX0 = ~displayHEX[6:0];
-   assign HEX1 = ~displayHEX[13:7];
-   assign HEX2 = ~displayHEX[20:14];
-   assign HEX3 = ~displayHEX[27:21];
-   assign HEX4 = ~displayHEX[34:28];
-   assign HEX5 = ~displayHEX[41:35];
+   assign HEX0 = displayHEX[6:0];
+   assign HEX1 = displayHEX[13:7];
+   assign HEX2 = displayHEX[20:14];
+   assign HEX3 = displayHEX[27:21];
+   assign HEX4 = displayHEX[34:28];
+   assign HEX5 = displayHEX[41:35];
 
    // initiate a DFF
    vDFF #4 U0(nextState, currentState, clk, rst_n);

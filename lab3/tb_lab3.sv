@@ -1,24 +1,24 @@
 // definition for each letter/number on 7 segment display (1 means on, 0 is off)
-`define seg0 7'b0111111
-`define seg1 7'b0000110
-`define seg2 7'b1011011
-`define seg3 7'b1001111
-`define seg4 7'b1100110
-`define seg5 7'b1101101
-`define seg6 7'b1111101
-`define seg7 7'b0000111
-`define seg8 7'b1111111
-`define seg9 7'b1101111
-`define segO 7'b0111111
-`define segP 7'b1110011
-`define segE 7'b1111001
-`define segn 7'b1010100
-`define segC 7'b0111001
-`define segL 7'b0111000
-`define segS 7'b1101101
-`define segD 7'b0111111
-`define segr 7'b1010000
-`define OFF  7'b0000000
+`define seg0 7'b1000000
+`define seg1 7'b1111001
+`define seg2 7'b0100100
+`define seg3 7'b0110000
+`define seg4 7'b0011001
+`define seg5 7'b0010010
+`define seg6 7'b0000010
+`define seg7 7'b1111000
+`define seg8 7'b0000000
+`define seg9 7'b0010000
+`define segO 7'b1000000
+`define segP 7'b0001100
+`define segE 7'b0000110
+`define segn 7'b0101011
+`define segC 7'b1000110
+`define segL 7'b1000111
+`define segS 7'b0010010
+`define segD 7'b1000000
+`define segr 7'b0101111
+`define OFF  7'b1111111
 
 // definition of all of the possible display combination used
 `define dis_ErrOr  {`OFF, `segE, `segr, `segr, `segO, `segr}
@@ -59,8 +59,8 @@ module tb_lab3();
    reg		  unlock;
    reg [41:0]	  expectedHEX;
    reg [3:0]	  expectedState;
-   reg [9:0]	  LEDR;
    reg [0:59]	  test_inputs;
+   wire [9:0]	  LEDR;
    wire [6:0]	  HEX0;
    wire [6:0]	  HEX1;
    wire [6:0]	  HEX2;
@@ -70,7 +70,7 @@ module tb_lab3();
 
    // declare a DUT with the corresponding i/o
    // For KEY[2:1], they are always 1 as they're not used (buttons are 1 when not preseed)
-   lab3_top DUT(.SW(SW), .KEY({rst, 2'b1, ~clk}), .LEDR(LEDR), .HEX0(HEX0), .HEX1(HEX1), 
+   lab3_top DUT(.SW(SW), .KEY({~rst, 2'b1, ~clk}), .LEDR(LEDR), .HEX0(HEX0), .HEX1(HEX1), 
 		.HEX2(HEX2), .HEX3(HEX3), .HEX4(HEX4), .HEX5(HEX5));
    
    // initialize a clock, period = 4 ps
@@ -265,9 +265,9 @@ module tb_lab3();
       SW = 10'b0;
       
       // reset the lock -- synchronous reset
-      rst = 1'b1;
-      #4;
       rst = 1'b0;
+      #4;
+      rst = 1'b1;
       #2;
       if (tb_lab3.DUT.currentState != `T0) begin
 	 err = 1'b1;
@@ -278,7 +278,7 @@ module tb_lab3();
       else begin
 	 $display("PASS,  Reset success");
       end
-      rst = 1'b1;
+      rst = 1'b0;
       
       // test HEX0 for displaying digits
       repeat(10) begin
@@ -320,9 +320,9 @@ module tb_lab3();
       #2;
 
       // resetting to ensure a fresh start
-      rst = 1'b0;
-      #4;
       rst = 1'b1;
+      #4;
+      rst = 1'b0;
 
       // TEST CASE 1: 722297 (correct input)
       $display("---TEST CASE 1: 722297---");
@@ -330,9 +330,9 @@ module tb_lab3();
       checkTransition(test_inputs);
       
       // resetting to ensure a fresh start
-      rst = 1'b0;
-      #4;
       rst = 1'b1;
+      #4;
+      rst = 1'b0;
 
       // TEST CASE 2: 702297
       $display("---TEST CASE 2: 702297---");
@@ -340,9 +340,9 @@ module tb_lab3();
       checkTransition(test_inputs);
       
       // resetting to ensure a fresh start
-      rst = 1'b0;
-      #4;
       rst = 1'b1;
+      #4;
+      rst = 1'b0;
 
       // TEST CASE 3: 723297      
       $display("---TEST CASE 3: 723297---");
@@ -350,9 +350,9 @@ module tb_lab3();
       checkTransition(test_inputs);
       
       // resetting to ensure a fresh start
-      rst = 1'b0;
-      #4;
       rst = 1'b1;
+      #4;
+      rst = 1'b0;
 
       // TEST CASE 4: 722497
       $display("---TEST CASE 4: 722497---");
@@ -360,9 +360,9 @@ module tb_lab3();
       checkTransition(test_inputs);
       
       // resetting to ensure a fresh start
-      rst = 1'b0;
-      #4;
       rst = 1'b1;
+      #4;
+      rst = 1'b0;
 
       // TEST CASE 5: 722257
       $display("---TEST CASE 5: 722257---");
@@ -370,9 +370,9 @@ module tb_lab3();
       checkTransition(test_inputs);
       
       // resetting to ensure a fresh start
-      rst = 1'b0;
-      #4;
       rst = 1'b1;
+      #4;
+      rst = 1'b0;
 
       
       // TEST CASE 6: 722296
@@ -381,9 +381,9 @@ module tb_lab3();
       checkTransition(test_inputs);
       
       // resetting to ensure a fresh start
-      rst = 1'b0;
-      #4;
       rst = 1'b1;
+      #4;
+      rst = 1'b0;
 
       // TEST CASE 7: 012345
       $display("---TEST CASE 7: 012345---");
