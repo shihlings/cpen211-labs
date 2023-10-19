@@ -51,7 +51,7 @@
 `define display_open 2'b10
 
 // Sequence: 722297
-// Sequence macros:
+// Correct sequence macros:
 `define in_1 4'b0111
 `define in_2 4'b0010
 `define in_3 4'b0010
@@ -69,7 +69,7 @@ module lab3_top(SW,KEY,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,LEDR);
    wire		    rst_n = KEY[3]; // this is your reset; your reset should be synchronous and active-low
 
    reg [3:0]	    state;
-   reg [1:0]	    moore_out;
+   reg [1:0]	    moore_out; // Controls the mode for the displays as described above
 
    always_ff @(posedge clk) begin
       if (~rst_n) begin
@@ -122,14 +122,18 @@ module lab3_top(SW,KEY,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,LEDR);
 	   default: {HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} = {`OFF, `char_E, `char_r, `char_r, `char_O, `char_r};
 	 endcase
       end // if (moore_out == `display_digit)
+      
       else if (moore_out == `display_closed) begin
 	 {HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} = {`char_C, `char_L, `char_O, `char_S, `char_E, `char_D};
       end
+      
       else if (moore_out == `display_open) begin
 	 {HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} = {`OFF, `OFF, `char_O, `char_P, `char_E, `char_n};
       end
-		else
-		{HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} = {6{7'bxxxxxxx}};   
+      
+      else begin
+	{HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} = {6{7'bxxxxxxx}};
+      end
    end 
    
 endmodule

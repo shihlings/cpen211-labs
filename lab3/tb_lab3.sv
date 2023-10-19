@@ -84,8 +84,8 @@ module tb_lab3();
 		hex4, hex5, ); // Don't care about LEDR
    
 
-   // Task to check state and outputs
-   task checker;
+   // Task to verify state and all outputs at a given moment
+   task current_checker;
       input [3:0] exp_state;
       input [6:0] exp_hex5;
       input [6:0] exp_hex4;
@@ -130,8 +130,9 @@ module tb_lab3();
 	    err = 1;
 	 end
       end
-   endtask // checker
-   
+   endtask // current_checker
+
+   // Clock
    initial forever begin
       enter = 1;
       #5;
@@ -148,47 +149,48 @@ module tb_lab3();
       #10;
       reset = 1;
 
-      // Check opening sequence and real time display updates
+      // Check full opening sequence and real time display updates
       #1;
       input_num = 4'b0001;
       #1;
-      checker(`cor_1, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_1);
+      current_checker(`cor_1, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_1);
       #1;
       input_num = `in_1;
       #1;
-      checker(`cor_1, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_7);
+      current_checker(`cor_1, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_7);
       #3;
       input_num = 4'b1100;
       #3;
-      
-      checker(`cor_2, `OFF, `char_E, `char_r, `char_r, `char_O, `char_r);
+
+      // Check error on non-decimal input
+      current_checker(`cor_2, `OFF, `char_E, `char_r, `char_r, `char_O, `char_r);
       #1;
       input_num = `in_2;
       #9;
       
-      checker(`cor_3, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
+      current_checker(`cor_3, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
       #1;
       input_num = `in_3;
       #9;
       
-      checker(`cor_4, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
+      current_checker(`cor_4, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
       #1;
       input_num = `in_4;
       #9;
 
-      checker(`cor_5, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
+      current_checker(`cor_5, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
       #1;
       input_num = `in_5;
       #9;
 
-      checker(`cor_6, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_9);
+      current_checker(`cor_6, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_9);
       #1;
       input_num = `in_6;
       #9;
 
-      checker(`open, `OFF, `OFF, `char_O, `char_P, `char_E, `char_n);
+      current_checker(`open, `OFF, `OFF, `char_O, `char_P, `char_E, `char_n);
       #10;
-      checker(`open, `OFF, `OFF, `char_O, `char_P, `char_E, `char_n);
+      current_checker(`open, `OFF, `OFF, `char_O, `char_P, `char_E, `char_n);
       #1;
       input_num = 4'b0000;
       reset = 0;
@@ -196,13 +198,13 @@ module tb_lab3();
 
 
       // Check incorrect start (and everything else correct)
-      checker(`cor_1, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_0);
+      current_checker(`cor_1, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_0);
       #1;
       reset = 1;
       input_num = 4'b1010;
       #9;
 
-      checker(`inc_2, `OFF, `char_E, `char_r, `char_r, `char_O, `char_r);
+      current_checker(`inc_2, `OFF, `char_E, `char_r, `char_r, `char_O, `char_r);
       #1;
       input_num = `in_2;
       #9;
@@ -214,9 +216,9 @@ module tb_lab3();
       #10;
       input_num = `in_6;
       #10;
-      checker(`closed, `char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
+      current_checker(`closed, `char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
       #10;
-      checker(`closed, `char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
+      current_checker(`closed, `char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
       #1;
       reset = 0;
       #9;
@@ -229,7 +231,7 @@ module tb_lab3();
       #10;
       input_num = `in_3;
       #1;
-      checker(`cor_3, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
+      current_checker(`cor_3, `OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
       #9;
       input_num = 4'b0000;
       #10;
@@ -237,7 +239,7 @@ module tb_lab3();
       #10;
       input_num = `in_6;
       #10;
-      checker(`closed, `char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
+      current_checker(`closed, `char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
       
             
       #10;

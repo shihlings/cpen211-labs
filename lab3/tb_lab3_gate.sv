@@ -84,8 +84,8 @@ module tb_lab3_gate();
 		hex4, hex5, ); // Don't care about LEDR
    
 
-   // Task to check state and outputs
-   task my_checker;
+   // Task to verify all outputs at a given moment
+   task current_checker;
       input [6:0] exp_hex5;
       input [6:0] exp_hex4;
       input [6:0] exp_hex3;
@@ -124,8 +124,9 @@ module tb_lab3_gate();
 	    err = 1;
 	 end
       end
-   endtask // my_checker
-   
+   endtask // current_checker
+
+   // Clock
    initial forever begin
       enter = 1;
       #5;
@@ -142,43 +143,45 @@ module tb_lab3_gate();
       #1;
       input_num = 4'b0001;
       #1;
-      my_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_1);
+      current_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_1);
       #1;
       input_num = `in_1;
       #1;
-      my_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_7);
+      current_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_7);
       #3;
       input_num = 4'b1100;
       #3;
-      
-      my_checker(`OFF, `char_E, `char_r, `char_r, `char_O, `char_r);
+
+      // Check error on non-decimal input
+      current_checker(`OFF, `char_E, `char_r, `char_r, `char_O, `char_r);
       #1;
       input_num = `in_2;
       #9;
       
-      my_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
+      current_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
       #1;
       input_num = `in_3;
       #9;
       
-      my_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
+      current_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
       #1;
       input_num = `in_4;
       #9;
 
-      my_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
+      current_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
       #1;
       input_num = `in_5;
       #9;
 
-      my_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_9);
+      current_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_9);
       #1;
       input_num = `in_6;
       #9;
 
-      my_checker(`OFF, `OFF, `char_O, `char_P, `char_E, `char_n);
+      // Check if open state is held
+      current_checker(`OFF, `OFF, `char_O, `char_P, `char_E, `char_n);
       #10;
-      my_checker(`OFF, `OFF, `char_O, `char_P, `char_E, `char_n);
+      current_checker(`OFF, `OFF, `char_O, `char_P, `char_E, `char_n);
       #1;
       input_num = 4'b0000;
       reset = 0;
@@ -186,13 +189,13 @@ module tb_lab3_gate();
 
 
       // Check incorrect start (and everything else correct)
-      my_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_0);
+      current_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_0);
       #1;
       reset = 1;
       input_num = 4'b1010;
       #9;
 
-      my_checker(`OFF, `char_E, `char_r, `char_r, `char_O, `char_r);
+      current_checker(`OFF, `char_E, `char_r, `char_r, `char_O, `char_r);
       #1;
       input_num = `in_2;
       #9;
@@ -204,9 +207,11 @@ module tb_lab3_gate();
       #10;
       input_num = `in_6;
       #10;
-      my_checker(`char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
+
+      // Check if closed state is held
+      current_checker(`char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
       #10;
-      my_checker(`char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
+      current_checker(`char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
       #1;
       reset = 0;
       #9;
@@ -219,7 +224,7 @@ module tb_lab3_gate();
       #10;
       input_num = `in_3;
       #1;
-      my_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
+      current_checker(`OFF, `OFF, `OFF, `OFF, `OFF, `dig_2);
       #9;
       input_num = 4'b0000;
       #10;
@@ -227,7 +232,7 @@ module tb_lab3_gate();
       #10;
       input_num = `in_6;
       #10;
-      my_checker(`char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
+      current_checker(`char_C, `char_L, `char_O, `char_S, `char_E, `char_D);
       
             
       #10;
