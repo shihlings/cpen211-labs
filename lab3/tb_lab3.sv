@@ -1,3 +1,4 @@
+// definition for each letter/number on 7 segment display (1 means on, 0 is off)
 `define seg0 7'b0111111
 `define seg1 7'b0000110
 `define seg2 7'b1011011
@@ -19,6 +20,7 @@
 `define segr 7'b1010000
 `define OFF  7'b0000000
 
+// definition of all of the possible display combination used
 `define dis_ErrOr  {`OFF, `segE, `segr, `segr, `segO, `segr}
 `define dis_OPEn   {`OFF, `OFF, `segO, `segP, `segE, `segn}
 `define dis_CLOSED {`segC, `segL, `segO, `segS, `segE, `segD}
@@ -33,6 +35,7 @@
 `define dis_8 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg8}
 `define dis_9 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg9}
 
+// definition of states (T means still on correct path, F means 1 or more entry is wrong already)
 `define T0   4'b0000
 `define T1   4'b0001
 `define T2   4'b0010
