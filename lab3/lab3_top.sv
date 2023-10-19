@@ -13,7 +13,7 @@
 `define char_O 7'b1000000
 `define char_C 7'b1000110
 `define char_E 7'b0000110
-`define char_r 7'b0101011
+`define char_r 7'b0101111
 `define char_P 7'b0001100
 `define char_n 7'b0101011
 `define char_L 7'b1000111
