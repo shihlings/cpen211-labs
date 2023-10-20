@@ -1,0 +1,55 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/18.1
+vlab3_top
+Z0 !s110 1697776024
+!i10b 1
+!s100 7IC7WbEbKTGG2>M?ZkTa<3
+IXjBLR=0@>C0AN_SQ74bT@0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/sllsh/Desktop/gate
+w1697821790
+8C:/Users/sllsh/Desktop/gate/lab3_top.vo
+FC:/Users/sllsh/Desktop/gate/lab3_top.vo
+L0 31
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1697776024.000000
+!s107 C:/Users/sllsh/Desktop/gate/lab3_top.vo|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/sllsh/Desktop/gate/lab3_top.vo|
+!i113 1
+o-work work
+Z5 tCvgOpt 0
+vtb_lab3_gate
+DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+R0
+!i10b 1
+!s100 V68HRjh;=L;bljz[b;I8[0
+Im<Vhe7iScBRblKH5dZ`D<2
+R1
+!s105 tb_lab3_gate_sv_unit
+S1
+R2
+w1697774594
+8C:/Users/sllsh/Desktop/gate/tb_lab3_gate.sv
+FC:/Users/sllsh/Desktop/gate/tb_lab3_gate.sv
+L0 65
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/sllsh/Desktop/gate/tb_lab3_gate.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/sllsh/Desktop/gate/tb_lab3_gate.sv|
+!i113 1
+o-work work -sv
+R5
