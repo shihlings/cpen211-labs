@@ -142,9 +142,3 @@ db/
 _output_files/
 PLLJ_PLLSPE_INFO.txt
 
-# IGNORING PROJECT FILES #
-c5_pin_model_dump.txt
-*.mpf
-*.qpf
-*/output_files/
-*/work/
