@@ -10,15 +10,15 @@ cModel Technology
 dC:/intelFPGA/18.1
 vlab3_top
 Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-!s110 1697774053
+Z1 !s110 1697775738
 !i10b 1
 !s100 F:Eij4[FC[N;J52B@C1f]0
 IGckMP`F`o[@lm_NoQCAAa2
-Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
 !s105 lab3_top_sv_unit
 S1
-Z2 dC:/Users/sllsh/Desktop/rtl
-Z3 w1697774594
+Z3 dC:/Users/sllsh/Desktop/rtl
+w1697821299
 8C:/Users/sllsh/Desktop/rtl/lab3_top.sv
 FC:/Users/sllsh/Desktop/rtl/lab3_top.sv
 Z4 L0 77
@@ -26,23 +26,23 @@ Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z6 !s108 1697774053.000000
+!s108 1697775738.000000
 !s107 C:/Users/sllsh/Desktop/rtl/lab3_top.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/sllsh/Desktop/rtl/lab3_top.sv|
 !i113 1
-Z7 o-work work -sv
-Z8 tCvgOpt 0
+Z6 o-work work -sv
+Z7 tCvgOpt 0
 vtb_lab3
 R0
-!s110 1697774054
-!i10b 1
-!s100 n;^?z@A=UdY^?E7MiH>ji2
-INDTdTm3@XacOcoj2h<:Q52
 R1
+!i10b 1
+!s100 CMj6U]PBR]@Ig:1[bch^b1
+I2?S5Gb0`@T`V>1iFe?Fd52
+R2
 !s105 tb_lab3_sv_unit
 S1
-R2
 R3
+w1697821748
 8C:/Users/sllsh/Desktop/rtl/tb_lab3.sv
 FC:/Users/sllsh/Desktop/rtl/tb_lab3.sv
 R4
@@ -50,9 +50,9 @@ R5
 r1
 !s85 0
 31
-R6
+!s108 1697775737.000000
 !s107 C:/Users/sllsh/Desktop/rtl/tb_lab3.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/sllsh/Desktop/rtl/tb_lab3.sv|
 !i113 1
+R6
 R7
-R8

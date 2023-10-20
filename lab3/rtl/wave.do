@@ -25,11 +25,11 @@ add wave -noupdate /tb_lab3/DUT/HEX3
 add wave -noupdate /tb_lab3/DUT/HEX4
 add wave -noupdate /tb_lab3/DUT/HEX5
 add wave -noupdate /tb_lab3/DUT/LEDR
-add wave -noupdate /tb_lab3/DUT/clk
-add wave -noupdate /tb_lab3/DUT/rst_n
+add wave -noupdate -radix binary /tb_lab3/DUT/clk
+add wave -noupdate -radix binary /tb_lab3/DUT/rst_n
 add wave -noupdate -radix MyStates /tb_lab3/DUT/state
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {101 ps} 0}
+WaveRestoreCursors {{Cursor 1} {218 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
@@ -45,4 +45,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {212 ps} {307 ps}
+WaveRestoreZoom {0 ps} {235 ps}

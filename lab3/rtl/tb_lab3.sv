@@ -280,10 +280,6 @@ module tb_lab3();
    
    //start running testbench tasks
    initial begin
-      //iverilog and GTKWave use only
-      $dumpfile("waveform.vcd");
-      $dumpvars(0, tb_lab3);
-      
       // reset error indicator
       err = 1'b0;
       SW = 10'b0;
