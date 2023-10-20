@@ -418,6 +418,6 @@ module tb_lab3();
 	$display("TEST PASSED");
       else
 	$display("TEST FAILED: ERROR(S) FOUND");
-      $finish;
+      $stop;
    end
 endmodule: tb_lab3
