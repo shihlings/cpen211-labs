@@ -1,56 +1,66 @@
 `timescale 1 ps/ 1 ps
 
-// definition for each letter/number on 7 segment display (1 means on, 0 is off)
-`define seg0 7'b1000000
-`define seg1 7'b1111001
-`define seg2 7'b0100100
-`define seg3 7'b0110000
-`define seg4 7'b0011001
-`define seg5 7'b0010010
-`define seg6 7'b0000010
-`define seg7 7'b1111000
-`define seg8 7'b0000000
-`define seg9 7'b0010000
-`define segO 7'b1000000
-`define segP 7'b0001100
-`define segE 7'b0000110
-`define segn 7'b0101011
-`define segC 7'b1000110
-`define segL 7'b1000111
-`define segS 7'b0010010
-`define segD 7'b1000000
-`define segr 7'b0101111
-`define OFF  7'b1111111
+// 7-segment digits and characters
+`define dig_0 7'b1000000
+`define dig_1 7'b1111001
+`define dig_2 7'b0100100
+`define dig_3 7'b0110000
+`define dig_4 7'b0011001
+`define dig_5 7'b0010010
+`define dig_6 7'b0000010
+`define dig_7 7'b1111000
+`define dig_8 7'b0000000
+`define dig_9 7'b0010000
+
+`define char_O 7'b1000000
+`define char_C 7'b1000110
+`define char_E 7'b0000110
+`define char_r 7'b0101111
+`define char_P 7'b0001100
+`define char_n 7'b0101011
+`define char_L 7'b1000111
+`define char_S 7'b0010010
+`define char_D 7'b1000000
+`define OFF    7'b1111111
 
 // definition of all of the possible display combination used
-`define dis_ErrOr  {`OFF, `segE, `segr, `segr, `segO, `segr}
-`define dis_OPEn   {`OFF, `OFF, `segO, `segP, `segE, `segn}
-`define dis_CLOSED {`segC, `segL, `segO, `segS, `segE, `segD}
-`define dis_0 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg0}
-`define dis_1 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg1}
-`define dis_2 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg2}
-`define dis_3 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg3}
-`define dis_4 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg4}
-`define dis_5 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg5}
-`define dis_6 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg6}
-`define dis_7 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg7}
-`define dis_8 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg8}
-`define dis_9 {`OFF, `OFF, `OFF, `OFF, `OFF, `seg9}
+`define dis_ErrOr  {`OFF, `char_E, `char_r, `char_r, `char_O, `char_r}
+`define dis_OPEn   {`OFF, `OFF, `char_O, `char_P, `char_E, `char_n}
+`define dis_CLOSED {`char_C, `char_L, `char_O, `char_S, `char_E, `char_D}
+`define dis_0 {`OFF, `OFF, `OFF, `OFF, `OFF, `dig_0}
+`define dis_1 {`OFF, `OFF, `OFF, `OFF, `OFF, `dig_1}
+`define dis_2 {`OFF, `OFF, `OFF, `OFF, `OFF, `dig_2}
+`define dis_3 {`OFF, `OFF, `OFF, `OFF, `OFF, `dig_3}
+`define dis_4 {`OFF, `OFF, `OFF, `OFF, `OFF, `dig_4}
+`define dis_5 {`OFF, `OFF, `OFF, `OFF, `OFF, `dig_5}
+`define dis_6 {`OFF, `OFF, `OFF, `OFF, `OFF, `dig_6}
+`define dis_7 {`OFF, `OFF, `OFF, `OFF, `OFF, `dig_7}
+`define dis_8 {`OFF, `OFF, `OFF, `OFF, `OFF, `dig_8}
+`define dis_9 {`OFF, `OFF, `OFF, `OFF, `OFF, `dig_9}
 
-// definition of states (T means still on correct path, F means 1 or more entry is wrong already)
-`define T0   4'b0000
-`define T1   4'b0001
-`define T2   4'b0010
-`define T3   4'b0011
-`define T4   4'b0100
-`define T5   4'b0101
-`define T6   4'b0110
-`define F1   4'b1001
-`define F2   4'b1010
-`define F3   4'b1011
-`define F4   4'b1100
-`define F5   4'b1101
-`define F6   4'b1110
+// State encoding:
+// 0xxx -> All inputs so far correct
+// 1xxx -> At least one incorrect input
+// 0000 -> First input
+// x001 -> Second input
+// x011 -> Third input
+// x010 -> Fourth input
+// x110 -> Fifth input
+// x111 -> Sixth input
+// x101 -> Open/Closed
+`define cor_1  4'b0000
+`define cor_2  4'b0001
+`define inc_2  4'b1001
+`define cor_3  4'b0011
+`define inc_3  4'b1011
+`define cor_4  4'b0010
+`define inc_4  4'b1010
+`define cor_5  4'b0110
+`define inc_5  4'b1110
+`define cor_6  4'b0111
+`define inc_6  4'b1111
+`define open   4'b0101
+`define closed 4'b1101
 
 module tb_lab3_gate();
    // declare all input/outputs for lab3_top
@@ -140,10 +150,10 @@ module tb_lab3_gate();
 	 #2;
 	 // check against correct answer: 722297
 	 if (SW == 10'd7) begin
-	    expectedState = `T1;
+	    expectedState = `cor_2;
 	 end
 	 else begin
-	    expectedState = `F1;
+	    expectedState = `inc_2;
 	 end
 	 #2;
 
@@ -151,11 +161,11 @@ module tb_lab3_gate();
 	 SW = num_in[10:19];
 	 #2;
 	 // check against correct answer: 722297
-	 if (SW == 10'd2 && expectedState == `T1) begin
-	    expectedState = `T2;
+	 if (SW == 10'd2 && expectedState == `cor_2) begin
+	    expectedState = `cor_3;
 	 end
 	 else begin
-	    expectedState = `F2;
+	    expectedState = `inc_3;
 	 end
 	 #2;
 
@@ -163,11 +173,11 @@ module tb_lab3_gate();
 	 SW = num_in[20:29];
 	 #2;
 	 // check against correct answer: 722297
-	 if (SW == 10'd2 && expectedState == `T2) begin
-	    expectedState = `T3;
+	 if (SW == 10'd2 && expectedState == `cor_3) begin
+	    expectedState = `cor_4;
 	 end
 	 else begin
-	    expectedState = `F3;
+	    expectedState = `inc_4;
 	 end
 	 #2;
 
@@ -175,11 +185,11 @@ module tb_lab3_gate();
 	 SW = num_in[30:39];
 	 #2;
 	 // check against correct answer: 722297
-	 if (SW == 10'd2 && expectedState == `T3) begin
-	    expectedState = `T4;
+	 if (SW == 10'd2 && expectedState == `cor_4) begin
+	    expectedState = `cor_5;
 	 end
 	 else begin
-	    expectedState = `F4;
+	    expectedState = `inc_5;
 	 end
 	 #2;
 	 
@@ -187,11 +197,11 @@ module tb_lab3_gate();
 	 SW = num_in[40:49];
 	 #2;
 	 // check against correct answer: 722297
-	 if (SW == 10'd9 && expectedState == `T4) begin
-	    expectedState = `T5;
+	 if (SW == 10'd9 && expectedState == `cor_5) begin
+	    expectedState = `cor_6;
 	 end
 	 else begin
-	    expectedState = `F5;
+	    expectedState = `inc_6;
 	 end
 	 #2;
 
@@ -199,16 +209,16 @@ module tb_lab3_gate();
 	 SW = num_in[50:59];
 	 #2;
 	 // check against correct answer: 722297
-	 if (SW == 10'd7 && expectedState == `T5) begin
-	    expectedState = `T6;
+	 if (SW == 10'd7 && expectedState == `cor_6) begin
+	    expectedState = `open;
 	 end
 	 else begin
-	    expectedState = `F6;
+	    expectedState = `closed;
 	 end
 	 #2;
 
 	 // check if this conbination should unlock
-	 if (expectedState == `T6) begin
+	 if (expectedState == `open) begin
 	    unlock = 1'b1;
 	 end
 	 else begin
@@ -230,10 +240,6 @@ module tb_lab3_gate();
    endtask // checkTransition
 
    initial begin
-      //iverilog and GTKWave use only
-      $dumpfile("waveform.vcd");
-      $dumpvars(0, tb_lab3_gate);
-
       // reset error indicator
       err = 1'b0;
       SW = 10'b0;
