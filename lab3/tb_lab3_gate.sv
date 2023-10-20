@@ -248,8 +248,10 @@ module tb_lab3_gate();
       rst = 1'b0;
       #4;
       rst = 1'b1;
-      #2;
-      rst = 1'b0;
+      #1;
+      clk = 1'b1;
+      #1;
+      clk = 1'b0;
       
       // test HEX0 for displaying digits
       repeat(10) begin
