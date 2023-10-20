@@ -292,7 +292,11 @@ module tb_lab3();
       rst = 1'b0;
       #4;
       rst = 1'b1;
-      #2;
+      #1;
+      clk = 1'b1;
+      #1;
+      clk = 1'b0;
+      
       if (tb_lab3.DUT.state != `cor_1) begin
 	 err = 1'b1;
 	 $display("ERROR! Reset did not return to state cor_1");
