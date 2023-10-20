@@ -118,7 +118,7 @@ module lab3_top(SW,KEY,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,LEDR);
 	   `inc_6: state = `closed;
 	   `closed: state = `closed;
 
-	   default: state = 4'bxxx;
+	   default: state = 4'bxxxx;
 	 endcase // case (state)
 	 
       end // else: !if(reset)
