@@ -441,7 +441,8 @@ Contd:
 	//NumIters++
 	ADD r7, r7, #1
  438:	e2877001 	add	r7, r7, #1
-	
+
+	//while loop condition check
 	CMP r6, #-1
  43c:	e3760001 	cmn	r6, #1
 	BNE Exit
@@ -451,7 +452,9 @@ Contd:
 
 00000448 <Exit>:
 Exit:
+	//store final value in r0
 	mov r0, r6
  448:	e1a00006 	mov	r0, r6
+	//return to original caller
 	mov pc, lr
  44c:	e1a0f00e 	mov	pc, lr

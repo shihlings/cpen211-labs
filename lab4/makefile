@@ -32,7 +32,7 @@ SRCS		:= main.s lab4.s
 OBJS		:= $(patsubst %, %.o, $(SRCS))
 
 # Targets
-COMPILE: main.srec
+compile: main.srec
 
 main.srec: main.axf
 	$(RM) $@
@@ -50,6 +50,6 @@ main.axf: $(OBJS)
 	$(RM) $@
 	$(AS) $(ASFLAGS) $< -o $@
 
-CLEAN: 
+clean: 
 	$(RM) main.srec main.axf $(OBJS)
 
