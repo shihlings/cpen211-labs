@@ -8,7 +8,7 @@ module regfile_tb ();
    regfile DUT (data_in, writenum, write, readnum, clk, data_out);
 
    initial begin
-      forever begin
+      repeat(120) begin
 	 clk = 1'b0;
 	 #1;
 	 clk = 1'b1;
@@ -29,7 +29,8 @@ module regfile_tb ();
 	 repeat(8) begin
 	    #2;
 	    
-	    writenum += 3'b001;
+		data_in = data_in + 16'b1;
+	    writenum += 3'b001; // Increment to write a different value to each register
 	 end
 
 	 if(regfile_tb.DUT.R0 != value) begin
@@ -37,39 +38,39 @@ module regfile_tb ();
 	    $display("ERROR-R0 WRITE,     value incorrect, expected %b, actual %b", value, regfile_tb.DUT.R0);
 	 end
 	 
-	 if(regfile_tb.DUT.R1 != value) begin
+	 if(regfile_tb.DUT.R1 != value + 16'd1) begin
 	    err = 1'b1;
-	    $display("ERROR-R1 WRITE,     value incorrect, expected %b, actual %b", value, regfile_tb.DUT.R1);
+	    $display("ERROR-R1 WRITE,     value incorrect, expected %b, actual %b", value + 1, regfile_tb.DUT.R1);
 	 end
 	 	
-	 if(regfile_tb.DUT.R2 != value) begin
+	 if(regfile_tb.DUT.R2 != value + 16'd2) begin
 	    err = 1'b1;
-	    $display("ERROR-R2 WRITE,     value incorrect, expected %b, actual %b", value, regfile_tb.DUT.R2);
+	    $display("ERROR-R2 WRITE,     value incorrect, expected %b, actual %b", value + 2, regfile_tb.DUT.R2);
 	 end
 	 
-	 if(regfile_tb.DUT.R3 != value) begin
+	 if(regfile_tb.DUT.R3 != value + 16'd3) begin
 	    err = 1'b1;
-	    $display("ERROR-R3 WRITE,     value incorrect, expected %b, actual %b", value, regfile_tb.DUT.R3);
+	    $display("ERROR-R3 WRITE,     value incorrect, expected %b, actual %b", value + 3, regfile_tb.DUT.R3);
 	 end
 	 
-	 if(regfile_tb.DUT.R4 != value) begin
+	 if(regfile_tb.DUT.R4 != value + 16'd4) begin
 	    err = 1'b1;
-	    $display("ERROR-R4 WRITE,     value incorrect, expected %b, actual %b", value, regfile_tb.DUT.R4);
+	    $display("ERROR-R4 WRITE,     value incorrect, expected %b, actual %b", value + 4, regfile_tb.DUT.R4);
 	 end
 	 
-	 if(regfile_tb.DUT.R5 != value) begin
+	 if(regfile_tb.DUT.R5 != value + 16'd5) begin
 	    err = 1'b1;
-	    $display("ERROR-R5 WRITE,     value incorrect, expected %b, actual %b", value, regfile_tb.DUT.R5);
+	    $display("ERROR-R5 WRITE,     value incorrect, expected %b, actual %b", value + 5, regfile_tb.DUT.R5);
 	 end
 	 
-	 if(regfile_tb.DUT.R6 != value) begin
+	 if(regfile_tb.DUT.R6 != value + 16'd6) begin
 	    err = 1'b1;
-	    $display("ERROR-R6 WRITE,     value incorrect, expected %b, actual %b", value, regfile_tb.DUT.R6);
+	    $display("ERROR-R6 WRITE,     value incorrect, expected %b, actual %b", value + 6, regfile_tb.DUT.R6);
 	 end
 
-	 if(regfile_tb.DUT.R7 != value) begin
+	 if(regfile_tb.DUT.R7 != value + 16'd7) begin
 	    err = 1'b1;
-	    $display("ERROR-R7 WRITE,     value incorrect, expected %b, actual %b", value, regfile_tb.DUT.R7);
+	    $display("ERROR-R7 WRITE,     value incorrect, expected %b, actual %b", value + 7, regfile_tb.DUT.R7);
 	 end
 	    
 	 // reset the variables back to their original state
@@ -94,6 +95,7 @@ module regfile_tb ();
 	       $display("ERROR-REG READ,     value incorrect, expected %b, actual $b", value, data_out);
 	    end
 
+		value = value + 1;
 	    readnum += 3'b001;
 	 end
       end
@@ -101,8 +103,8 @@ module regfile_tb ();
      
    initial begin
       // iverilog & GTKWave use only
-      $dumpfile("waveform.vcd");
-      $dumpvars(0, regfile_tb);
+      //$dumpfile("waveform.vcd");
+      //$dumpvars(0, regfile_tb);
 
       // initialize variables
       err = 1'b0;
@@ -111,12 +113,12 @@ module regfile_tb ();
       writenum = 3'b0;
       data_in = 16'b0;
 
-      // test for wiping all registers
+      // test for writing each register starting from 0
       test_value = 16'b0;
       write_registers(test_value);
       check_registers(test_value);
 
-      // check for some different values
+      // check for some different start values
       test_value = 16'b1111_1111_1111_1111;
       write_registers(test_value);
       check_registers(test_value);
@@ -133,6 +135,6 @@ module regfile_tb ();
       else
 	$display("regfile_tb - TEST PASSED!");
 
-      $stop;
+      //$stop;
    end // initial begin
 endmodule
