@@ -10,8 +10,8 @@ module shifter_tb ();
    
    initial begin 
       // iverilog use only
-      $dumpfile("waveform.vcd");
-      $dumpvars(0, shifter_tb);
+      //$dumpfile("waveform.vcd");
+      //$dumpvars(0, shifter_tb);
       
       err = 1'b0;
 

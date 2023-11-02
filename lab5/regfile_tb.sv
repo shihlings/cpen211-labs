@@ -97,8 +97,8 @@ module regfile_tb ();
    
    initial begin
       // iverilog & GTKWave use only
-      $dumpfile("waveform.vcd");
-      $dumpvars(0, regfile_tb);
+      //$dumpfile("waveform.vcd");
+      //$dumpvars(0, regfile_tb);
 
       // initialize variables
       err = 1'b0;
