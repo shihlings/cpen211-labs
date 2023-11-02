@@ -7,16 +7,6 @@ module regfile_tb ();
 
    regfile DUT (data_in, writenum, write, readnum, clk, data_out);
 
-   initial begin
-      repeat(120) begin
-	 clk = 1'b0;
-	 #1;
-	 clk = 1'b1;
-	 #1;
-	 clk = 1'b0;
-      end
-   end
-
    task write_registers;
       input [15:0] value;
       begin
@@ -27,9 +17,13 @@ module regfile_tb ();
 
 	 // iterate through all registers
 	 repeat(8) begin
-	    #2;
+	    // Toggle clock to write to register
+	    clk = 1;
+	    #1;
+	    clk = 0;
+	    #1;
 	    
-		data_in = data_in + 16'b1;
+	    data_in = data_in + 16'b1;
 	    writenum += 3'b001; // Increment to write a different value to each register
 	 end
 
@@ -42,7 +36,7 @@ module regfile_tb ();
 	    err = 1'b1;
 	    $display("ERROR-R1 WRITE,     value incorrect, expected %b, actual %b", value + 1, regfile_tb.DUT.R1);
 	 end
-	 	
+	 
 	 if(regfile_tb.DUT.R2 != value + 16'd2) begin
 	    err = 1'b1;
 	    $display("ERROR-R2 WRITE,     value incorrect, expected %b, actual %b", value + 2, regfile_tb.DUT.R2);
@@ -72,7 +66,7 @@ module regfile_tb ();
 	    err = 1'b1;
 	    $display("ERROR-R7 WRITE,     value incorrect, expected %b, actual %b", value + 7, regfile_tb.DUT.R7);
 	 end
-	    
+	 
 	 // reset the variables back to their original state
 	 write = 1'b0;
 	 writenum = 3'b0;
@@ -88,23 +82,23 @@ module regfile_tb ();
 	 // iterate through every register
 	 repeat(8) begin
 	    #1;
-	    	    
+	    
 	    // check if the value in the register is on data_out
 	    if(data_out != value) begin
 	       err = 1'b1;
 	       $display("ERROR-REG READ,     value incorrect, expected %b, actual $b", value, data_out);
 	    end
 
-		value = value + 1;
+	    value = value + 1;
 	    readnum += 3'b001;
 	 end
       end
    endtask // check_registers
-     
+   
    initial begin
       // iverilog & GTKWave use only
-      //$dumpfile("waveform.vcd");
-      //$dumpvars(0, regfile_tb);
+      $dumpfile("waveform.vcd");
+      $dumpvars(0, regfile_tb);
 
       // initialize variables
       err = 1'b0;
