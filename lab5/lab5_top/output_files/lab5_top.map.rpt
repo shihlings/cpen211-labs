@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab5_top
-Wed Nov  1 10:54:05 2023
+Thu Nov  2 17:00:17 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -56,7 +56,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Nov  1 10:54:05 2023       ;
+; Analysis & Synthesis Status     ; Successful - Thu Nov  2 17:00:17 2023       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; lab5_top                                    ;
 ; Top-level Entity Name           ; lab5_top                                    ;
@@ -208,13 +208,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------------------------------+
 ; Resource                                    ; Usage                         ;
 +---------------------------------------------+-------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 69                            ;
+; Estimate of Logic utilization (ALMs needed) ; 83                            ;
 ;                                             ;                               ;
-; Combinational ALUT usage for logic          ; 105                           ;
+; Combinational ALUT usage for logic          ; 133                           ;
 ;     -- 7 input functions                    ; 0                             ;
 ;     -- 6 input functions                    ; 25                            ;
 ;     -- 5 input functions                    ; 5                             ;
-;     -- 4 input functions                    ; 21                            ;
+;     -- 4 input functions                    ; 49                            ;
 ;     -- <=3 input functions                  ; 54                            ;
 ;                                             ;                               ;
 ; Dedicated logic registers                   ; 66                            ;
@@ -227,8 +227,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                               ;
 ; Maximum fan-out node                        ; input_iface:IN|vDFF:CTRL|Q[5] ;
 ; Maximum fan-out                             ; 69                            ;
-; Total fan-out                               ; 903                           ;
-; Average fan-out                             ; 2.81                          ;
+; Total fan-out                               ; 1043                          ;
+; Average fan-out                             ; 2.99                          ;
 +---------------------------------------------+-------------------------------+
 
 
@@ -237,7 +237,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                      ; Entity Name     ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------+-----------------+--------------+
-; |lab5_top                                    ; 105 (1)             ; 66 (0)                    ; 128               ; 0          ; 67   ; 0            ; |lab5_top                                                                                ; lab5_top        ; work         ;
+; |lab5_top                                    ; 133 (1)             ; 66 (0)                    ; 128               ; 0          ; 67   ; 0            ; |lab5_top                                                                                ; lab5_top        ; work         ;
 ;    |datapath:DP|                             ; 95 (33)             ; 49 (0)                    ; 128               ; 0          ; 0    ; 0            ; |lab5_top|datapath:DP                                                                    ; datapath        ; work         ;
 ;       |ALU:alu|                              ; 45 (45)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab5_top|datapath:DP|ALU:alu                                                            ; ALU             ; work         ;
 ;       |regfile:REGFILE|                      ; 0 (0)               ; 0 (0)                     ; 128               ; 0          ; 0    ; 0            ; |lab5_top|datapath:DP|regfile:REGFILE                                                    ; regfile         ; work         ;
@@ -251,6 +251,10 @@ https://fpgasoftware.intel.com/eula.
 ;    |input_iface:IN|                          ; 9 (9)               ; 17 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |lab5_top|input_iface:IN                                                                 ; input_iface     ; work         ;
 ;       |vDFF:CTRL|                            ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |lab5_top|input_iface:IN|vDFF:CTRL                                                       ; vDFF            ; work         ;
 ;       |vDFF:DATA|                            ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |lab5_top|input_iface:IN|vDFF:DATA                                                       ; vDFF            ; work         ;
+;    |sseg:H0|                                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab5_top|sseg:H0                                                                        ; sseg            ; work         ;
+;    |sseg:H1|                                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab5_top|sseg:H1                                                                        ; sseg            ; work         ;
+;    |sseg:H2|                                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab5_top|sseg:H2                                                                        ; sseg            ; work         ;
+;    |sseg:H3|                                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab5_top|sseg:H3                                                                        ; sseg            ; work         ;
 +----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -475,24 +479,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA               ; 49                          ;
 ;     ENA SLD           ; 16                          ;
 ;     plain             ; 1                           ;
-; arriav_lcell_comb     ; 107                         ;
+; arriav_lcell_comb     ; 138                         ;
 ;     arith             ; 17                          ;
 ;         1 data inputs ; 1                           ;
 ;         4 data inputs ; 14                          ;
 ;         5 data inputs ; 2                           ;
-;     normal            ; 90                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 1                           ;
+;     normal            ; 121                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 5                           ;
 ;         2 data inputs ; 12                          ;
 ;         3 data inputs ; 40                          ;
-;         4 data inputs ; 7                           ;
+;         4 data inputs ; 35                          ;
 ;         5 data inputs ; 3                           ;
 ;         6 data inputs ; 25                          ;
 ; boundary_port         ; 67                          ;
 ; stratixv_ram_block    ; 16                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.30                        ;
-; Average LUT depth     ; 3.77                        ;
+; Average LUT depth     ; 3.52                        ;
 +-----------------------+-----------------------------+
 
 
@@ -501,7 +505,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -511,15 +515,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Nov  1 10:53:54 2023
+    Info: Processing started: Thu Nov  2 17:00:12 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab5_top -c lab5_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
 Info (12021): Found 4 design units, including 4 entities, in source file /home/shihling/git/cpen211-labs/lab5/lab5_top.sv
-    Info (12023): Found entity 1: lab5_top File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 57
-    Info (12023): Found entity 2: input_iface File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 109
-    Info (12023): Found entity 3: vDFF File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 148
-    Info (12023): Found entity 4: sseg File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 167
+    Info (12023): Found entity 1: lab5_top File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 75
+    Info (12023): Found entity 2: input_iface File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 127
+    Info (12023): Found entity 3: vDFF File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 166
+    Info (12023): Found entity 4: sseg File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 185
 Info (12021): Found 1 design units, including 1 entities, in source file /home/shihling/git/cpen211-labs/lab5/regfile.sv
     Info (12023): Found entity 1: regfile File: /home/shihling/git/cpen211-labs/lab5/regfile.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /home/shihling/git/cpen211-labs/lab5/shifter.sv
@@ -530,16 +534,16 @@ Info (12021): Found 2 design units, including 2 entities, in source file /home/s
 Info (12021): Found 1 design units, including 1 entities, in source file /home/shihling/git/cpen211-labs/lab5/alu.sv
     Info (12023): Found entity 1: ALU File: /home/shihling/git/cpen211-labs/lab5/alu.sv Line: 1
 Info (12127): Elaborating entity "lab5_top" for the top level hierarchy
-Info (12128): Elaborating entity "input_iface" for hierarchy "input_iface:IN" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 71
-Info (12128): Elaborating entity "vDFF" for hierarchy "input_iface:IN|vDFF:DATA" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 123
-Info (12128): Elaborating entity "vDFF" for hierarchy "input_iface:IN|vDFF:CTRL" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 129
-Info (12128): Elaborating entity "datapath" for hierarchy "datapath:DP" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 97
+Info (12128): Elaborating entity "input_iface" for hierarchy "input_iface:IN" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 89
+Info (12128): Elaborating entity "vDFF" for hierarchy "input_iface:IN|vDFF:DATA" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 141
+Info (12128): Elaborating entity "vDFF" for hierarchy "input_iface:IN|vDFF:CTRL" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 147
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:DP" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 115
 Info (12128): Elaborating entity "regfile" for hierarchy "datapath:DP|regfile:REGFILE" File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 26
 Info (12128): Elaborating entity "ALU" for hierarchy "datapath:DP|ALU:alu" File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 27
 Info (12128): Elaborating entity "shifter" for hierarchy "datapath:DP|shifter:SHIFTER" File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 28
 Info (12128): Elaborating entity "vDFFE" for hierarchy "datapath:DP|vDFFE:ADFF" File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 31
 Info (12128): Elaborating entity "vDFFE" for hierarchy "datapath:DP|vDFFE:statusDFF" File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 37
-Info (12128): Elaborating entity "sseg" for hierarchy "sseg:H0" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 100
+Info (12128): Elaborating entity "sseg" for hierarchy "sseg:H0" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 118
 Warning (276027): Inferred dual-clock RAM node "datapath:DP|regfile:REGFILE|R0_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "datapath:DP|regfile:REGFILE|R0_rtl_0" 
@@ -576,48 +580,20 @@ Info (12133): Instantiated megafunction "datapath:DP|regfile:REGFILE|altsyncram:
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_hik1.tdf
     Info (12023): Found entity 1: altsyncram_hik1 File: /home/shihling/git/cpen211-labs/lab5/lab5_top/db/altsyncram_hik1.tdf Line: 28
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX0[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX0[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX0[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX1[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
-    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 62
+    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
@@ -1194,18 +1170,18 @@ Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 58
-    Warning (15610): No output dependent on input pin "KEY[2]" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 58
-    Warning (15610): No output dependent on input pin "KEY[3]" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 58
-Info (21057): Implemented 253 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 76
+    Warning (15610): No output dependent on input pin "KEY[2]" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 76
+    Warning (15610): No output dependent on input pin "KEY[3]" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 76
+Info (21057): Implemented 281 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 170 logic cells
+    Info (21061): Implemented 198 logic cells
     Info (21064): Implemented 16 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 621 warnings
-    Info: Peak virtual memory: 553 megabytes
-    Info: Processing ended: Wed Nov  1 10:54:05 2023
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:40
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 593 warnings
+    Info: Peak virtual memory: 560 megabytes
+    Info: Processing ended: Thu Nov  2 17:00:17 2023
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:13
 
 
