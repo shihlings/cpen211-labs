@@ -54,6 +54,22 @@ module ALU_tb ();
             $display("ERROR Z - Expected %d, actual %d", 1'b0, Z);
         end
 
+        // Addition - result non-zero, with carry
+        Ain = 16'b1111;
+        Bin = 16'b0001;
+        ALUop = 2'b00;
+        
+        #1;
+        
+        if (out != 16'b10000) begin
+            err = 1'b1;
+            $display("ERROR OUT - Expected %d, actual %d", 16'b1011, out);
+        end
+        if (Z != 1'b0) begin
+            err = 1'b1;
+            $display("ERROR Z - Expected %d, actual %d", 1'b0, Z);
+        end
+
         #1;
 
         // Subtraction - result non-zero
