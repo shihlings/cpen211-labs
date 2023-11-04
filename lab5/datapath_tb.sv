@@ -275,8 +275,158 @@ module datapath_tb ();
       if (Z_out != 1'b0) begin
 	 err = 1'b1;
 	 $display("Error Z_out - expected %b, actual %b", 1'b0, Z_out);
-      end     
+      end
 
+      release datapath_tb.DUT.Ain;
+      release datapath_tb.DUT.Bin;
+
+      /* ------------- <Instruction Sequence Test 2> -------------
+       mov R6, #11121
+       mov R0, #65515
+       mvn R1, R0
+       sub R4, R1, lsr #1
+      */
+      
+      // mov R6, #11121
+      vsel = 1'b1;
+      datapath_in = 16'd11121;
+      write = 1'b1;
+      writenum = 3'b110;
+      #1;
+      clk = 1'b1;
+      #1;
+      clk = 1'b0;
+      #1;
+      write = 1'b0;
+      vsel = 1'b0;
+      if (datapath_tb.DUT.REGFILE.R6 != 16'd11121) begin
+         err = 1'b1;
+         $display("Error R6 - expected %h, actual %h", 16'd11121, datapath_tb.DUT.REGFILE.R6);
+      end
+
+      // mov R0, #65515
+      vsel = 1'b1;
+      datapath_in = 16'd65515;
+      write = 1'b1;
+      writenum = 3'b000;
+      #1;
+      clk = 1'b1;
+      #1;
+      clk = 1'b0;
+      #1;
+      write = 1'b0;
+      vsel = 1'b0;
+      if (datapath_tb.DUT.REGFILE.R0 != 16'd65515) begin
+         err = 1'b1;
+         $display("Error R0 - expected %h, actual %h", 16'd65515, datapath_tb.DUT.REGFILE.R0);
+      end
+
+      // move R0 to B
+      readnum = 3'b000;
+      loadb = 1'b1;
+      #1;
+      clk = 1'b1;
+      #1;
+      clk = 1'b0;
+      #1;
+      loadb = 1'b0;
+      if (datapath_tb.DUT.B != datapath_tb.DUT.REGFILE.R0) begin
+         err = 1'b1;
+         $display("Error B - expected %h, actual %h", datapath_tb.DUT.REGFILE.R0, datapath_tb.DUT.B);
+      end
+
+      // ALU ~B -> C
+      shift = 2'b00;
+      bsel = 1'b0;
+      ALUop = 2'b11;
+      loadc = 1'b1;
+      #1;
+      clk = 1'b1;
+      #1;
+      clk = 1'b0;
+      #1;
+      loadc = 1'b0;
+      if (datapath_tb.DUT.C != 16'd20) begin
+	 err = 1'b1;
+	 $display("Error C - expected %h, actual %h", 16'd20, datapath_tb.DUT.C);
+      end
+
+      // Store C in R1
+      vsel = 1'b0;
+      writenum = 3'b001;
+      write = 1'b1;
+      #1;
+      clk = 1'b1;
+      #1;
+      clk = 1'b0;
+      #1;
+      write = 1'b0;
+      if (datapath_tb.DUT.REGFILE.R1 != 16'd20) begin
+	 err = 1'b1;
+	 $display("Error R1 - expected %h, actual %h", 16'd20, datapath_tb.DUT.REGFILE.R1);
+      end
+
+      // Move R6 to A
+      readnum = 3'b110;
+      loada = 1'b1;
+      #1;
+      clk = 1'b1;
+      #1;
+      clk = 1'b0;
+      #1;
+      loada = 1'b0;
+      if (datapath_tb.DUT.A != datapath_tb.DUT.REGFILE.R6) begin
+         err = 1'b1;
+         $display("Error A - expected %h, actual %h", 16'd11121, datapath_tb.DUT.A);
+      end
+
+      // Move R1 to B
+      readnum = 3'b001;
+      loadb = 1'b1;
+      #1;
+      clk = 1'b1;
+      #1;
+      clk = 1'b0;
+      #1;
+      loadb = 1'b0;
+      if (datapath_tb.DUT.B != datapath_tb.DUT.REGFILE.R1) begin
+         err = 1'b1;
+         $display("Error B - expected %h, actual %h", 16'd20, datapath_tb.DUT.B);
+      end
+
+      // A - B/2 -> C
+      ALUop = 2'b01;
+      asel = 1'b0;
+      bsel = 1'b0;
+      shift = 2'b10;
+      loadc = 1'b1;
+      #1;
+      clk = 1'b1;
+      #1;
+      clk = 1'b0;
+      #1;
+      loadc = 1'b0;
+      if (datapath_tb.DUT.C != 16'd11111) begin
+	 err = 1'b1;
+	 $display("Error C - expected %h, actual %h", 16'd11111, datapath_tb.DUT.C);
+      end
+
+      // Store C in R4
+      vsel = 1'b0;
+      writenum = 3'b100;
+      write = 1'b1;
+      #1;
+      clk = 1'b1;
+      #1;
+      clk = 1'b0;
+      #1;
+      write = 1'b0;
+      if (datapath_tb.DUT.REGFILE.R4 != 16'd11111) begin
+	 err = 1'b1;
+	 $display("Error R4 - expected %h, actual %h", 16'd11111, datapath_tb.DUT.REGFILE.R4);
+      end
+      /* ------------- </Instruction Sequence Test 2> ------------- */
+      
       // Check for error
       if (err) begin
          $display("datapath_tb - ERROR(S) FOUND!");
