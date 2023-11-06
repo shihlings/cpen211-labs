@@ -12,8 +12,8 @@ module datapath_tb ();
    
    initial begin
       // iverilog use only
-      $dumpfile("waveform.vcd");
-      $dumpvars(0, datapath_tb);
+      //$dumpfile("waveform.vcd");
+      //$dumpvars(0, datapath_tb);
       
       // reset everything to 0
       err = 1'b0;
@@ -433,6 +433,6 @@ module datapath_tb ();
       end else begin
          $display("datapath_tb - TEST PASSED!");
       end
-      $stop;
+      //$stop;
    end
 endmodule
