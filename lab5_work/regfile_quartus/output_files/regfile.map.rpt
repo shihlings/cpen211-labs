@@ -1,5 +1,5 @@
 Analysis & Synthesis report for regfile
-Wed Nov  1 09:05:31 2023
+Mon Nov  6 17:21:26 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -44,7 +44,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Nov  1 09:05:31 2023       ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov  6 17:21:26 2023       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; regfile                                     ;
 ; Top-level Entity Name           ; regfile                                     ;
@@ -167,13 +167,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                        ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                    ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------+---------+
-; ../regfile.sv                    ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5/regfile.sv ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                             ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                         ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------+---------+
+; ../regfile.sv                    ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5_work/regfile.sv ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -261,7 +261,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -271,12 +271,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Nov  1 09:05:18 2023
+    Info: Processing started: Mon Nov  6 17:21:22 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off regfile -c regfile
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /home/shihling/git/cpen211-labs/lab5/regfile.sv
-    Info (12023): Found entity 1: regfile File: /home/shihling/git/cpen211-labs/lab5/regfile.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/shihling/git/cpen211-labs/lab5_work/regfile.sv
+    Info (12023): Found entity 1: regfile File: /home/shihling/git/cpen211-labs/lab5_work/regfile.sv Line: 1
 Info (12127): Elaborating entity "regfile" for the top level hierarchy
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -286,9 +286,9 @@ Info (21057): Implemented 224 device resources after synthesis - the final resou
     Info (21059): Implemented 16 output pins
     Info (21061): Implemented 184 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 488 megabytes
-    Info: Processing ended: Wed Nov  1 09:05:31 2023
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:48
+    Info: Peak virtual memory: 489 megabytes
+    Info: Processing ended: Mon Nov  6 17:21:26 2023
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:13
 
 

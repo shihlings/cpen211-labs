@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab5_top
-Fri Nov  3 08:44:09 2023
+Mon Nov  6 17:31:54 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -56,7 +56,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Nov  3 08:44:09 2023       ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov  6 17:31:54 2023       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; lab5_top                                    ;
 ; Top-level Entity Name           ; lab5_top                                    ;
@@ -186,11 +186,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                             ; Library ;
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
-; ../lab5_top.sv                   ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5/lab5_top.sv                                         ;         ;
-; ../regfile.sv                    ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5/regfile.sv                                          ;         ;
-; ../shifter.sv                    ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5/shifter.sv                                          ;         ;
-; ../datapath.sv                   ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5/datapath.sv                                         ;         ;
-; ../alu.sv                        ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5/alu.sv                                              ;         ;
+; ../lab5_top.sv                   ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv                                    ;         ;
+; ../regfile.sv                    ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5_work/regfile.sv                                     ;         ;
+; ../shifter.sv                    ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5_work/shifter.sv                                     ;         ;
+; ../datapath.sv                   ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5_work/datapath.sv                                    ;         ;
+; ../alu.sv                        ; yes             ; User SystemVerilog HDL File  ; /home/shihling/git/cpen211-labs/lab5_work/alu.sv                                         ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                 ; /home/shihling/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                 ; /home/shihling/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                 ; /home/shihling/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -200,7 +200,7 @@ https://fpgasoftware.intel.com/eula.
 ; altrom.inc                       ; yes             ; Megafunction                 ; /home/shihling/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
 ; altram.inc                       ; yes             ; Megafunction                 ; /home/shihling/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altram.inc            ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                 ; /home/shihling/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
-; db/altsyncram_hik1.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/shihling/git/cpen211-labs/lab5/lab5_top/db/altsyncram_hik1.tdf                     ;         ;
+; db/altsyncram_hik1.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/shihling/git/cpen211-labs/lab5_work/lab5_top/db/altsyncram_hik1.tdf                ;         ;
 +----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------+---------+
 
 
@@ -516,35 +516,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Nov  3 08:44:03 2023
+    Info: Processing started: Mon Nov  6 17:31:50 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab5_top -c lab5_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
-Info (12021): Found 4 design units, including 4 entities, in source file /home/shihling/git/cpen211-labs/lab5/lab5_top.sv
-    Info (12023): Found entity 1: lab5_top File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 75
-    Info (12023): Found entity 2: input_iface File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 127
-    Info (12023): Found entity 3: vDFF File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 166
-    Info (12023): Found entity 4: sseg File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 185
-Info (12021): Found 1 design units, including 1 entities, in source file /home/shihling/git/cpen211-labs/lab5/regfile.sv
-    Info (12023): Found entity 1: regfile File: /home/shihling/git/cpen211-labs/lab5/regfile.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/shihling/git/cpen211-labs/lab5/shifter.sv
-    Info (12023): Found entity 1: shifter File: /home/shihling/git/cpen211-labs/lab5/shifter.sv Line: 1
-Info (12021): Found 2 design units, including 2 entities, in source file /home/shihling/git/cpen211-labs/lab5/datapath.sv
-    Info (12023): Found entity 1: datapath File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 1
-    Info (12023): Found entity 2: vDFFE File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 53
-Info (12021): Found 1 design units, including 1 entities, in source file /home/shihling/git/cpen211-labs/lab5/alu.sv
-    Info (12023): Found entity 1: ALU File: /home/shihling/git/cpen211-labs/lab5/alu.sv Line: 1
+Info (12021): Found 4 design units, including 4 entities, in source file /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv
+    Info (12023): Found entity 1: lab5_top File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 75
+    Info (12023): Found entity 2: input_iface File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 127
+    Info (12023): Found entity 3: vDFF File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 166
+    Info (12023): Found entity 4: sseg File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 185
+Info (12021): Found 1 design units, including 1 entities, in source file /home/shihling/git/cpen211-labs/lab5_work/regfile.sv
+    Info (12023): Found entity 1: regfile File: /home/shihling/git/cpen211-labs/lab5_work/regfile.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/shihling/git/cpen211-labs/lab5_work/shifter.sv
+    Info (12023): Found entity 1: shifter File: /home/shihling/git/cpen211-labs/lab5_work/shifter.sv Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file /home/shihling/git/cpen211-labs/lab5_work/datapath.sv
+    Info (12023): Found entity 1: datapath File: /home/shihling/git/cpen211-labs/lab5_work/datapath.sv Line: 1
+    Info (12023): Found entity 2: vDFFE File: /home/shihling/git/cpen211-labs/lab5_work/datapath.sv Line: 53
+Info (12021): Found 1 design units, including 1 entities, in source file /home/shihling/git/cpen211-labs/lab5_work/alu.sv
+    Info (12023): Found entity 1: ALU File: /home/shihling/git/cpen211-labs/lab5_work/alu.sv Line: 1
 Info (12127): Elaborating entity "lab5_top" for the top level hierarchy
-Info (12128): Elaborating entity "input_iface" for hierarchy "input_iface:IN" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 89
-Info (12128): Elaborating entity "vDFF" for hierarchy "input_iface:IN|vDFF:DATA" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 141
-Info (12128): Elaborating entity "vDFF" for hierarchy "input_iface:IN|vDFF:CTRL" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 147
-Info (12128): Elaborating entity "datapath" for hierarchy "datapath:DP" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 115
-Info (12128): Elaborating entity "regfile" for hierarchy "datapath:DP|regfile:REGFILE" File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 26
-Info (12128): Elaborating entity "ALU" for hierarchy "datapath:DP|ALU:alu" File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 27
-Info (12128): Elaborating entity "shifter" for hierarchy "datapath:DP|shifter:SHIFTER" File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 28
-Info (12128): Elaborating entity "vDFFE" for hierarchy "datapath:DP|vDFFE:ADFF" File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 31
-Info (12128): Elaborating entity "vDFFE" for hierarchy "datapath:DP|vDFFE:statusDFF" File: /home/shihling/git/cpen211-labs/lab5/datapath.sv Line: 37
-Info (12128): Elaborating entity "sseg" for hierarchy "sseg:H0" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 118
+Info (12128): Elaborating entity "input_iface" for hierarchy "input_iface:IN" File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 89
+Info (12128): Elaborating entity "vDFF" for hierarchy "input_iface:IN|vDFF:DATA" File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 141
+Info (12128): Elaborating entity "vDFF" for hierarchy "input_iface:IN|vDFF:CTRL" File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 147
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:DP" File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 115
+Info (12128): Elaborating entity "regfile" for hierarchy "datapath:DP|regfile:REGFILE" File: /home/shihling/git/cpen211-labs/lab5_work/datapath.sv Line: 26
+Info (12128): Elaborating entity "ALU" for hierarchy "datapath:DP|ALU:alu" File: /home/shihling/git/cpen211-labs/lab5_work/datapath.sv Line: 27
+Info (12128): Elaborating entity "shifter" for hierarchy "datapath:DP|shifter:SHIFTER" File: /home/shihling/git/cpen211-labs/lab5_work/datapath.sv Line: 28
+Info (12128): Elaborating entity "vDFFE" for hierarchy "datapath:DP|vDFFE:ADFF" File: /home/shihling/git/cpen211-labs/lab5_work/datapath.sv Line: 31
+Info (12128): Elaborating entity "vDFFE" for hierarchy "datapath:DP|vDFFE:statusDFF" File: /home/shihling/git/cpen211-labs/lab5_work/datapath.sv Line: 37
+Info (12128): Elaborating entity "sseg" for hierarchy "sseg:H0" File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 118
 Warning (276027): Inferred dual-clock RAM node "datapath:DP|regfile:REGFILE|R0_rtl_0" from synchronous design logic.  The read-during-write behavior of a dual-clock RAM is undefined and may not match the behavior of the original design.
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "datapath:DP|regfile:REGFILE|R0_rtl_0" 
@@ -579,22 +579,22 @@ Info (12133): Instantiated megafunction "datapath:DP|regfile:REGFILE|altsyncram:
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_hik1.tdf
-    Info (12023): Found entity 1: altsyncram_hik1 File: /home/shihling/git/cpen211-labs/lab5/lab5_top/db/altsyncram_hik1.tdf Line: 28
+    Info (12023): Found entity 1: altsyncram_hik1 File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top/db/altsyncram_hik1.tdf Line: 28
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
-    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 80
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
@@ -1171,18 +1171,18 @@ Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 76
-    Warning (15610): No output dependent on input pin "KEY[2]" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 76
-    Warning (15610): No output dependent on input pin "KEY[3]" File: /home/shihling/git/cpen211-labs/lab5/lab5_top.sv Line: 76
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 76
+    Warning (15610): No output dependent on input pin "KEY[2]" File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 76
+    Warning (15610): No output dependent on input pin "KEY[3]" File: /home/shihling/git/cpen211-labs/lab5_work/lab5_top.sv Line: 76
 Info (21057): Implemented 281 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 52 output pins
     Info (21061): Implemented 198 logic cells
     Info (21064): Implemented 16 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 593 warnings
-    Info: Peak virtual memory: 581 megabytes
-    Info: Processing ended: Fri Nov  3 08:44:09 2023
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:24
+    Info: Peak virtual memory: 579 megabytes
+    Info: Processing ended: Mon Nov  6 17:31:54 2023
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:13
 
 
