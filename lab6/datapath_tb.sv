@@ -8,8 +8,26 @@ module datapath_tb ();
    wire [15:0] datapath_out;
    wire	       Z_out;
 
-   datapath DUT (clk, loada, loadb, loadc, loads, asel, bsel, vsel, write, ALUop, shift, readnum, writenum, datapath_in, datapath_out, Z_out);
-   
+    datapath DUT (.clk(clk),
+                  .loada(loada),
+                  .loadb(loadb),
+                  .loadc(loadc),
+                  .loads(loads),
+                  .asel(asel), 
+                  .bsel(bsel), 
+                  .vsel(vsel),
+                  .write(write),
+                  .ALUop(ALUop),
+                  .shift(shift),
+                  .readnum(readnum),
+                  .writenum(writenum),
+                  .PC(PC),
+                  .mdata(mdata), 
+                  .sximm5(sximm5),
+                  .sximm8(sximm8), 
+                  .datapath_out(datapath_out),
+                  .Z_out(Z_out)                   );
+                  
    initial begin
       // iverilog use only
       $dumpfile("waveform.vcd");
