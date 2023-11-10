@@ -2,10 +2,10 @@ module ALU(Ain,Bin,ALUop,out,Z);
    input [15:0] Ain, Bin;
    input [1:0]	ALUop;
    output reg [15:0] out;
-   output reg [2:0] Z;
+   output reg [2:0]  Z;
 
-   reg zero, negative, overflow;
-   reg carry1, carry2;
+   reg		     zero, negative, overflow;
+   reg		     carry1, carry2;
    
    assign Z = {overflow, negative, zero};
    
@@ -33,18 +33,18 @@ module ALU(Ain,Bin,ALUop,out,Z);
       end
 
       if (out == 16'b0)
-         zero = 1'b1;
+        zero = 1'b1;
       else
-         zero = 1'b0;
+        zero = 1'b0;
 
       if (out[15] == 1'b1) 
-         negative = 1'b1;
+        negative = 1'b1;
       else
-         negative = 1'b0;
-         
+        negative = 1'b0;
+      
       if (carry1 != carry2) 
-         overflow = 1'b1;
+        overflow = 1'b1;
       else
-         overflow = 1'b0;
+        overflow = 1'b0;
    end
 endmodule
