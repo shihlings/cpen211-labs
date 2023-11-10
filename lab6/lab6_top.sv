@@ -29,6 +29,25 @@
 // The input s is 1 as long as you press (and hold) KEY2.
 // The input load is 1 as long as you press (and hold) KEY3.
 
+// 7-segment digits and characters
+`define dig_0 7'b1000000
+`define dig_1 7'b1111001
+`define dig_2 7'b0100100
+`define dig_3 7'b0110000
+`define dig_4 7'b0011001
+`define dig_5 7'b0010010
+`define dig_6 7'b0000010
+`define dig_7 7'b1111000
+`define dig_8 7'b0000000
+`define dig_9 7'b0010000
+
+`define char_A 7'b0001000
+`define char_b 7'b0000011
+`define char_C 7'b1000110
+`define char_d 7'b0100001
+`define char_E 7'b0000110
+`define char_F 7'b0001110
+
 module lab6_top(KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,CLOCK_50);
   input [3:0] KEY;
   input [9:0] SW;
@@ -142,6 +161,26 @@ module sseg(in,segs);
   //            14 | E
   //            15 | F
 
-  assign segs = 7'b0001110;  // this will output "F" 
+  always_comb begin
+    case(in)
+      4'b0000: segs = `dig_0;
+      4'b0001: segs = `dig_1;
+      4'b0010: segs = `dig_2;
+      4'b0011: segs = `dig_3;
+      4'b0100: segs = `dig_4;
+      4'b0101: segs = `dig_5;
+      4'b0110: segs = `dig_6;
+      4'b0111: segs = `dig_7;
+      4'b1000: segs = `dig_8;
+      4'b1001: segs = `dig_9;
+      4'b1010: segs = `char_A;
+      4'b1011: segs = `char_b;
+      4'b1100: segs = `char_C;
+      4'b1101: segs = `char_d;
+      4'b1110: segs = `char_E;
+      4'b1111: segs = `char_F;
+      default: segs = {7{1'bx}};
+    endcase // case (in)
+  end // always_comb
 
 endmodule
