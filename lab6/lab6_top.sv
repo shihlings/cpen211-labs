@@ -114,7 +114,7 @@ endmodule
 
 module sseg(in,segs);
    input [3:0] in;
-   output [6:0]	segs;
+   output reg [6:0]	segs;
 
    // NOTE: The code for sseg below is not complete: You can use your code from
    // Lab4 to fill this in or code from someone else's Lab4.  

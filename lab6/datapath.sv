@@ -22,7 +22,7 @@ module datapath (clk, loada, loadb, loadc, loads, asel, bsel, vsel, write, ALUop
    wire [15:0]	 Ain;
    wire [15:0]	 Bin;
 
-   wire [15:0]	 data_in;
+   reg [15:0]	 data_in;
    wire [15:0]	 data_out;
 
    wire [15:0]	 out;
@@ -44,10 +44,10 @@ module datapath (clk, loada, loadb, loadc, loads, asel, bsel, vsel, write, ALUop
    // vsel multiplexer
    always_comb begin
       case (vsel)
-        2'b00: data_in = datapth_out;
+        2'b00: data_in = datapath_out;
         2'b01: data_in = {8'b0, PC};
         2'b10: data_in = sximm8;
-        2'b11: data_in = m_data;
+        2'b11: data_in = mdata;
       endcase
    end
 

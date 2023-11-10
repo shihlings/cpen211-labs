@@ -1,12 +1,16 @@
 module datapath_tb ();
-   reg err, clk, loada, loadb, loadc, loads, asel, bsel, vsel, write;
+   reg err, clk, loada, loadb, loadc, loads, asel, bsel, write;
+   reg [1:0] vsel;
    reg [1:0] ALUop;
    reg [1:0] shift;
    reg [2:0] readnum;
    reg [2:0] writenum;
-   reg [15:0] datapath_in;
+   reg [15:0] mdata;
+   reg [15:0] sximm5;
+   reg [15:0] sximm8;
+   reg [7:0] PC; 
    wire [15:0] datapath_out;
-   wire	       Z_out;
+   wire [2:0]  Z_out;
 
    datapath DUT (.clk(clk),
                  .loada(loada),
@@ -34,6 +38,10 @@ module datapath_tb ();
       $dumpvars(0, datapath_tb);
       
       // reset everything to 0
+      sximm5 = 16'b0;
+      PC = 8'b0;
+      sximm8 = 16'b0;
+      mdata = 16'b0;
       err = 1'b0;
       clk = 1'b0;
       loada = 1'b0;
@@ -42,19 +50,27 @@ module datapath_tb ();
       loads = 1'b0;
       asel = 1'b0;
       bsel = 1'b0;
-      vsel = 1'b0;
+      vsel = 2'b00;
       write = 1'b0;
       ALUop = 2'b00;
       shift = 2'b00;
       readnum = 3'b000;
       writenum = 3'b000;
-      datapath_in = 16'b0;
       #1;
+
+      // test vsel for selecting C
+      vsel = 2'b01;
+      PC = 8'b1001_0010;
+      #1;
+      if (datapath_tb.DUT.data_in != 16'b1001_0010) begin
+         err = 1'b1;
+         $display("Error data_in - expected %h, actual %h", 16'b1001_0010, datapath_tb.DUT.data_in);
+      end
 
       /* ---------- <Video test case> ---------- */
       // mov R3, #42
-      vsel = 1'b1;
-      datapath_in = 16'd42;
+      vsel = 2'b11;
+      mdata = 16'd42;
       write = 1'b1;
       writenum = 3'b011;
       #1;
@@ -63,15 +79,15 @@ module datapath_tb ();
       clk = 1'b0;
       #1;
       write = 1'b0;
-      vsel = 1'b0;
+      vsel = 2'b00;
       if (datapath_tb.DUT.REGFILE.R3 != 16'd42) begin
          err = 1'b1;
          $display("Error R3 - expected %h, actual %h", 16'd42, datapath_tb.DUT.REGFILE.R3);
       end
 
       // mov R5, #13
-      vsel = 1'b1;
-      datapath_in = 16'd13;
+      vsel = 2'b10;
+      sximm8 = 16'd13;
       write = 1'b1;
       writenum = 3'b101;
       #1;
@@ -80,7 +96,7 @@ module datapath_tb ();
       clk = 1'b0;
       #1;
       write = 1'b0;
-      vsel = 1'b0;
+      vsel = 2'b00;
       if (datapath_tb.DUT.REGFILE.R5 != 16'd13) begin
          err = 1'b1;
          $display("Error R5 - expected %h, actual %h", 16'd13, datapath_tb.DUT.REGFILE.R5);
@@ -125,7 +141,7 @@ module datapath_tb ();
       clk = 1'b0;
       #1;
       loadc = 1'b0;
-      vsel = 1'b0;
+      vsel = 2'b00;
       write = 1'b1;
       writenum = 3'b010;
       #1;
@@ -160,7 +176,7 @@ module datapath_tb ();
       asel = 1'b0;
       bsel = 1'b0;
       loadc = 1'b0;
-      vsel = 1'b0;
+      vsel = 2'b00;
       write = 1'b1;
       writenum = 3'b111;
       #1;
@@ -218,24 +234,24 @@ module datapath_tb ();
       end
       release datapath_tb.DUT.B;
       
-      // test bsel 1, datapath_in [15:5] = 0
+      // test bsel 1, sximm5 = 0
       bsel = 1'b1;
       #1;
-      if (datapath_tb.DUT.Bin != {11'b0, datapath_in[4:0]}) begin
+      if (datapath_tb.DUT.Bin != sximm5) begin
          err = 1'b1;
-         $display("Error Bin - expected %h, actual %h", {11'b0, datapath_in[4:0]}, datapath_tb.DUT.Bin);
+         $display("Error Bin - expected %h, actual %h", 16'b0, datapath_tb.DUT.Bin);
       end
 
-      // test bsel 1, datapath_in [15:5] = 1
-      datapath_in = 16'b1111_1111_1110_1010;
-      vsel = 1'b1;
+      // test bsel 1, sximm5 = -10
+      sximm5 = 16'b1111_1111_1111_0110;
+      bsel = 1'b1;
       #1;
-      if (datapath_tb.DUT.Bin != {11'b0, datapath_in[4:0]}) begin
+      if (datapath_tb.DUT.Bin != 16'b1111_1111_1111_0110) begin
          err = 1'b1;
-         $display("Error Bin - expected %h, actual %h", {11'b0, datapath_in[4:0]}, datapath_tb.DUT.Bin);
+         $display("Error Bin - expected %h, actual %h", 16'b1111_1111_1111_0110, datapath_tb.DUT.Bin);
       end
-      datapath_in = 16'b0;
-      vsel = 1'b0;
+      mdata = 16'b0;
+      vsel = 2'b00;
       bsel = 1'b0;
       
       // test ALU 01 and status reg
@@ -252,9 +268,9 @@ module datapath_tb ();
       #1;
       clk = 1'b0;
       #1;
-      if (Z_out != 1'b0) begin
+      if (Z_out != 3'b000) begin
 	 err = 1'b1;
-	 $display("Error Z_out - expected %b, actual %b", 1'b0, Z_out);
+	 $display("Error Z_out - expected %b, actual %b", 3'b000, Z_out);
       end
       
       // test ALU 10
@@ -271,9 +287,9 @@ module datapath_tb ();
       #1;
       clk = 1'b0;
       #1;
-      if (Z_out != 1'b1) begin
+      if (Z_out != 3'b001) begin
 	 err = 1'b1;
-	 $display("Error Z_out - expected %b, actual %b", 1'b1, Z_out);
+	 $display("Error Z_out - expected %b, actual %b", 3'b001, Z_out);
       end
       
       // test ALU 11
@@ -290,9 +306,9 @@ module datapath_tb ();
       #1;
       clk = 1'b0;
       #1;
-      if (Z_out != 1'b0) begin
+      if (Z_out != 3'b000) begin
 	 err = 1'b1;
-	 $display("Error Z_out - expected %b, actual %b", 1'b0, Z_out);
+	 $display("Error Z_out - expected %b, actual %b", 3'b000, Z_out);
       end
 
       release datapath_tb.DUT.Ain;
@@ -306,8 +322,8 @@ module datapath_tb ();
        */
       
       // mov R6, #11121
-      vsel = 1'b1;
-      datapath_in = 16'd11121;
+      vsel = 2'b11;
+      mdata = 16'd11121;
       write = 1'b1;
       writenum = 3'b110;
       #1;
@@ -316,15 +332,15 @@ module datapath_tb ();
       clk = 1'b0;
       #1;
       write = 1'b0;
-      vsel = 1'b0;
+      vsel = 2'b00;
       if (datapath_tb.DUT.REGFILE.R6 != 16'd11121) begin
          err = 1'b1;
          $display("Error R6 - expected %h, actual %h", 16'd11121, datapath_tb.DUT.REGFILE.R6);
       end
 
       // mov R0, #65515
-      vsel = 1'b1;
-      datapath_in = 16'd65515;
+      vsel = 2'b11;
+      mdata = 16'd65515;
       write = 1'b1;
       writenum = 3'b000;
       #1;
@@ -333,7 +349,7 @@ module datapath_tb ();
       clk = 1'b0;
       #1;
       write = 1'b0;
-      vsel = 1'b0;
+      vsel = 2'b00;
       if (datapath_tb.DUT.REGFILE.R0 != 16'd65515) begin
          err = 1'b1;
          $display("Error R0 - expected %h, actual %h", 16'd65515, datapath_tb.DUT.REGFILE.R0);
@@ -370,7 +386,7 @@ module datapath_tb ();
       end
 
       // Store C in R1
-      vsel = 1'b0;
+      vsel = 2'b00;
       writenum = 3'b001;
       write = 1'b1;
       #1;
@@ -430,7 +446,7 @@ module datapath_tb ();
       end
 
       // Store C in R4
-      vsel = 1'b0;
+      vsel = 2'b00;
       writenum = 3'b100;
       write = 1'b1;
       #1;

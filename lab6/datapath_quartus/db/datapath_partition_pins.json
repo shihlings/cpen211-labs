@@ -1,0 +1,389 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "datapath_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[12]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[13]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[14]",
+					"strict" : false
+				},
+				{
+					"name" : "datapath_out[15]",
+					"strict" : false
+				},
+				{
+					"name" : "Z_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Z_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Z_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUop[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUop[1]",
+					"strict" : false
+				},
+				{
+					"name" : "asel",
+					"strict" : false
+				},
+				{
+					"name" : "bsel",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[0]",
+					"strict" : false
+				},
+				{
+					"name" : "shift[1]",
+					"strict" : false
+				},
+				{
+					"name" : "shift[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "loadc",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[7]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[8]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[9]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[10]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[11]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[12]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[13]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[14]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm5[15]",
+					"strict" : false
+				},
+				{
+					"name" : "loads",
+					"strict" : false
+				},
+				{
+					"name" : "readnum[2]",
+					"strict" : false
+				},
+				{
+					"name" : "readnum[0]",
+					"strict" : false
+				},
+				{
+					"name" : "readnum[1]",
+					"strict" : false
+				},
+				{
+					"name" : "loada",
+					"strict" : false
+				},
+				{
+					"name" : "loadb",
+					"strict" : false
+				},
+				{
+					"name" : "PC[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[0]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vsel[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vsel[1]",
+					"strict" : false
+				},
+				{
+					"name" : "writenum[1]",
+					"strict" : false
+				},
+				{
+					"name" : "writenum[2]",
+					"strict" : false
+				},
+				{
+					"name" : "write",
+					"strict" : false
+				},
+				{
+					"name" : "writenum[0]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[1]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[1]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[2]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[2]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[3]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[3]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[4]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[4]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[5]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[5]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[6]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[6]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[7]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[7]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[7]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[8]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[8]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[9]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[9]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[10]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[10]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[11]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[11]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[12]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[12]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[13]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[13]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[14]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[14]",
+					"strict" : false
+				},
+				{
+					"name" : "sximm8[15]",
+					"strict" : false
+				},
+				{
+					"name" : "mdata[15]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
