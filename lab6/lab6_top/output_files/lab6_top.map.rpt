@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab6_top
-Thu Nov 16 15:02:25 2023
+Fri Nov 17 10:00:36 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -51,7 +51,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Nov 16 15:02:25 2023       ;
+; Analysis & Synthesis Status     ; Successful - Fri Nov 17 10:00:36 2023       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; lab6_top                                    ;
 ; Top-level Entity Name           ; lab6_top                                    ;
@@ -390,7 +390,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Nov 16 15:02:21 2023
+    Info: Processing started: Fri Nov 17 10:00:32 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab6_top -c lab6_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
@@ -450,8 +450,8 @@ Info (21057): Implemented 497 device resources after synthesis - the final resou
     Info (21059): Implemented 52 output pins
     Info (21061): Implemented 430 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 554 megabytes
-    Info: Processing ended: Thu Nov 16 15:02:25 2023
+    Info: Peak virtual memory: 555 megabytes
+    Info: Processing ended: Fri Nov 17 10:00:36 2023
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:13
 
