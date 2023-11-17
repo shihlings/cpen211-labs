@@ -11,7 +11,7 @@ cModel Technology
 d/home/shihling/intelFPGA_lite/20.1
 vALU
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1700243177
+Z1 !s110 1700244533
 !i10b 1
 !s100 LKZa8PYJdS`1@HCz9^JGT1
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -22,13 +22,13 @@ Z4 d/home/shihling/git/cpen211-labs/lab6/lab6_autograder_check
 w1699657576
 8/home/shihling/git/cpen211-labs/lab6/alu.sv
 F/home/shihling/git/cpen211-labs/lab6/alu.sv
-!i122 205
+!i122 215
 L0 1 59
 Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1700243177.000000
+Z6 !s108 1700244533.000000
 !s107 /home/shihling/git/cpen211-labs/lab6/alu.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab6/alu.sv|
 !i113 1
@@ -48,7 +48,7 @@ R4
 w1699642599
 8/home/shihling/git/cpen211-labs/lab6/alu_tb.sv
 F/home/shihling/git/cpen211-labs/lab6/alu_tb.sv
-!i122 206
+!i122 216
 L0 1 258
 R5
 r1
@@ -74,7 +74,7 @@ R4
 Z9 w1700234895
 Z10 8/home/shihling/git/cpen211-labs/lab6/cpu.sv
 Z11 F/home/shihling/git/cpen211-labs/lab6/cpu.sv
-!i122 207
+!i122 217
 L0 1 80
 R5
 r1
@@ -90,16 +90,16 @@ vcpu_tb
 R0
 R1
 !i10b 1
-!s100 iP6U0m1<iD[C<LPnmU=mG1
+!s100 8mjJnO0CBT4Xh?4PORF8c3
 R2
-IkAVcA=I<emaEJaDJGf4@?3
+IlCf^?>VRKbfjd]ck6lzG81
 R3
 S1
 R4
-w1700243158
+w1700243299
 8/home/shihling/git/cpen211-labs/lab6/cpu_tb.sv
 F/home/shihling/git/cpen211-labs/lab6/cpu_tb.sv
-!i122 208
+!i122 218
 L0 1 351
 R5
 r1
@@ -124,7 +124,7 @@ R4
 Z14 w1699655614
 Z15 8/home/shihling/git/cpen211-labs/lab6/datapath.sv
 Z16 F/home/shihling/git/cpen211-labs/lab6/datapath.sv
-!i122 209
+!i122 219
 L0 1 63
 R5
 r1
@@ -149,7 +149,7 @@ R4
 w1699655579
 8/home/shihling/git/cpen211-labs/lab6/datapath_tb.sv
 F/home/shihling/git/cpen211-labs/lab6/datapath_tb.sv
-!i122 210
+!i122 220
 L0 1 472
 R5
 r1
@@ -174,7 +174,7 @@ R4
 Z19 w1699658152
 Z20 8/home/shihling/git/cpen211-labs/lab6/lab6_top.sv
 Z21 F/home/shihling/git/cpen211-labs/lab6/lab6_top.sv
-!i122 212
+!i122 222
 L0 87 10
 R5
 r1
@@ -199,7 +199,7 @@ R4
 R9
 R10
 R11
-!i122 207
+!i122 217
 L0 90 49
 R5
 r1
@@ -224,7 +224,7 @@ R4
 R9
 R10
 R11
-!i122 207
+!i122 217
 L0 82 7
 R5
 r1
@@ -249,7 +249,7 @@ R4
 Z24 w1699419562
 8/home/shihling/git/cpen211-labs/lab6/lab6_autograder_check.sv
 F/home/shihling/git/cpen211-labs/lab6/lab6_autograder_check.sv
-!i122 211
+!i122 221
 L0 11 75
 R5
 r1
@@ -274,7 +274,7 @@ R4
 R19
 R20
 R21
-!i122 212
+!i122 222
 L0 51 35
 R5
 r1
@@ -299,7 +299,7 @@ R4
 R24
 8/home/shihling/git/cpen211-labs/lab6/regfile.sv
 F/home/shihling/git/cpen211-labs/lab6/regfile.sv
-!i122 213
+!i122 223
 L0 1 45
 R5
 r1
@@ -324,7 +324,7 @@ R4
 R24
 8/home/shihling/git/cpen211-labs/lab6/shifter.sv
 F/home/shihling/git/cpen211-labs/lab6/shifter.sv
-!i122 214
+!i122 224
 L0 1 15
 R5
 r1
@@ -349,7 +349,7 @@ R4
 R19
 R20
 R21
-!i122 212
+!i122 222
 L0 115 72
 R5
 r1
@@ -374,7 +374,7 @@ R4
 R9
 R10
 R11
-!i122 207
+!i122 217
 L0 157 116
 R5
 r1
@@ -399,7 +399,7 @@ R4
 R19
 R20
 R21
-!i122 212
+!i122 222
 L0 98 9
 R5
 r1
@@ -425,7 +425,7 @@ R4
 R14
 R15
 R16
-!i122 209
+!i122 219
 L0 65 12
 R5
 r1

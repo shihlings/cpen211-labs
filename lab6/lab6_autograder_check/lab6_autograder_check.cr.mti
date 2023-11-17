@@ -61,6 +61,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	cpu
 
+} {} {}} /home/shihling/git/cpen211-labs/lab6/cpu_tb.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab6/cpu_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module cpu_tb
+
+Top level modules:
+	cpu_tb
+
 } {} {}} /home/shihling/git/cpen211-labs/lab6/shifter.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab6/shifter.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module shifter
