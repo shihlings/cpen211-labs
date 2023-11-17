@@ -1,0 +1,422 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/18.1
+vALU
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1700202954
+!i10b 1
+!s100 @Kg4`lnJ2cdc@ngalX_?13
+ICC;JVJJQimY:<]Tc3`8F;1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 alu_sv_unit
+S1
+Z3 dC:/Users/User/Desktop/lab-6-l1c-shihlings
+w1699657576
+8C:/Users/User/Desktop/lab-6-l1c-shihlings/alu.sv
+FC:/Users/User/Desktop/lab-6-l1c-shihlings/alu.sv
+L0 1
+Z4 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z5 !s108 1700202954.000000
+!s107 C:/Users/User/Desktop/lab-6-l1c-shihlings/alu.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/lab-6-l1c-shihlings/alu.sv|
+!i113 1
+Z6 o-work work -sv
+Z7 tCvgOpt 0
+n@a@l@u
+vALU_tb
+R0
+R1
+!i10b 1
+!s100 zm0^Q;mV;PhY91CE<3`n30
+Id^o2ni5hkfhn3V6Y34:l61
+R2
+!s105 alu_tb_sv_unit
+S1
+R3
+w1699642599
+8C:/Users/User/Desktop/lab-6-l1c-shihlings/alu_tb.sv
+FC:/Users/User/Desktop/lab-6-l1c-shihlings/alu_tb.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/User/Desktop/lab-6-l1c-shihlings/alu_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/lab-6-l1c-shihlings/alu_tb.sv|
+!i113 1
+R6
+R7
+n@a@l@u_tb
+vcpu
+R0
+R1
+!i10b 1
+!s100 bYR?CzEGT7]BdZc[DZHQi1
+Ij^1GR_bRYnWZXY;]TAgU60
+R2
+Z8 !s105 cpu_sv_unit
+S1
+R3
+Z9 w1700234895
+Z10 8C:/Users/User/Desktop/lab-6-l1c-shihlings/cpu.sv
+Z11 FC:/Users/User/Desktop/lab-6-l1c-shihlings/cpu.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+Z12 !s107 C:/Users/User/Desktop/lab-6-l1c-shihlings/cpu.sv|
+Z13 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/lab-6-l1c-shihlings/cpu.sv|
+!i113 1
+R6
+R7
+vcpu_tb
+R0
+R1
+!i10b 1
+!s100 h<Inah=Lj1R]C7HD@XHH^2
+ID15R^KSOWZT92<16LXg=;2
+R2
+!s105 cpu_tb_sv_unit
+S1
+R3
+w1700243299
+8C:/Users/User/Desktop/lab-6-l1c-shihlings/cpu_tb.sv
+FC:/Users/User/Desktop/lab-6-l1c-shihlings/cpu_tb.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/User/Desktop/lab-6-l1c-shihlings/cpu_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/lab-6-l1c-shihlings/cpu_tb.sv|
+!i113 1
+R6
+R7
+vdatapath
+R0
+R1
+!i10b 1
+!s100 S>9:1P6@>I><L9I^;BZgg1
+ILcad3K`@lo46mmh@Ed=zU3
+R2
+Z14 !s105 datapath_sv_unit
+S1
+R3
+Z15 w1699655614
+Z16 8C:/Users/User/Desktop/lab-6-l1c-shihlings/datapath.sv
+Z17 FC:/Users/User/Desktop/lab-6-l1c-shihlings/datapath.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+Z18 !s107 C:/Users/User/Desktop/lab-6-l1c-shihlings/datapath.sv|
+Z19 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/lab-6-l1c-shihlings/datapath.sv|
+!i113 1
+R6
+R7
+vdatapath_tb
+R0
+R1
+!i10b 1
+!s100 d?X9Y[Z208m2[LTZ7mn^81
+I_@;>;?DC@2bW_kWbEU41V3
+R2
+!s105 datapath_tb_sv_unit
+S1
+R3
+w1699655579
+8C:/Users/User/Desktop/lab-6-l1c-shihlings/datapath_tb.sv
+FC:/Users/User/Desktop/lab-6-l1c-shihlings/datapath_tb.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/User/Desktop/lab-6-l1c-shihlings/datapath_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/lab-6-l1c-shihlings/datapath_tb.sv|
+!i113 1
+R6
+R7
+vinput_iface
+R0
+R1
+!i10b 1
+!s100 250:K6Fa0H><Y@5nM;cWm2
+IYE4?1cidMg2>Mm@n>njNd3
+R2
+Z20 !s105 lab6_top_sv_unit
+S1
+R3
+Z21 w1699658152
+Z22 8C:/Users/User/Desktop/lab-6-l1c-shihlings/lab6_top.sv
+Z23 FC:/Users/User/Desktop/lab-6-l1c-shihlings/lab6_top.sv
+L0 87
+R4
+r1
+!s85 0
+31
+R5
+Z24 !s107 C:/Users/User/Desktop/lab-6-l1c-shihlings/lab6_top.sv|
+Z25 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/lab-6-l1c-shihlings/lab6_top.sv|
+!i113 1
+R6
+R7
+vinstruction_decoder
+R0
+R1
+!i10b 1
+!s100 aL5Qe_?nFlV_HIE5HAB>21
+I;hlQW?3jRAKTja?;BEABz0
+R2
+R8
+S1
+R3
+R9
+R10
+R11
+L0 90
+R4
+r1
+!s85 0
+31
+R5
+R12
+R13
+!i113 1
+R6
+R7
+vinstruction_register
+R0
+R1
+!i10b 1
+!s100 9oU@a:^7=nJ_COkTF?GLW2
+IEY:_l:z@aG8Rj[`FE_i043
+R2
+R8
+S1
+R3
+R9
+R10
+R11
+L0 82
+R4
+r1
+!s85 0
+31
+R5
+R12
+R13
+!i113 1
+R6
+R7
+vlab6_check
+R0
+R1
+!i10b 1
+!s100 Tgf2J]3Ob6:nkO8NcEL0I1
+IHNM5b_@UBLk7aPB<KMnlD1
+R2
+!s105 lab6_autograder_check_sv_unit
+S1
+R3
+Z26 w1699419562
+8C:/Users/User/Desktop/lab-6-l1c-shihlings/lab6_autograder_check.sv
+FC:/Users/User/Desktop/lab-6-l1c-shihlings/lab6_autograder_check.sv
+L0 11
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/User/Desktop/lab-6-l1c-shihlings/lab6_autograder_check.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/lab-6-l1c-shihlings/lab6_autograder_check.sv|
+!i113 1
+R6
+R7
+vlab6_top
+R0
+R1
+!i10b 1
+!s100 P`WRBV5n<_F^[hG=`@48Z1
+I_Io5YVO0CRg]jB3HZBY9g1
+R2
+R20
+S1
+R3
+R21
+R22
+R23
+L0 51
+R4
+r1
+!s85 0
+31
+R5
+R24
+R25
+!i113 1
+R6
+R7
+vregfile
+R0
+R1
+!i10b 1
+!s100 0lN22JOMi1Xj<hG]S3ddV2
+IISbW6]z`260EJ=VZb?maz0
+R2
+!s105 regfile_sv_unit
+S1
+R3
+R26
+8C:/Users/User/Desktop/lab-6-l1c-shihlings/regfile.sv
+FC:/Users/User/Desktop/lab-6-l1c-shihlings/regfile.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/User/Desktop/lab-6-l1c-shihlings/regfile.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/lab-6-l1c-shihlings/regfile.sv|
+!i113 1
+R6
+R7
+vshifter
+R0
+R1
+!i10b 1
+!s100 j;jLN8kJ^PdBVe:eE>fOW0
+IShN=EIMFHc[fC8WL56]6^0
+R2
+!s105 shifter_sv_unit
+S1
+R3
+R26
+8C:/Users/User/Desktop/lab-6-l1c-shihlings/shifter.sv
+FC:/Users/User/Desktop/lab-6-l1c-shihlings/shifter.sv
+L0 1
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/User/Desktop/lab-6-l1c-shihlings/shifter.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/User/Desktop/lab-6-l1c-shihlings/shifter.sv|
+!i113 1
+R6
+R7
+vsseg
+R0
+R1
+!i10b 1
+!s100 KaHecH5<8f^0Ojc;26c0j0
+I0EfT1EXhLDbleBHGnR>5T3
+R2
+R20
+S1
+R3
+R21
+R22
+R23
+L0 115
+R4
+r1
+!s85 0
+31
+R5
+R24
+R25
+!i113 1
+R6
+R7
+vstate_machine
+R0
+R1
+!i10b 1
+!s100 ODjPP>LL2>[g68RhiI@d`3
+I6Cf3EY>`Y`P`o?1ieKN^A3
+R2
+R8
+S1
+R3
+R9
+R10
+R11
+L0 157
+R4
+r1
+!s85 0
+31
+R5
+R12
+R13
+!i113 1
+R6
+R7
+vvDFF
+R0
+R1
+!i10b 1
+!s100 HO765SeMeTPI?]aooYiJ=2
+Ime^H2dB2c]ahg^En_nd4E0
+R2
+R20
+S1
+R3
+R21
+R22
+R23
+L0 98
+R4
+r1
+!s85 0
+31
+R5
+R24
+R25
+!i113 1
+R6
+R7
+nv@d@f@f
+vvDFFE
+R0
+R1
+!i10b 1
+!s100 PhlFAnXLSzfZ<^7zkX=n13
+IaznjB?:MN[H;4MG@OcA;S1
+R2
+R14
+S1
+R3
+R15
+R16
+R17
+L0 65
+R4
+r1
+!s85 0
+31
+R5
+R18
+R19
+!i113 1
+R6
+R7
+nv@d@f@f@e
