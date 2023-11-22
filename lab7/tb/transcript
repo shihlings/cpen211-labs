@@ -1,0 +1,897 @@
+# Loading project lab7
+# Compile of alu.sv was successful.
+# Compile of cpu.sv failed with 17 errors.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv failed with 1 errors.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 2 failed with 18 errors.
+# Error opening /home/shihling/git/cpen211-labs/lab7/tb/(vlog-13069) /home/shihling/git/cpen211-labs/lab7/cpu.sv
+# Path name '/home/shihling/git/cpen211-labs/lab7/tb/(vlog-13069) /home/shihling/git/cpen211-labs/lab7/cpu.sv' doesn't exist.
+# Error opening /home/shihling/git/cpen211-labs/lab7/tb/(vlog-13069) /home/shihling/git/cpen211-labs/lab7/cpu.sv
+# Path name '/home/shihling/git/cpen211-labs/lab7/tb/(vlog-13069) /home/shihling/git/cpen211-labs/lab7/cpu.sv' doesn't exist.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv failed with 3 errors.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv failed with 1 errors.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 2 failed with 4 errors.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv failed with 1 errors.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv failed with 1 errors.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 2 failed with 2 errors.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv failed with 1 errors.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 1 error.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+vsim work.lab7_check_tb
+# vsim work.lab7_check_tb 
+# Start time: 10:13:27 on Nov 22,2023
+# Loading sv_std.std
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# ** Error: (vsim-3033) Instantiation of 'data_addres' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 58
+#         Searched libraries:
+#             /home/shihling/git/cpen211-labs/lab7/tb/work
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# Error loading design
+# End time: 10:13:28 on Nov 22,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 9
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+vsim work.lab7_check_tb
+# vsim work.lab7_check_tb 
+# Start time: 10:14:22 on Nov 22,2023
+# Loading sv_std.std
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-3008) [CNNODP] - Component name (CPU) is not on a downward path.
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb File: /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv Line: 39
+# ** Error: (vsim-3043) Unresolved reference to 'CPU' in DUT.CPU.
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb File: /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv Line: 39
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'mem_addr'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'read_data'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'write_data'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'out'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/PC_reg/PC_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 112
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(115).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/data_addr_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (10) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/data_addr_reg/data_addr_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 120
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(98).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/instruction_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 63
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'read_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(15).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'write_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(15).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'din'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(15).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'dout'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(15).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# Error loading design
+# End time: 10:14:23 on Nov 22,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 14
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv failed with 2 errors.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 2 errors.
+vsim work.lab7_check_tb
+# vsim work.lab7_check_tb 
+# Start time: 10:15:11 on Nov 22,2023
+# Loading sv_std.std
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-3008) [CNNODP] - Component name (CPU) is not on a downward path.
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb File: /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv Line: 39
+# ** Error: (vsim-3043) Unresolved reference to 'CPU' in DUT.CPU.
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb File: /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv Line: 39
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'mem_addr'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'read_data'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'write_data'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'out'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/PC_reg/PC_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 112
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(115).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/data_addr_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (10) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/data_addr_reg/data_addr_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 120
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(98).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/instruction_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 63
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'read_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'write_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'din'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'dout'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# Error loading design
+# End time: 10:15:11 on Nov 22,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 14
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv failed with 6 errors.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 6 errors.
+vsim work.lab7_check_tb
+# vsim work.lab7_check_tb 
+# Start time: 10:15:46 on Nov 22,2023
+# Loading sv_std.std
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-3008) [CNNODP] - Component name (CPU) is not on a downward path.
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb File: /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv Line: 39
+# ** Error: (vsim-3043) Unresolved reference to 'CPU' in DUT.CPU.
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb File: /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv Line: 39
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'mem_addr'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'read_data'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'write_data'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'out'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/PC_reg/PC_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 112
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(115).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/data_addr_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (10) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/data_addr_reg/data_addr_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 120
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(98).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/instruction_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 63
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'read_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'write_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'din'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'dout'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# Error loading design
+# End time: 10:15:46 on Nov 22,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 14
+# Compile of alu.sv was successful.
+# Compile of cpu.sv failed with 1 errors.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv failed with 6 errors.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 2 failed with 7 errors.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv failed with 6 errors.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 6 errors.
+vsim work.lab7_check_tb
+# vsim work.lab7_check_tb 
+# Start time: 10:18:32 on Nov 22,2023
+# Loading sv_std.std
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-3008) [CNNODP] - Component name (CPU) is not on a downward path.
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb File: /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv Line: 39
+# ** Error: (vsim-3043) Unresolved reference to 'CPU' in DUT.CPU.
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb File: /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv Line: 39
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'mem_addr'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'read_data'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'write_data'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'out'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/PC_reg/PC_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 112
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (9) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(115).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/data_addr_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (10) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/data_addr_reg/data_addr_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 120
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(98).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/instruction_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 63
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'read_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'write_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'din'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'dout'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(26).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# Error loading design
+# End time: 10:18:32 on Nov 22,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 15
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv failed with 5 errors.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 5 errors.
+vsim work.lab7_check_tb
+# vsim work.lab7_check_tb 
+# Start time: 10:19:18 on Nov 22,2023
+# Loading sv_std.std
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-3008) [CNNODP] - Component name (CPU) is not on a downward path.
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb File: /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv Line: 39
+# ** Error: (vsim-3043) Unresolved reference to 'CPU' in DUT.CPU.
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb File: /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv Line: 39
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'mem_addr'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'read_data'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'write_data'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 9
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'out'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/PC_reg/PC_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 112
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (9) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(115).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/data_addr_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (10) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/data_addr_reg/data_addr_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 120
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(98).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/DUT/instruction_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 63
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'read_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(33).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (1) for port 'write_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(33).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'din'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(33).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'dout'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(33).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 10
+# Error loading design
+# End time: 10:19:18 on Nov 22,2023, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 14
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv failed with 4 errors.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 4 errors.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv failed with 4 errors.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 4 errors.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv failed with 4 errors.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 4 errors.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+vsim work.lab7_check_tb
+# vsim work.lab7_check_tb 
+# Start time: 10:25:43 on Nov 22,2023
+# Loading sv_std.std
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'out'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/PC_reg/PC_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 112
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (9) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(115).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/data_addr_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (10) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/data_addr_reg/data_addr_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 120
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(98).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/instruction_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 63
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'read_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'write_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'din'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'dout'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+run -all
+# ** Warning: (vsim-7) Failed to open readmem file "data.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(52)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM
+# FAILED: mem[0] wrong; please set data.txt using Figure 6
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(25)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 25
+# Compile of alu.sv was successful.
+# Compile of cpu.sv failed with 43 errors.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 43 errors.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv failed with 43 errors.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 43 errors.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv failed with 29 errors.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 29 errors.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv failed with 1 errors.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 1 failed with 1 error.
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+restart -f;run -all
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (1) for port 'out'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/PC_reg/PC_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 113
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (9) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(116).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/data_addr_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (10) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/data_addr_reg/data_addr_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 121
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(99).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/instruction_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 63
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'read_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'write_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'din'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'dout'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-7) Failed to open readmem file "data.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(52)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM
+# FAILED: mem[0] wrong; please set data.txt using Figure 6
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(25)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 25
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+restart -f;run -all
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (9) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(116).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/data_addr_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (10) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/datapath.sv(65).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/data_addr_reg/data_addr_DFF File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 121
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(99).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/instruction_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 63
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'read_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'write_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'din'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'dout'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-7) Failed to open readmem file "data.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(52)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM
+# FAILED: mem[0] wrong; please set data.txt using Figure 6
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(25)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 25
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+restart -f;run -all
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-3015) [PCDPC] - Port size (16) does not match connection size (1) for port 'in'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/cpu.sv(99).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/CPU/instruction_reg File: /home/shihling/git/cpen211-labs/lab7/cpu.sv Line: 63
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'read_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'write_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'din'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'dout'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-7) Failed to open readmem file "data.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(52)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM
+# FAILED: mem[0] wrong; please set data.txt using Figure 6
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(25)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 25
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+restart -f;run -all
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'read_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'write_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'din'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'dout'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-7) Failed to open readmem file "data.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(52)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM
+# FAILED: mem[0] wrong; please set data.txt using Figure 6
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(25)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 25
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+restart -f;run -all
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'read_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (8) for port 'write_address'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'din'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (16) for port 'dout'. The port definition is at: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(38).
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM File: /home/shihling/git/cpen211-labs/lab7/lab7_top.sv Line: 33
+# ** Warning: (vsim-7) Failed to open readmem file "data.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(52)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM
+# FAILED: mem[0] wrong; please set data.txt using Figure 6
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(25)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 25
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+restart -f;run -all
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-7) Failed to open readmem file "data.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(52)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM
+# FAILED: mem[0] wrong; please set data.txt using Figure 6
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(25)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 25
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+restart -f;run -all
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# ** Warning: (vsim-7) Failed to open readmem file "data.txt" in read mode.
+# No such file or directory. (errno = ENOENT)    : /home/shihling/git/cpen211-labs/lab7/lab7_top.sv(52)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb/DUT/MEM
+# FAILED: mem[0] wrong; please set data.txt using Figure 6
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(25)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 25
+restart -f;run -all
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# FAILED: mem[0] wrong; please set data.txt using Figure 6
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(25)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 25
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+restart -f;run -all
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# FAILED: mem[0] wrong; please set data.txt using Figure 6
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(25)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 25
+add wave -position insertpoint  \
+sim:/lab7_check_tb/KEY \
+sim:/lab7_check_tb/SW \
+sim:/lab7_check_tb/LEDR \
+sim:/lab7_check_tb/HEX0 \
+sim:/lab7_check_tb/HEX1 \
+sim:/lab7_check_tb/HEX2 \
+sim:/lab7_check_tb/HEX3 \
+sim:/lab7_check_tb/HEX4 \
+sim:/lab7_check_tb/HEX5 \
+sim:/lab7_check_tb/err
+add wave -position insertpoint  \
+sim:/lab7_check_tb/KEY \
+sim:/lab7_check_tb/SW \
+sim:/lab7_check_tb/LEDR \
+sim:/lab7_check_tb/HEX0 \
+sim:/lab7_check_tb/HEX1 \
+sim:/lab7_check_tb/HEX2 \
+sim:/lab7_check_tb/HEX3 \
+sim:/lab7_check_tb/HEX4 \
+sim:/lab7_check_tb/HEX5 \
+sim:/lab7_check_tb/err
+restart -f;run -all
+# FAILED: mem[0] wrong; please set data.txt using Figure 6
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(25)
+#    Time: 0 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 25
+restart -f;run -all
+# FAILED: PC is not reset to zero.
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(39)
+#    Time: 15 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 39
+add wave -position insertpoint  \
+sim:/lab7_check_tb/DUT/CPU/PC
+restart -f;run -all
+# FAILED: PC is not reset to zero.
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(39)
+#    Time: 15 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 39
+add wave -position insertpoint  \
+sim:/lab7_check_tb/DUT/CPU/load_pc
+add wave -position insertpoint  \
+sim:/lab7_check_tb/DUT/CPU/reset_pc
+restart -f;run -all
+# FAILED: PC is not reset to zero.
+# ** Note: $stop    : /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv(39)
+#    Time: 15 ps  Iteration: 0  Instance: /lab7_check_tb
+# Break in Module lab7_check_tb at /home/shihling/git/cpen211-labs/lab7/lab7_autograder_check.sv line 39
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of cpu_tb.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of datapath_tb.sv was successful.
+# Compile of lab7_autograder_check.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 9 compiles, 0 failed with no errors.
+restart -f;run -all
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.lab7_check_tb
+# Loading work.lab7_top
+# Loading work.cpu
+# Loading work.datapath
+# Loading work.regfile
+# Loading work.ALU
+# Loading work.shifter
+# Loading work.vDFFE
+# Loading work.program_counter
+# Loading work.data_address
+# Loading work.instruction_register
+# Loading work.instruction_decoder
+# Loading work.state_machine
+# Loading work.RAM
+# Break key hit
+# Simulation stop requested.
+# End time: 11:00:43 on Nov 22,2023, Elapsed time: 0:35:00
+# Errors: 0, Warnings: 1
