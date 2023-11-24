@@ -15,16 +15,8 @@ module lab7_top(KEY,SW,LEDR,HEX0,HEX1,HEX2,HEX3,HEX4,HEX5);
     wire msel;
     assign msel = ~mem_addr[8];
 
-    reg write;
-    always_comb begin
-        // Write input for RAM block based on command and msel
-        casex ({mem_cmd, msel}) 
-            {`MWRITE, 1'bx}: write = 1'b1;
-            {`MREAD, 1'b0}: write = 1'b0;
-            {`MREAD, 1'b1}: write = 1'b1;
-            default: write = 1'bx;
-        endcase
-    end
+    wire write;
+    assign write = ((mem_cmd == `MWRITE) & msel) ? 1'b1 : 1'b0;
 
     wire [15:0] dout;
     assign read_data = ((mem_cmd == `MREAD) & msel) ? dout : {16{1'bz}};
