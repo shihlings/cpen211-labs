@@ -14,7 +14,7 @@ module cpu(clk,reset, mem_cmd, mem_addr, read_data, write_data);
    reg [2:0]	 writenum;
    reg [15:0]	 sximm5;
    reg [15:0]	 sximm8;
-   wire		 reset_pc, load_pc, load_ir;
+   wire		 reset_pc, load_pc, load_ir, load_addr;
    wire [8:0] PC;
 
    wire [2:0]	 Z_out;
@@ -110,7 +110,7 @@ module program_counter (clk, load_pc, reset_pc, PC);
    input reset_pc;
    input	load_pc, clk;
 
-   wire [8:0] next_pc = reset_pc ? 9'b0 : PC + 1;
+   wire [8:0] next_pc = reset_pc ? 9'b0 : PC + 9'b1;
    vDFFE #(9) PC_DFF(clk, load_pc, next_pc, PC);
 endmodule
 
@@ -243,7 +243,7 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
           // All instructions that use GetA also use GetB
           {`GetA, `Load_instruction, 2'b00}: state = `AddImm;
           {`GetA, `Store_instruction, 2'b00}: state = `AddImm;
-          {`GetA, {5{1'bx}}}: state = `GetB;
+          {`GetA, `ALU_instruction, 2'bxx}: state = `GetB;
           
           // Decide on what ALU operation to do
           {`GetB, `Move_instruction, 2'b00}: state = `ALUNoOp;
@@ -260,10 +260,11 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
           {`Add, {5{1'bx}}}: state = `WriteReg;
           {`BitwiseAND, {5{1'bx}}}: state = `WriteReg;
           {`BitwiseNOT, {5{1'bx}}}: state = `WriteReg;
-          {`ALUNoOp, `ALU_instruction, 2'bxx}: state = `WriteReg;
+          {`ALUNoOp, `Move_instruction, 2'bxx}: state = `WriteReg;
+          //{`ALUNoOp, `ALU_instruction, 2'bxx}: state = `WriteReg;
           {`ALUNoOp, `Store_instruction, 2'b00}: state = `RegToMem;
 
-          {`WriteDataAddress, `Load_instruction, 2'b00}: state = `Dummy;
+          {`WriteDataAddress, `Load_instruction, 2'b00}: state = `Delay;
           {`WriteDataAddress, `Store_instruction, 2'b00}: state = `GetB_Rd;
 
           {`Delay, `Load_instruction, 2'b00}: state = `RegFromMem;
@@ -499,7 +500,7 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_pc = 1'bx;
 	      load_ir = 1'bx;
          reset_pc = 1'bx;
-         load_addr = 3'bxxx;
+         load_addr = 1'bx;
          mem_cmd = 2'bxx;
          addr_sel = 1'bx;
          {nsel, asel, bsel, vsel} = {6{1'bx}};
