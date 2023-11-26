@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "trigger autograder",
+      "setup": "",
+      "run": "./trigger.py",
+      "input": "",
+      "output": "",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
