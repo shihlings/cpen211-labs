@@ -1,0 +1,3 @@
+All main tasks are performed in pair programming using Visual Studio Code. (fixing cpu.sv, writing lab7_top.sv, lab7_top_tb.sv)
+
+All code was written by us based on the diagrams included in the lab 7 handout. No AI or peer's code was used. 

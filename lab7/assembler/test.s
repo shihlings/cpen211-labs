@@ -1,12 +1,3 @@
-MOV R0, SW_BASE
-LDR R0, [R0] // R0 = 0x140
-LDR R2, [R0] // R2 = value on SW0 through SW7 on DE1-SoC
-MOV R3, R2, LSL #1 // R3 = R2 << 1 (which is 2*R2)
-MOV R1, LEDR_BASE
-LDR R1, [R1] // R1 = 0x100
-STR R3, [R1] // display contents of R3 on red LEDs
-HALT
-SW_BASE:
-.word 0x0140
-LEDR_BASE:
-.word 0x0100
+MOV R0, #7 ; this means, take the absolute number 7 and store it in R0
+MOV R1, #2 ; this means, take the absolute number 2 and store it in R1
+ADD R2, R1, R0, LSL#1 ; this means R2 = R1 + (R0 shifted left by 1) = 2+14=16

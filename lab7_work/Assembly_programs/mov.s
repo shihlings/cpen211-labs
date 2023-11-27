@@ -1,0 +1,3 @@
+	MOV R4, #100
+	MOV R5, R4, LSL #1
+	HALT

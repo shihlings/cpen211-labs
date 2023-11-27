@@ -1,0 +1,3 @@
+All main tasks are performed in pair programming using Visual Studio Code. (fixing ALU.sv, fixing datapath.sv, cpu.sv, cpu_tb.sv)
+
+The main structure of the cpu_tb.sv is sourced from lab6_check.sv, test cases for different instructions were distributed evenly between two members.
