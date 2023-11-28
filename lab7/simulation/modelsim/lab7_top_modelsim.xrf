@@ -1,11 +1,11 @@
 vendor_name = ModelSim
+source_file = 1, /home/shihling/git/cpen211-labs/lab7/data.txt
 source_file = 1, /home/shihling/git/cpen211-labs/lab7/shifter.sv
 source_file = 1, /home/shihling/git/cpen211-labs/lab7/lab7_top.sv
 source_file = 1, /home/shihling/git/cpen211-labs/lab7/regfile.sv
 source_file = 1, /home/shihling/git/cpen211-labs/lab7/cpu.sv
 source_file = 1, /home/shihling/git/cpen211-labs/lab7/alu.sv
 source_file = 1, /home/shihling/git/cpen211-labs/lab7/datapath.sv
-source_file = 1, /home/shihling/git/cpen211-labs/lab7/data.txt
 source_file = 1, /home/shihling/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altsyncram.tdf
 source_file = 1, /home/shihling/intelFPGA_lite/20.1/quartus/libraries/megafunctions/stratix_ram_block.inc
 source_file = 1, /home/shihling/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_mux.inc

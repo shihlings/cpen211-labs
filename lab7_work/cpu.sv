@@ -1,3 +1,37 @@
+// Common States
+`define Reset 5'b00000
+`define Decode 5'b00001
+`define GetA 5'b00010
+`define GetB 5'b00011
+`define Add 5'b00100
+`define WriteReg 5'b00101
+`define WriteImm 5'b00110
+`define ALUNoOp 5'b00111
+`define CMP 5'b01000
+`define BitwiseAND 5'b01001
+`define BitwiseNOT 5'b01010
+`define IF1 5'b01011
+`define IF2 5'b01100
+`define UpdatePC 5'b01101
+`define Halt 5'b01110
+`define WriteDataAddress 5'b01111
+`define AddImm 5'b10000
+`define RegFromMem 5'b10001
+`define RegToMem 5'b10010
+`define Delay 5'b10011
+`define GetB_Rd 5'b10100
+
+// Opcode macros
+`define ALU_instruction 3'b101
+`define Move_instruction 3'b110
+`define Load_instruction 3'b011
+`define Store_instruction 3'b100
+`define Halt_instruction 3'b111
+
+// Memory commands
+`define MWRITE 2'b00
+`define MREAD 2'b01
+
 module cpu(clk,reset, mem_cmd, mem_addr, read_data, write_data);
    input clk, reset;
 
@@ -129,7 +163,7 @@ module instruction_decoder (instruction, opcode, op, nsel, writenum, readnum, sh
    output [1:0]	op;
    output [2:0]	writenum;
    output [2:0]	readnum;
-   output [1:0]	shift;
+   output reg [1:0]	shift;
    output [15:0] sximm8;
    output [15:0] sximm5;
    output [1:0]	 ALUop;
@@ -152,8 +186,6 @@ module instruction_decoder (instruction, opcode, op, nsel, writenum, readnum, sh
    assign Rd = instruction[7:5];
    assign Rm = instruction[2:0];
 
-   assign shift = instruction[4:3];
-
    assign imm5 = instruction[4:0];
    assign imm8 = instruction[7:0];
 
@@ -169,42 +201,14 @@ module instruction_decoder (instruction, opcode, op, nsel, writenum, readnum, sh
         2'b10: reg_mux_out = Rn;
         default: reg_mux_out = 3'bxxx;
       endcase
+
+      case (opcode)
+         `ALU_instruction: shift = instruction[4:3];
+         `Move_instruction: shift = instruction[4:3];
+         default: shift = 2'b00;
+      endcase
    end
 endmodule
-
-// Common States
-`define Reset 5'b00000
-`define Decode 5'b00001
-`define GetA 5'b00010
-`define GetB 5'b00011
-`define Add 5'b00100
-`define WriteReg 5'b00101
-`define WriteImm 5'b00110
-`define ALUNoOp 5'b00111
-`define CMP 5'b01000
-`define BitwiseAND 5'b01001
-`define BitwiseNOT 5'b01010
-`define IF1 5'b01011
-`define IF2 5'b01100
-`define UpdatePC 5'b01101
-`define Halt 5'b01110
-`define WriteDataAddress 5'b01111
-`define AddImm 5'b10000
-`define RegFromMem 5'b10001
-`define RegToMem 5'b10010
-`define Delay 5'b10011
-`define GetB_Rd 5'b10100
-
-// Opcode macros
-`define ALU_instruction 3'b101
-`define Move_instruction 3'b110
-`define Load_instruction 3'b011
-`define Store_instruction 3'b100
-`define Halt_instruction 3'b111
-
-// Memory commands
-`define MWRITE 2'b00
-`define MREAD 2'b01
 
 module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, asel, bsel, vsel, write, load_pc, load_ir, reset_pc, load_addr, addr_sel, mem_cmd);
    input clk, reset;
@@ -465,7 +469,7 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          {nsel, asel, bsel, vsel} = 6'b010011;
       end
       else if (state == `RegToMem) begin
-         {write, loada ,loadb, loadc, loads} = 5'b10000;
+         {write, loada ,loadb, loadc, loads} = 5'b00000;
          load_pc = 1'b0;
 	 load_ir = 1'b0;
          reset_pc = 1'b0;

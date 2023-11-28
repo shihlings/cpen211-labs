@@ -1,5 +1,5 @@
 Timing Analyzer report for lab7_top
-Mon Nov 27 10:12:25 2023
+Mon Nov 27 11:46:20 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -105,9 +105,9 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   4.3%      ;
+;     Processor 2            ;   4.2%      ;
 ;     Processor 3            ;   4.1%      ;
-;     Processor 4            ;   4.0%      ;
+;     Processor 4            ;   3.9%      ;
 ;     Processor 5            ;   3.6%      ;
 ;     Processor 6            ;   3.6%      ;
 ;     Processor 7            ;   3.6%      ;
@@ -116,8 +116,8 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 10           ;   3.6%      ;
 ;     Processor 11           ;   3.6%      ;
 ;     Processor 12           ;   3.6%      ;
-;     Processor 13           ;   3.6%      ;
-;     Processor 14           ;   3.6%      ;
+;     Processor 13           ;   3.5%      ;
+;     Processor 14           ;   3.5%      ;
 +----------------------------+-------------+
 
 
@@ -797,7 +797,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Nov 27 10:12:21 2023
+    Info: Processing started: Mon Nov 27 11:46:16 2023
 Info: Command: quartus_sta lab7_top -c lab7_top
 Info: qsta_default_script.tcl version: #1
 Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not exist in design
@@ -1462,7 +1462,7 @@ Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 578 warnings
     Info: Peak virtual memory: 988 megabytes
-    Info: Processing ended: Mon Nov 27 10:12:25 2023
+    Info: Processing ended: Mon Nov 27 11:46:20 2023
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:04
 
