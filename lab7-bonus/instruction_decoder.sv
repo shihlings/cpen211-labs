@@ -25,7 +25,7 @@ module instruction_decoder (instruction, opcode, op, nsel, writenum, readnum, sh
    output reg [1:0]	shift;
    output [15:0] sximm8;
    output [15:0] sximm5;
-   output [1:0]	 ALUop;
+   output reg [1:0]	 ALUop;
    output reg [1:0] branch_en;
 
    wire [4:0]	 imm5;
@@ -56,8 +56,6 @@ module instruction_decoder (instruction, opcode, op, nsel, writenum, readnum, sh
    assign sximm5 = {{11{imm5[4]}}, imm5};
    assign sximm8 = {{8{imm8[7]}}, imm8};
 
-   assign ALUop = instruction[12:11];
-
    always_comb begin
       case (nsel)
         2'b00: reg_mux_out = Rm;
@@ -71,6 +69,11 @@ module instruction_decoder (instruction, opcode, op, nsel, writenum, readnum, sh
          `Move_instruction: shift = instruction[4:3];
          default: shift = 2'b00;
       endcase
+
+      if (opcode == `ALU_instruction)
+         ALUop = op;
+      else
+         ALUop = 2'b00;
 
       casex ({opcode, op, cond})
         {`Branch_instruction, 2'bxx, `always}: branch_en = 2'b01;

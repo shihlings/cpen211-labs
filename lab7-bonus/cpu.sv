@@ -78,8 +78,8 @@ module cpu(clk,reset, mem_cmd, mem_addr, read_data, write_data, halt);
    always_comb begin
       case (branch_en)
          2'b01: PC_branch_addr_in = sximm8[8:0];
-         2'b10: PC_branch_addr_in = write_data[8:0];
-         default: PC_branch_addr_in = {9{1'b0}};
+         2'b10: PC_branch_addr_in = write_data[8:0];  
+         default: PC_branch_addr_in = {9{1'bx}};
       endcase
    end
 
@@ -235,6 +235,7 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
           {`Decode, `Branch_instruction, 2'b00}: state = `Branch;
           {`Decode, `Branch_link_instruction, 2'b11}: state = `PCtoRn;
           {`Decode, `Branch_link_instruction, 2'b00}: state = `GetB_Rd;
+          {`Decode, `Branch_link_instruction, 2'b10}: state = `PCtoRn;
           
           // Add offset to address moved to A
           {`GetA, `Load_instruction, 2'b00}: state = `AddImm;

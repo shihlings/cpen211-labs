@@ -11,7 +11,7 @@ cModel Technology
 d/home/shihling/intelFPGA_lite/20.1
 vALU
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1701384772
+Z1 !s110 1701398232
 !i10b 1
 !s100 LKZa8PYJdS`1@HCz9^JGT1
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -22,13 +22,13 @@ Z4 d/home/shihling/git/cpen211-labs/lab7-bonus/modelsim
 w1701107951
 8/home/shihling/git/cpen211-labs/lab7-bonus/alu.sv
 F/home/shihling/git/cpen211-labs/lab7-bonus/alu.sv
-!i122 400
+!i122 560
 L0 1 59
 Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1701384772.000000
+Z6 !s108 1701398232.000000
 !s107 /home/shihling/git/cpen211-labs/lab7-bonus/alu.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7-bonus/alu.sv|
 !i113 1
@@ -39,16 +39,16 @@ vcpu
 R0
 R1
 !i10b 1
-!s100 8KT3Fj5EQiI9GE9?kDAJR3
+!s100 2omi;<5oIRIi=Wi;O@SEX0
 R2
-IR1lm4kE^JFV0fXo[=XS2a1
+IoQdM56LBnDRGR5?Van_MP0
 R3
 S1
 R4
-Z9 w1701384731
+Z9 w1701393464
 Z10 8/home/shihling/git/cpen211-labs/lab7-bonus/cpu.sv
 Z11 F/home/shihling/git/cpen211-labs/lab7-bonus/cpu.sv
-!i122 401
+!i122 561
 L0 41 118
 R5
 r1
@@ -73,7 +73,7 @@ R4
 R9
 R10
 R11
-!i122 401
+!i122 561
 L0 193 7
 R5
 r1
@@ -98,7 +98,7 @@ R4
 Z14 w1701107992
 Z15 8/home/shihling/git/cpen211-labs/lab7-bonus/datapath.sv
 Z16 F/home/shihling/git/cpen211-labs/lab7-bonus/datapath.sv
-!i122 402
+!i122 562
 L0 1 63
 R5
 r1
@@ -114,17 +114,17 @@ vinstruction_decoder
 R0
 R1
 !i10b 1
-!s100 kml][EG69ZcJk;d_oL4R81
+!s100 RmzBMSCFjHEA9]RcS[2[Y3
 R2
-IH86DNnROG_4C=U=DKL15i0
+Iaz2^F7i8`2Ea6XLaH>FQ>2
 R3
 S1
 R4
-w1701381702
+w1701393417
 8/home/shihling/git/cpen211-labs/lab7-bonus/instruction_decoder.sv
 F/home/shihling/git/cpen211-labs/lab7-bonus/instruction_decoder.sv
-!i122 403
-L0 17 71
+!i122 563
+L0 17 74
 R5
 r1
 !s85 0
@@ -148,7 +148,7 @@ R4
 R9
 R10
 R11
-!i122 401
+!i122 561
 L0 160 7
 R5
 r1
@@ -198,7 +198,7 @@ R4
 w1701035100
 8/home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_autograder_check.sv
 F/home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_autograder_check.sv
-!i122 405
+!i122 565
 L0 1 71
 R5
 r1
@@ -212,7 +212,7 @@ R7
 R8
 vlab7bonus_stage2_tb
 R0
-R1
+Z23 !s110 1701398233
 !i10b 1
 !s100 I;N6fI6XXJgl3Dz?6z@6z2
 R2
@@ -223,13 +223,13 @@ R4
 w1701380159
 8/home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_stage2_tb.sv
 F/home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_stage2_tb.sv
-!i122 406
+!i122 566
 L0 3 35
 R5
 r1
 !s85 0
 31
-R6
+Z24 !s108 1701398233.000000
 !s107 /home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_stage2_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_stage2_tb.sv|
 !i113 1
@@ -245,10 +245,10 @@ IkJHdKB@@Z=`[nAX]ifTSm3
 R3
 S1
 R4
-Z23 w1701379240
+Z25 w1701379240
 R19
 R20
-!i122 404
+!i122 564
 L0 8 26
 R5
 r1
@@ -270,10 +270,10 @@ I7cniIkR3FUB50IFi1eh722
 R3
 S1
 R4
-R23
+R25
 R19
 R20
-!i122 404
+!i122 564
 L0 35 13
 R5
 r1
@@ -299,7 +299,7 @@ R4
 R9
 R10
 R11
-!i122 401
+!i122 561
 L0 168 24
 R5
 r1
@@ -313,7 +313,7 @@ R7
 R8
 vRAM
 R0
-R1
+R23
 !i10b 1
 !s100 7__<oHXRIAU1PW9::HYa>1
 R2
@@ -324,13 +324,13 @@ R4
 w1701377803
 8/home/shihling/git/cpen211-labs/lab7-bonus/ram.sv
 F/home/shihling/git/cpen211-labs/lab7-bonus/ram.sv
-!i122 407
+!i122 567
 L0 2 23
 R5
 r1
 !s85 0
 31
-R6
+R24
 !s107 /home/shihling/git/cpen211-labs/lab7-bonus/ram.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7-bonus/ram.sv|
 !i113 1
@@ -339,7 +339,7 @@ R8
 n@r@a@m
 vregfile
 R0
-R1
+R23
 !i10b 1
 !s100 mmXa3=eFZOQQRm0Pf;La31
 R2
@@ -350,13 +350,13 @@ R4
 w1701108063
 8/home/shihling/git/cpen211-labs/lab7-bonus/regfile.sv
 F/home/shihling/git/cpen211-labs/lab7-bonus/regfile.sv
-!i122 408
+!i122 568
 L0 1 45
 R5
 r1
 !s85 0
 31
-R6
+R24
 !s107 /home/shihling/git/cpen211-labs/lab7-bonus/regfile.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7-bonus/regfile.sv|
 !i113 1
@@ -364,7 +364,7 @@ R7
 R8
 vshifter
 R0
-R1
+R23
 !i10b 1
 !s100 MC^zS54=cM?GIX?GmWa=N3
 R2
@@ -375,13 +375,13 @@ R4
 w1701108071
 8/home/shihling/git/cpen211-labs/lab7-bonus/shifter.sv
 F/home/shihling/git/cpen211-labs/lab7-bonus/shifter.sv
-!i122 409
+!i122 569
 L0 1 15
 R5
 r1
 !s85 0
 31
-R6
+R24
 !s107 /home/shihling/git/cpen211-labs/lab7-bonus/shifter.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7-bonus/shifter.sv|
 !i113 1
@@ -391,17 +391,17 @@ vstate_machine
 R0
 R1
 !i10b 1
-!s100 X^=nfWJGSfh?P8HKMlYIe2
+!s100 <0SeV=nOFbm;m?FomcFSW3
 R2
-I[TlZCGR>a_a[>5f14dn3f1
+INUic@VkzfYfXL4MX1R]eB0
 R3
 S1
 R4
 R9
 R10
 R11
-!i122 401
-L0 201 385
+!i122 561
+L0 201 386
 R5
 r1
 !s85 0
@@ -422,10 +422,10 @@ Im[Iofoj2CVO=mlT;4OL0o1
 R3
 S1
 R4
-R23
+R25
 R19
 R20
-!i122 404
+!i122 564
 L0 49 8
 R5
 r1
@@ -451,7 +451,7 @@ R4
 R14
 R15
 R16
-!i122 402
+!i122 562
 L0 65 12
 R5
 r1
