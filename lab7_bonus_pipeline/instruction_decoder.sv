@@ -14,32 +14,24 @@
 `define less_than 3'b011
 `define less_than_equal 3'b100
 
-module instruction_decoder (instruction, opcode, op, nsel, writenum, readnum, shift, sximm8, sximm5, ALUop, branch_en, status);
+module instruction_decoder (instruction, opcode, op, Rn, Rd, Rm, shift, sximm8, sximm5, ALUop, branch_en, status);
    input [15:0] instruction;
-   input [1:0]	nsel;
    input [2:0] status;
    output [2:0]	opcode;
    output [1:0]	op;
-   output [2:0]	writenum;
-   output [2:0]	readnum;
    output reg [1:0]	shift;
    output [15:0] sximm8;
    output [15:0] sximm5;
    output reg [1:0]	 ALUop;
    output reg [1:0] branch_en;
+   output [2:0]	 Rn;
+   output [2:0]	 Rd;
+   output [2:0]	 Rm;
 
    wire [4:0]	 imm5;
    wire [7:0]	 imm8;
 
    wire [2:0] cond;
-   
-   wire [2:0]	 Rn;
-   wire [2:0]	 Rd;
-   wire [2:0]	 Rm;
-
-   reg [2:0]	 reg_mux_out;
-   assign writenum = reg_mux_out;
-   assign readnum = reg_mux_out;
 
    assign opcode = instruction[15:13];
    assign op = instruction[12:11];
@@ -57,13 +49,6 @@ module instruction_decoder (instruction, opcode, op, nsel, writenum, readnum, sh
    assign sximm8 = {{8{imm8[7]}}, imm8};
 
    always_comb begin
-      case (nsel)
-        2'b00: reg_mux_out = Rm;
-        2'b01: reg_mux_out = Rd;
-        2'b10: reg_mux_out = Rn;
-        default: reg_mux_out = 3'bxxx;
-      endcase
-
       case (opcode)
          `ALU_instruction: shift = instruction[4:3];
          `Move_instruction: shift = instruction[4:3];

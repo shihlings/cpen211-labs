@@ -1,9 +1,10 @@
-module datapath (clk, loada, loadb, loadc, loads, asel, bsel, vsel, write, ALUop, shift, readnum, writenum, PC, mdata, sximm5, sximm8, datapath_out, Z_out);
+module datapath (clk, loada, loadb, loadc, loads, asel, bsel, vsel, write, ALUop, shift, readA, readB, writenum, PC, mdata, sximm5, sximm8, datapath_out, Z_out);
    input clk, loada, loadb, loadc, loads, asel, bsel, write;
    input [1:0] vsel;
    input [1:0] ALUop;
    input [1:0] shift;
-   input [2:0] readnum;
+   input [2:0] readA;
+   input [2:0] readB;
    input [2:0] writenum;
    input [8:0] PC;
    input [15:0]	mdata;
@@ -23,19 +24,19 @@ module datapath (clk, loada, loadb, loadc, loads, asel, bsel, vsel, write, ALUop
    wire [15:0]	 Bin;
 
    reg [15:0]	 data_in;
-   wire [15:0]	 data_out;
+   wire [15:0]	 A_out, B_out;
 
    wire [15:0]	 out;
    wire [2:0]	 Z;
    
-   regfile REGFILE(data_in, writenum, write, readnum, clk, data_out);
+   regfile REGFILE(data_in, writenum, write, readA, readB, clk, A_out, B_out);
    ALU alu(Ain, Bin, ALUop, out, Z);
    shifter SHIFTER(B, shift, sout);
 
    // Register A
-   vDFFE #(16) ADFF(clk, loada, data_out, A);
+   vDFFE #(16) ADFF(clk, loada, A_out, A);
    // Register B
-   vDFFE #(16) BDFF(clk, loadb, data_out, B);
+   vDFFE #(16) BDFF(clk, loadb, B_out, B);
    // Register C
    vDFFE #(16) CDFF(clk, loadc, out, C);
    // Register status

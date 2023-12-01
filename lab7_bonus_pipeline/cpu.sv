@@ -1,8 +1,8 @@
 // Common States
 `define Reset 5'b00000
 `define Decode 5'b00001
-`define GetA 5'b00010
-`define GetB 5'b00011
+`define GetReg 5'b00010
+// Formerly GetB
 `define Add 5'b00100
 `define WriteReg 5'b00101
 `define WriteImm 5'b00110
@@ -51,8 +51,12 @@ module cpu(clk,reset, mem_cmd, mem_addr, read_data, write_data, halt);
    reg [1:0]	 vsel;
    reg [1:0]	 ALUop;
    reg [1:0]	 shift;
-   reg [2:0]	 readnum;
-   reg [2:0]	 writenum;
+   wire [2:0]	 readA;
+   wire [2:0]	 readB;
+   wire [2:0]	 writenum;
+   wire [2:0]	 Rn;
+   wire [2:0]	 Rd;
+   wire [2:0]	 Rm;
    reg [15:0]	 sximm5;
    reg [15:0]	 sximm8;
    wire		 reset_pc, load_pc, load_ir, load_addr;
@@ -62,7 +66,6 @@ module cpu(clk,reset, mem_cmd, mem_addr, read_data, write_data, halt);
    wire [15:0]	 instruction_reg_out;
    
    // Interface between decoder and state machine
-   wire [1:0]	 nsel;
    wire [2:0]	 opcode;
    wire [1:0]	 op;
    wire [1:0] branch_en;
@@ -94,7 +97,8 @@ module cpu(clk,reset, mem_cmd, mem_addr, read_data, write_data, halt);
                 .write(write),
                 .ALUop(ALUop),
                 .shift(shift),
-                .readnum(readnum),
+                .readA(readA),
+                .readB(readB),
                 .writenum(writenum),
                 .PC(PC),
                 .mdata(read_data), 
@@ -122,11 +126,11 @@ module cpu(clk,reset, mem_cmd, mem_addr, read_data, write_data, halt);
                                          .out(instruction_reg_out));
 
    instruction_decoder decode (.instruction(instruction_reg_out),
-                               .nsel(nsel),
                                .opcode(opcode),
                                .op(op),
-                               .writenum(writenum),
-                               .readnum(readnum),
+                               .Rn(Rn),
+                               .Rd(Rd),
+                               .Rm(Rm),
                                .shift(shift),
                                .sximm8(sximm8),
                                .sximm5(sximm5),
@@ -137,7 +141,6 @@ module cpu(clk,reset, mem_cmd, mem_addr, read_data, write_data, halt);
    state_machine controller (.reset(reset), 
                              .opcode(opcode), 
                              .op(op), 
-                             .nsel(nsel), 
                              .loada(loada), 
                              .loadb(loadb),
                              .loadc(loadc), 
@@ -148,13 +151,19 @@ module cpu(clk,reset, mem_cmd, mem_addr, read_data, write_data, halt);
                              .write(write),
                              .clk(clk),
                              .load_pc(load_pc),
-			     .load_ir(load_ir),
+			                    .load_ir(load_ir),
                              .reset_pc(reset_pc),
                              .load_addr(load_addr),
                              .addr_sel(addr_sel),
                              .mem_cmd(mem_cmd),
                              .halt(halt),
-                             .allow_branch(allow_branch));
+                             .allow_branch(allow_branch),
+                             .readA(readA),
+                             .readB(readB),
+                             .writenum(writenum),
+                             .Rn(Rn),
+                             .Rd(Rd),
+                             .Rm(Rm));
 endmodule
 
 module instruction_register (clk, load, in, out);
@@ -198,11 +207,16 @@ module data_address (clk, load_addr, in, out);
    vDFFE #(9) data_addr_DFF(clk, load_addr, in, out);
 endmodule
 
-module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, asel, bsel, vsel, write, load_pc, load_ir, reset_pc, load_addr, addr_sel, mem_cmd, halt, allow_branch);
+module state_machine (clk, reset, opcode, op, Rn, Rd, Rm, readA, readB, writenum, loada, loadb, loadc, loads, asel, bsel, vsel, write, load_pc, load_ir, reset_pc, load_addr, addr_sel, mem_cmd, halt, allow_branch);
    input clk, reset;
    input [2:0] opcode;
    input [1:0] op;
-   output reg [1:0] nsel;
+   input [2:0] Rn;
+   input [2:0] Rd;
+   input [2:0] Rm;
+   output reg [2:0] readA;
+   output reg [2:0] readB;
+   output reg [2:0] writenum;
    output reg	    asel, bsel, write, loada, loadb, loadc, loads, load_pc, load_ir, reset_pc, load_addr, addr_sel;
    output reg [1:0] vsel;
    output reg [1:0] mem_cmd;
@@ -223,14 +237,14 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
           {`Halt, `Halt_instruction, 2'b00}: state = `Halt;
 
           // Start instructions
-          {`Decode, `Move_instruction, 2'b00}: state = `GetB;
+          {`Decode, `Move_instruction, 2'b00}: state = `GetReg;
           {`Decode, `Move_instruction, 2'b10}: state = `WriteImm;
-          {`Decode, `ALU_instruction, 2'b00}: state = `GetA;
-          {`Decode, `ALU_instruction, 2'b01}: state = `GetA;
-          {`Decode, `ALU_instruction, 2'b10}: state = `GetA;
-          {`Decode, `ALU_instruction, 2'b11}: state = `GetB;
-          {`Decode, `Load_instruction, 2'b00}: state = `GetA;
-          {`Decode, `Store_instruction, 2'b00}: state = `GetA;
+          {`Decode, `ALU_instruction, 2'b00}: state = `GetReg;
+          {`Decode, `ALU_instruction, 2'b01}: state = `GetReg;
+          {`Decode, `ALU_instruction, 2'b10}: state = `GetReg;
+          {`Decode, `ALU_instruction, 2'b11}: state = `GetReg;
+          {`Decode, `Load_instruction, 2'b00}: state = `GetReg;
+          {`Decode, `Store_instruction, 2'b00}: state = `GetReg;
           {`Decode, `Halt_instruction, 2'b00}: state = `Halt;
           {`Decode, `Branch_instruction, 2'b00}: state = `Branch;
           {`Decode, `Branch_link_instruction, 2'b11}: state = `PCtoRn;
@@ -238,18 +252,15 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
           {`Decode, `Branch_link_instruction, 2'b10}: state = `PCtoRn;
           
           // Add offset to address moved to A
-          {`GetA, `Load_instruction, 2'b00}: state = `AddImm;
-          {`GetA, `Store_instruction, 2'b00}: state = `AddImm;
-
-          // Move other number to B in preparation for adding
-          {`GetA, `ALU_instruction, 2'bxx}: state = `GetB;
+          {`GetReg, `Load_instruction, 2'b00}: state = `AddImm;
+          {`GetReg, `Store_instruction, 2'b00}: state = `AddImm;
           
           // Decide on what ALU operation to do
-          {`GetB, `Move_instruction, 2'b00}: state = `ALUNoOp;
-          {`GetB, `ALU_instruction, 2'b00}: state = `Add; 
-          {`GetB, `ALU_instruction, 2'b01}: state = `CMP;
-          {`GetB, `ALU_instruction, 2'b10}: state = `BitwiseAND;
-          {`GetB, `ALU_instruction, 2'b11}: state = `BitwiseNOT;
+          {`GetReg, `Move_instruction, 2'b00}: state = `ALUNoOp;
+          {`GetReg, `ALU_instruction, 2'b00}: state = `Add; 
+          {`GetReg, `ALU_instruction, 2'b01}: state = `CMP;
+          {`GetReg, `ALU_instruction, 2'b10}: state = `BitwiseAND;
+          {`GetReg, `ALU_instruction, 2'b11}: state = `BitwiseNOT;
           
           // Pas the value through the datapath
           {`GetB_Rd, `Store_instruction, 2'b00}: state = `ALUNoOp;
@@ -315,7 +326,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b0;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `IF1) begin
@@ -326,7 +340,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `IF2) begin
@@ -337,7 +354,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `UpdatePC) begin
@@ -348,7 +368,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `Decode) begin
@@ -359,29 +382,24 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
-      else if (state == `GetA) begin
+      else if (state == `GetReg) begin
          {write, loada ,loadb, loadc, loads} = 5'b01000;
          load_pc = 1'b0;
-	 load_ir = 1'b0;
+	      load_ir = 1'b0;
          reset_pc = 1'b0;
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b100000;  
-         allow_branch = 1'b0;
-      end
-      else if (state == `GetB) begin
-         {write, loada ,loadb, loadc, loads} = 5'b00100;
-         load_pc = 1'b0;
-	 load_ir = 1'b0;
-         reset_pc = 1'b0;
-         load_addr = 1'b0;
-         mem_cmd = `MREAD;
-         addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000; 
+         readA = Rn;
+         readB = Rm;
+         writenum = 3'b000; 
          allow_branch = 1'b0;
       end
       else if (state == `Add) begin
@@ -392,7 +410,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `CMP) begin
@@ -403,7 +424,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `BitwiseAND) begin
@@ -414,7 +438,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `BitwiseNOT) begin
@@ -425,7 +452,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `ALUNoOp) begin
@@ -436,7 +466,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b001000;
+         {asel, bsel, vsel} = 4'b1000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `WriteReg) begin
@@ -447,7 +480,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b010000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = Rd;
          allow_branch = 1'b0;
       end
       else if (state == `WriteImm) begin
@@ -458,7 +494,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b0;
-         {nsel, asel, bsel, vsel} = 6'b100010;
+         {asel, bsel, vsel} = 4'b0010;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = Rn;
          allow_branch = 1'b0;
       end
       else if (state == `Halt) begin
@@ -469,7 +508,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b0;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `WriteDataAddress) begin
@@ -480,7 +522,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b1;
          mem_cmd = `MREAD;
          addr_sel = 1'b0;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `RegFromMem) begin
@@ -491,7 +536,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b0;
-         {nsel, asel, bsel, vsel} = 6'b010011;
+         {asel, bsel, vsel} = 4'b0011;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = Rd;
          allow_branch = 1'b0;
       end
       else if (state == `RegToMem) begin
@@ -502,7 +550,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MWRITE;
          addr_sel = 1'b0;
-         {nsel, asel, bsel, vsel} = 6'b010000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = Rd;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `AddImm) begin
@@ -513,7 +564,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b0;
-         {nsel, asel, bsel, vsel} = 6'b000100;
+         {asel, bsel, vsel} = 4'b0100;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `Delay) begin
@@ -524,7 +578,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b0;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `GetB_Rd) begin
@@ -535,7 +592,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b010000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = Rd;
+         writenum = 3'b000;
          allow_branch = 1'b0;
       end
       else if (state == `PCtoRn) begin
@@ -546,7 +606,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b100001;
+         {asel, bsel, vsel} = 4'b0001;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = Rn;
          allow_branch = 1'b0;
       end
       else if (state == `RdtoPC) begin
@@ -557,7 +620,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b010000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = Rd;
+         writenum = 3'b000;
          allow_branch = 1'b1;
       end
       else if (state == `Branch) begin
@@ -568,7 +634,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'b0;
          mem_cmd = `MREAD;
          addr_sel = 1'b1;
-         {nsel, asel, bsel, vsel} = 6'b000000;
+         {asel, bsel, vsel} = 4'b0000;
+         readA = 3'b000;
+         readB = 3'b000;
+         writenum = 3'b000;
          allow_branch = 1'b1;
       end
       else begin // should not end up here
@@ -579,7 +648,10 @@ module state_machine (clk, reset, opcode, op, nsel, loada, loadb, loadc, loads, 
          load_addr = 1'bx;
          mem_cmd = 2'bxx;
          addr_sel = 1'bx;
-         {nsel, asel, bsel, vsel} = {6{1'bx}};
+         {asel, bsel, vsel} = {6{1'bx}};
+         readA = 3'bxxx;
+         readB = 3'bxxx;
+         writenum = 3'bxxx;
          allow_branch = 1'bx;
       end
    end
