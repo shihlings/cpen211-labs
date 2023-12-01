@@ -5,13 +5,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	shifter
 
-} {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/alu.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/alu.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ALU
-
-Top level modules:
-	ALU
-
 } {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/regfile.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/regfile.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module regfile
@@ -19,12 +12,26 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	regfile
 
-} {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/instruction_decoder.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/instruction_decoder.sv
+} {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/alu.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/alu.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module instruction_decoder
+-- Compiling module ALU
 
 Top level modules:
-	instruction_decoder
+	ALU
+
+} {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_stage2_tb.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_stage2_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module lab7bonus_stage2_tb
+
+Top level modules:
+	lab7bonus_stage2_tb
+
+} {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_autograder_check.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_autograder_check.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module lab7bonus_check_tb
+
+Top level modules:
+	lab7bonus_check_tb
 
 } {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/datapath.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/datapath.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -34,38 +41,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	datapath
 
-} {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_autograder_check.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_autograder_check.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module lab7bonus_check_tb
-
-Top level modules:
-	lab7bonus_check_tb
-
-} {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_stage2_tb.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/lab7bonus_stage2_tb.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module lab7bonus_stage2_tb
-
-Top level modules:
-	lab7bonus_stage2_tb
-
-} {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/cpu.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/cpu.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module cpu
--- Compiling module instruction_register
--- Compiling module program_counter
--- Compiling module data_address
--- Compiling module state_machine
-
-Top level modules:
-	cpu
-
-} {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/ram.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/ram.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module RAM
-
-Top level modules:
-	RAM
-
 } {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/lab7_top.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/lab7_top.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module lab7bonus_top
@@ -74,5 +49,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	lab7bonus_top
+
+} {} {}} /home/shihling/git/cpen211-labs/lab7-bonus/ram.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7-bonus/ram.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module RAM
+
+Top level modules:
+	RAM
 
 } {} {}}
