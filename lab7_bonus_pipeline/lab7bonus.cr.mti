@@ -1,0 +1,78 @@
+/home/shihling/git/lab-7-l1c-bonus-shihlings/shifter.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/lab-7-l1c-bonus-shihlings/shifter.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module shifter
+
+Top level modules:
+	shifter
+
+} {} {}} /home/shihling/git/lab-7-l1c-bonus-shihlings/alu.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/lab-7-l1c-bonus-shihlings/alu.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} /home/shihling/git/lab-7-l1c-bonus-shihlings/regfile.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/lab-7-l1c-bonus-shihlings/regfile.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module regfile
+
+Top level modules:
+	regfile
+
+} {} {}} /home/shihling/git/lab-7-l1c-bonus-shihlings/datapath.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/lab-7-l1c-bonus-shihlings/datapath.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module datapath
+-- Compiling module vDFFE
+
+Top level modules:
+	datapath
+
+} {} {}} /home/shihling/git/lab-7-l1c-bonus-shihlings/instruction_decoder.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/lab-7-l1c-bonus-shihlings/instruction_decoder.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module instruction_decoder
+
+Top level modules:
+	instruction_decoder
+
+} {} {}} /home/shihling/git/lab-7-l1c-bonus-shihlings/lab7bonus_autograder_check.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/lab-7-l1c-bonus-shihlings/lab7bonus_autograder_check.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module lab7bonus_check_tb
+
+Top level modules:
+	lab7bonus_check_tb
+
+} {} {}} /home/shihling/git/lab-7-l1c-bonus-shihlings/lab7bonus_stage2_tb.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/lab-7-l1c-bonus-shihlings/lab7bonus_stage2_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module lab7bonus_stage2_tb
+
+Top level modules:
+	lab7bonus_stage2_tb
+
+} {} {}} /home/shihling/git/lab-7-l1c-bonus-shihlings/cpu.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/lab-7-l1c-bonus-shihlings/cpu.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module cpu
+-- Compiling module instruction_register
+-- Compiling module program_counter
+-- Compiling module data_address
+-- Compiling module state_machine
+
+Top level modules:
+	cpu
+
+} {} {}} /home/shihling/git/lab-7-l1c-bonus-shihlings/lab7_top.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/lab-7-l1c-bonus-shihlings/lab7_top.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module lab7bonus_top
+-- Compiling module LED_controller
+-- Compiling module SW_controller
+
+Top level modules:
+	lab7bonus_top
+
+} {} {}} /home/shihling/git/lab-7-l1c-bonus-shihlings/ram.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/lab-7-l1c-bonus-shihlings/ram.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module RAM
+
+Top level modules:
+	RAM
+
+} {} {}}

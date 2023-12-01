@@ -1,0 +1,12 @@
+# Loading project lab7bonus
+# Compile of alu.sv was successful.
+# Compile of cpu.sv was successful.
+# Compile of datapath.sv was successful.
+# Compile of instruction_decoder.sv was successful.
+# Compile of lab7_top.sv was successful.
+# Compile of lab7bonus_autograder_check.sv was successful.
+# Compile of lab7bonus_stage2_tb.sv was successful.
+# Compile of ram.sv was successful.
+# Compile of regfile.sv was successful.
+# Compile of shifter.sv was successful.
+# 10 compiles, 0 failed with no errors.
