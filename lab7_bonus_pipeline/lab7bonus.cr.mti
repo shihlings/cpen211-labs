@@ -1,25 +1,4 @@
-/home/shihling/git/cpen211-labs/lab7_bonus_pipeline/regfile.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/regfile.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module regfile
-
-Top level modules:
-	regfile
-
-} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/alu.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/alu.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ALU
-
-Top level modules:
-	ALU
-
-} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7bonus_autograder_check.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7bonus_autograder_check.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module lab7bonus_check_tb
-
-Top level modules:
-	lab7bonus_check_tb
-
-} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7bonus_stage2_tb.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7bonus_stage2_tb.sv
+/home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7bonus_stage2_tb.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7bonus_stage2_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module lab7bonus_stage2_tb
 
@@ -33,6 +12,57 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	instruction_decoder
 
+} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7bonus_autograder_check.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7bonus_autograder_check.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module lab7bonus_check_tb
+
+Top level modules:
+	lab7bonus_check_tb
+
+} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7_autograder_check.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7_autograder_check.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module lab7_check_tb
+
+Top level modules:
+	lab7_check_tb
+
+} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7_top.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7_top.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module lab7bonus_top
+-- Compiling module LED_controller
+-- Compiling module SW_controller
+
+Top level modules:
+	lab7bonus_top
+
+} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/alu.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/alu.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/ultimate_test.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/ultimate_test.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ultimate_test
+
+Top level modules:
+	ultimate_test
+
+} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/shifter.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/shifter.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module shifter
+
+Top level modules:
+	shifter
+
+} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/regfile.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/regfile.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module regfile
+
+Top level modules:
+	regfile
+
 } {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/datapath.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/datapath.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module datapath
@@ -40,6 +70,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	datapath
+
+} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/ram.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/ram.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module RAM
+
+Top level modules:
+	RAM
 
 } {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/cpu.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/cpu.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -51,35 +88,5 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	cpu
-
-} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7_autograder_check.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7_autograder_check.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module lab7_check_tb
-
-Top level modules:
-	lab7_check_tb
-
-} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/ram.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/ram.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module RAM
-
-Top level modules:
-	RAM
-
-} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7_top.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/lab7_top.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module lab7bonus_top
--- Compiling module LED_controller
--- Compiling module SW_controller
-
-Top level modules:
-	lab7bonus_top
-
-} {} {}} /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/shifter.sv {1 {vlog -work work -sv -stats=none /home/shihling/git/cpen211-labs/lab7_bonus_pipeline/shifter.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module shifter
-
-Top level modules:
-	shifter
 
 } {} {}}

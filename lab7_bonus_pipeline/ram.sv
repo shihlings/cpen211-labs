@@ -15,10 +15,10 @@ module RAM(clk,read_address,write_address,write,din,dout);
 
    initial $readmemb(filename, mem);
 
-   always @ (posedge clk) begin
+   always @ (negedge clk) begin
       if (write)
-	mem[write_address] <= din;
-      dout <= mem[read_address]; // dout doesn't get din in this clock cycle 
+	      mem[write_address] <= din;
       // (this is due to Verilog non-blocking assignment "<=")
+      dout <= mem[read_address]; // dout doesn't get din in this clock cycle 
    end 
 endmodule

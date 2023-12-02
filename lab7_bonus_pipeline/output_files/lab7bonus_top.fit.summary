@@ -1,16 +1,16 @@
-Fitter Status : Successful - Fri Dec  1 10:46:00 2023
+Fitter Status : Successful - Fri Dec  1 19:19:36 2023
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : lab7bonus_top
 Top-level Entity Name : lab7bonus_top
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 148 / 32,070 ( < 1 % )
-Total registers : 71
+Logic utilization (in ALMs) : 221 / 32,070 ( < 1 % )
+Total registers : 205
 Total pins : 67 / 457 ( 15 % )
 Total virtual pins : 0
-Total block memory bits : 4,352 / 4,065,280 ( < 1 % )
-Total RAM Blocks : 3 / 397 ( < 1 % )
+Total block memory bits : 4,096 / 4,065,280 ( < 1 % )
+Total RAM Blocks : 1 / 397 ( < 1 % )
 Total DSP Blocks : 0 / 87 ( 0 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
