@@ -15,7 +15,7 @@ module RAM(clk,read_address,write_address,write,din,dout);
 
    initial $readmemb(filename, mem);
 
-   always @ (negedge clk) begin
+   always @ (posedge clk) begin
       if (write)
 	      mem[write_address] <= din;
       // (this is due to Verilog non-blocking assignment "<=")
