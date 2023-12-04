@@ -1,0 +1,472 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/shihling/intelFPGA_lite/20.1
+vALU
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z1 !s110 1701564449
+!i10b 1
+!s100 @Kg4`lnJ2cdc@ngalX_?13
+IV?C3nJ[ZEgKU14b<<794;0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 alu_sv_unit
+S1
+Z3 dC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline
+Z4 w1701559545
+8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/alu.sv
+FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/alu.sv
+L0 1
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1701564449.000000
+!s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/alu.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/alu.sv|
+!i113 1
+Z7 o-work work -sv
+Z8 tCvgOpt 0
+n@a@l@u
+vcpu
+R0
+R1
+!i10b 1
+!s100 5XUEQm_245Mnm18QzMZD20
+IHNh]5nmnK[J;AjWXlCBE32
+R2
+Z9 !s105 cpu_sv_unit
+S1
+R3
+Z10 w1701564445
+Z11 8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/cpu.sv
+Z12 FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/cpu.sv
+L0 42
+R5
+r1
+!s85 0
+31
+R6
+Z13 !s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/cpu.sv|
+Z14 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/cpu.sv|
+!i113 1
+R7
+R8
+vdata_address
+R0
+R1
+!i10b 1
+!s100 2@2Z<`iQ3BANS6M>=RQEa2
+IXodWUFWmG?A3n2gReKaB;0
+R2
+R9
+S1
+R3
+R10
+R11
+R12
+L0 197
+R5
+r1
+!s85 0
+31
+R6
+R13
+R14
+!i113 1
+R7
+R8
+vdatapath
+R0
+R1
+!i10b 1
+!s100 >0mB9_m:a=YR8Xc7BZoeb0
+I6oL_8zTd>iicVTAK]bVii2
+R2
+Z15 !s105 datapath_sv_unit
+S1
+R3
+R4
+Z16 8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/datapath.sv
+Z17 FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/datapath.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+Z18 !s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/datapath.sv|
+Z19 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/datapath.sv|
+!i113 1
+R7
+R8
+vinstruction_decoder
+R0
+R1
+!i10b 1
+!s100 nmYmA>=cfCkkBPW50e0jG3
+IWhR5?1P;=I4HSlQ<fVgzH1
+R2
+!s105 instruction_decoder_sv_unit
+S1
+R3
+R4
+8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/instruction_decoder.sv
+FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/instruction_decoder.sv
+L0 17
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/instruction_decoder.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/instruction_decoder.sv|
+!i113 1
+R7
+R8
+vinstruction_register
+R0
+R1
+!i10b 1
+!s100 7KnNKR=iS3DU;i>kSAM9L0
+I3=E>K@:D81O?=fAadiGeR0
+R2
+R9
+S1
+R3
+R10
+R11
+R12
+L0 164
+R5
+r1
+!s85 0
+31
+R6
+R13
+R14
+!i113 1
+R7
+R8
+vlab7_check_tb
+R0
+R1
+!i10b 1
+!s100 IH=QIko7HHLn?WgkGj@Ne3
+ImU5SY726l5lZhFV9`:mk92
+R2
+!s105 lab7_autograder_check_sv_unit
+S1
+R3
+R4
+8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7_autograder_check.sv
+FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7_autograder_check.sv
+L0 7
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7_autograder_check.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7_autograder_check.sv|
+!i113 1
+R7
+R8
+vlab7bonus_check_tb
+R0
+R1
+!i10b 1
+!s100 RL0BB]5N^0<cV[kHZZVYB0
+IjB7gLm8n]hN>Z3^DJlQk51
+R2
+!s105 lab7bonus_autograder_check_sv_unit
+S1
+R3
+R4
+8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7bonus_autograder_check.sv
+FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7bonus_autograder_check.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7bonus_autograder_check.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7bonus_autograder_check.sv|
+!i113 1
+R7
+R8
+vlab7bonus_stage2_tb
+R0
+Z20 !s110 1701564450
+!i10b 1
+!s100 5HeX@=OB6eVhOd`MT6knL3
+IaSJ?1LgF63SHNG@S4A:A93
+R2
+!s105 lab7bonus_stage2_tb_sv_unit
+S1
+R3
+R4
+8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7bonus_stage2_tb.sv
+FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7bonus_stage2_tb.sv
+L0 3
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7bonus_stage2_tb.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7bonus_stage2_tb.sv|
+!i113 1
+R7
+R8
+vlab7bonus_top
+R0
+R1
+!i10b 1
+!s100 iomTd;SPJi[=ne;;9^NI41
+I?BC]]k68YhWzF>UIOHg[F2
+R2
+Z21 !s105 lab7_top_sv_unit
+S1
+R3
+R4
+Z22 8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7_top.sv
+Z23 FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7_top.sv
+L0 8
+R5
+r1
+!s85 0
+31
+R6
+Z24 !s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7_top.sv|
+Z25 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/lab7_top.sv|
+!i113 1
+R7
+R8
+vLED_controller
+R0
+R1
+!i10b 1
+!s100 834njoYFP7U@dJQ?m;9aH2
+IoM[<X_8T^4hA4nHZd2nco3
+R2
+R21
+S1
+R3
+R4
+R22
+R23
+L0 35
+R5
+r1
+!s85 0
+31
+R6
+R24
+R25
+!i113 1
+R7
+R8
+n@l@e@d_controller
+vprogram_counter
+R0
+R1
+!i10b 1
+!s100 NHYWRaih7HDaaiZEkK5?;1
+ICj2W1R]Fk_MP<]l=WigjQ3
+R2
+R9
+S1
+R3
+R10
+R11
+R12
+L0 172
+R5
+r1
+!s85 0
+31
+R6
+R13
+R14
+!i113 1
+R7
+R8
+vRAM
+R0
+R20
+!i10b 1
+!s100 f5PaYk5a=`iAiF:G[>gGc0
+IC30QGU^Xhc6N<WHE74VH[3
+R2
+!s105 ram_sv_unit
+S1
+R3
+w1701562724
+8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/ram.sv
+FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/ram.sv
+L0 2
+R5
+r1
+!s85 0
+31
+Z26 !s108 1701564450.000000
+!s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/ram.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/ram.sv|
+!i113 1
+R7
+R8
+n@r@a@m
+vregfile
+R0
+R20
+!i10b 1
+!s100 T?=VPO<BTRnj^Xf=g:NR00
+IOlkN=JDoj5NoZ0A`GX0b]2
+R2
+!s105 regfile_sv_unit
+S1
+R3
+w1701563124
+8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/regfile.sv
+FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/regfile.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R26
+!s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/regfile.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/regfile.sv|
+!i113 1
+R7
+R8
+vshifter
+R0
+R20
+!i10b 1
+!s100 j;jLN8kJ^PdBVe:eE>fOW0
+IQ6lJB5h]cdW^Jm8]TlHYe2
+R2
+!s105 shifter_sv_unit
+S1
+R3
+R4
+8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/shifter.sv
+FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/shifter.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R26
+!s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/shifter.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/shifter.sv|
+!i113 1
+R7
+R8
+vstate_machine
+R0
+R1
+!i10b 1
+!s100 I_;9QV0id@dGM;bJ?GBn[3
+IMaih[>6Wlob::M`57dG3<2
+R2
+R9
+S1
+R3
+R10
+R11
+R12
+L0 205
+R5
+r1
+!s85 0
+31
+R6
+R13
+R14
+!i113 1
+R7
+R8
+vSW_controller
+R0
+R1
+!i10b 1
+!s100 4:YzC7kHS5X4<o=dDE_QR2
+I0m_fJU;R`UoGh0mdg:kEQ0
+R2
+R21
+S1
+R3
+R4
+R22
+R23
+L0 49
+R5
+r1
+!s85 0
+31
+R6
+R24
+R25
+!i113 1
+R7
+R8
+n@s@w_controller
+vultimate_test
+R0
+R1
+!i10b 1
+!s100 1J^V^0B5J^XjWG3YE;b1B0
+IkMdhh7Fn?3Jk[T18;IJ551
+R2
+!s105 ultimate_test_sv_unit
+S1
+R3
+R4
+8C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/ultimate_test.sv
+FC:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/ultimate_test.sv
+L0 1
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/ultimate_test.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/rovne/Repos/cpen211-labs/lab7_bonus_pipeline/ultimate_test.sv|
+!i113 1
+R7
+R8
+vvDFFE
+R0
+R1
+!i10b 1
+!s100 `eNlD7I2iMLmV@bQce4Q:0
+I@:1GW^[eR<aDa:IP7K=^f2
+R2
+R15
+S1
+R3
+R4
+R16
+R17
+L0 58
+R5
+r1
+!s85 0
+31
+R6
+R18
+R19
+!i113 1
+R7
+R8
+nv@d@f@f@e
