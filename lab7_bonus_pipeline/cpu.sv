@@ -563,7 +563,7 @@ module state_machine (clk, reset, opcode, op, Rn, Rd, Rm, readA, readB, writenum
          load_addr = 1'bx;
          mem_cmd = 2'bxx;
          addr_sel = 1'bx;
-         {asel, bsel, vsel} = {6{1'bx}};
+         {asel, bsel, vsel} = {4{1'bx}};
          readA = 3'bxxx;
          readB = 3'bxxx;
          writenum = 3'bxxx;
