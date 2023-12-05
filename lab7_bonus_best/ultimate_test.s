@@ -22,9 +22,11 @@ function:
 	BX R7
 	
 not_equal:
-	MOV R5, X
+	MOV R5, SWITCH_BASE
+	LDR R5, [R5]
 	LDR R6, [R5]
-	ADD R5, R5, R6
+	MOV R5, LEDR_BASE
+	LDR R5, [R5]
 	ADD R6, R6, R0
 	STR R6, [R5]
 
@@ -39,3 +41,8 @@ halt_func:
 
 X:
 	.word 0x0002
+
+LEDR_BASE:
+	.word 0x0100
+SWITCH_BASE:
+	.word 0x0140

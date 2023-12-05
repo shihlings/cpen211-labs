@@ -14,6 +14,7 @@ module ultimate_test();
   end
 
   initial begin
+    SW[7:0] = 8'd1;
     err = 0;
     KEY[1] = 1'b0; // reset asserted
     // check if program from Figure 2 in Lab 8 handout can be found loaded in memory

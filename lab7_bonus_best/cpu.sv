@@ -21,7 +21,7 @@
 //Formerly Delay
 `define ALUNoOp_RdToPC 5'b10100
 `define PCtoRn 5'b10101
-`define IF1_fromLoad 5'b10110
+`define Delay 5'b10110
 // Formerly RdToPC
 `define Branch 5'b10111
 
@@ -227,7 +227,6 @@ module state_machine (clk, reset, opcode, op, Rn, Rd, Rm, readA, readB, writenum
         casex ({state, opcode, op})
           {`Reset, {5{1'bx}}}: state = `IF1;
           {`IF1, {5{1'bx}}}: state = `UpdatePC;
-	  {`IF1_fromLoad, {5{1'bx}}}: state = `UpdatePC;
           {`UpdatePC, {5{1'bx}}}: state = `Decode;
           {`Halt, `Halt_instruction, 2'b00}: state = `Halt;
 
@@ -276,7 +275,8 @@ module state_machine (clk, reset, opcode, op, Rn, Rd, Rm, readA, readB, writenum
           {`CMP, {5{1'bx}}}: state = `IF1;
 
           // Go back to fetch after memory operation
-          {`RegFromMem, `Load_instruction, 2'b00}: state = `IF1_fromLoad;
+          {`RegFromMem, `Load_instruction, 2'b00}: state = `Delay;
+          {`Delay, `Load_instruction, 2'b00}: state = `IF1;
           //{`RegToMem, `Store_instruction, 2'b00}: state = `IF1;
           
           // Once finished writing, always go back to fetch
@@ -331,14 +331,14 @@ module state_machine (clk, reset, opcode, op, Rn, Rd, Rm, readA, readB, writenum
          writenum = 3'bxxx;
          allow_branch = 1'b0;
       end // if (state == `IF1)
-      else if (state == `IF1_fromLoad) begin
+      else if (state == `Delay) begin
          {write, loads} = 2'b10;
          load_pc = 1'b0;
-	 load_ir = 1'b1;
+	      load_ir = 1'b0;
          reset_pc = 1'b0;
-         load_addr = 1'bx;
+         load_addr = 1'b0;
          mem_cmd = `MREAD;
-         addr_sel = 1'b1;
+         addr_sel = 1'b0;
          {asel, bsel, vsel} = 4'bxx11;
          readA = 3'bxxx;
          readB = 3'bxxx;
