@@ -244,20 +244,21 @@ module state_machine (clk, reset, opcode, op, Rn, Rd, Rm, readA, readB, writenum
 
           {`ALUNoOp_RdToMem, `Store_instruction, 2'b00}: state = `IF1;
 
-          {`ALUNoOp_RdToPC, {5{1'bx}}}: state = `IF1;
+          {`ALUNoOp_RdToPC, `Branch_link_instruction, 2'b10}: state = `IF1;
+          {`ALUNoOp_RdToPC, `Branch_link_instruction, 2'b00}: state = `IF1;
 
           // These operations feed back to the register file
           {`AddReg, {5{1'bx}}}: state = `IF1;
           {`BitwiseAND, {5{1'bx}}}: state = `IF1;
           {`BitwiseNOT, {5{1'bx}}}: state = `IF1;
-          {`ALUNoOp_toReg, {5{1'bx}}}: state = `IF1;
+          {`ALUNoOp_toReg, `Move_instruction, 2'bxx}: state = `IF1;
 
           // This only writes the status register
           {`CMP, {5{1'bx}}}: state = `IF1;
 
           // Go back to fetch after memory operation
-          {`RegFromMem, `Load_instruction, 2'b00}: state = `IF1;
-          //{`Delay, `Load_instruction, 2'b00}: state = `IF1;
+          {`RegFromMem, `Load_instruction, 2'b00}: state = `Delay;
+          {`Delay, `Load_instruction, 2'b00}: state = `IF1;
           
           // Once finished writing, always go back to fetch
           {`WriteImm, {5{1'bx}}}: state = `IF1;
