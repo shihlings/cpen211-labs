@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab7bonus_top
-Mon Dec  4 14:39:35 2023
+Thu Dec  7 15:53:55 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -16,22 +16,27 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   8. Analysis & Synthesis RAM Summary
   9. General Register Statistics
  10. Registers Packed Into Inferred Megafunctions
- 11. Registers Added for RAM Pass-Through Logic
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Source assignments for RAM:MEM|altsyncram:mem_rtl_0|altsyncram_hur1:auto_generated
- 14. Source assignments for cpu:CPU|datapath:DP|regfile:REGFILE|altsyncram:R0_rtl_0|altsyncram_bfo1:auto_generated
- 15. Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|vDFFE:statusDFF
- 16. Parameter Settings for User Entity Instance: cpu:CPU|program_counter:PC_reg|vDFFE:PC_DFF
- 17. Parameter Settings for User Entity Instance: cpu:CPU|data_address:data_addr_reg|vDFFE:data_addr_DFF
- 18. Parameter Settings for User Entity Instance: cpu:CPU|instruction_register:instruction_reg|vDFFE:instr_reg
- 19. Parameter Settings for User Entity Instance: RAM:MEM
- 20. Parameter Settings for User Entity Instance: LED_controller:led_con|vDFFE:LEDR_reg
- 21. Parameter Settings for Inferred Entity Instance: RAM:MEM|altsyncram:mem_rtl_0
- 22. Parameter Settings for Inferred Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|altsyncram:R0_rtl_0
- 23. altsyncram Parameter Settings by Entity Instance
- 24. Post-Synthesis Netlist Statistics for Top Partition
- 25. Elapsed Time Per Partition
- 26. Analysis & Synthesis Messages
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Source assignments for RAM:MEM|altsyncram:mem_rtl_0|altsyncram_hur1:auto_generated
+ 13. Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG0
+ 14. Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG1
+ 15. Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG2
+ 16. Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG3
+ 17. Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG4
+ 18. Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG5
+ 19. Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG6
+ 20. Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG7
+ 21. Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|vDFFE:statusDFF
+ 22. Parameter Settings for User Entity Instance: cpu:CPU|program_counter:PC_reg|vDFFE:PC_DFF
+ 23. Parameter Settings for User Entity Instance: cpu:CPU|data_address:data_addr_reg|vDFFE:data_addr_DFF
+ 24. Parameter Settings for User Entity Instance: cpu:CPU|instruction_register:instruction_reg|vDFFE:instr_reg
+ 25. Parameter Settings for User Entity Instance: RAM:MEM
+ 26. Parameter Settings for User Entity Instance: LED_controller:led_con|vDFFE:LEDR_reg
+ 27. Parameter Settings for Inferred Entity Instance: RAM:MEM|altsyncram:mem_rtl_0
+ 28. altsyncram Parameter Settings by Entity Instance
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
 
 
 
@@ -58,16 +63,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Dec  4 14:39:35 2023       ;
+; Analysis & Synthesis Status     ; Successful - Thu Dec  7 15:53:55 2023       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; lab7bonus_top                               ;
 ; Top-level Entity Name           ; lab7bonus_top                               ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 201                                         ;
+; Total registers                 ; 177                                         ;
 ; Total pins                      ; 67                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 4,224                                       ;
+; Total block memory bits         ; 4,096                                       ;
 ; Total DSP Blocks                ; 0                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -178,7 +183,13 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-14        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processors 8-14        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -206,7 +217,6 @@ https://fpgasoftware.intel.com/eula.
 ; altdpram.inc                               ; yes             ; Megafunction                                          ; /home/shihling/intelFPGA_lite/20.1/quartus/libraries/megafunctions/altdpram.inc            ;         ;
 ; db/altsyncram_hur1.tdf                     ; yes             ; Auto-Generated Megafunction                           ; /home/shihling/git/cpen211-labs/lab7_bonus_best/db/altsyncram_hur1.tdf                     ;         ;
 ; db/lab7bonus_top.ram0_RAM_435e26e7.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; /home/shihling/git/cpen211-labs/lab7_bonus_best/db/lab7bonus_top.ram0_RAM_435e26e7.hdl.mif ;         ;
-; db/altsyncram_bfo1.tdf                     ; yes             ; Auto-Generated Megafunction                           ; /home/shihling/git/cpen211-labs/lab7_bonus_best/db/altsyncram_bfo1.tdf                     ;         ;
 +--------------------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------------------------+---------+
 
 
@@ -215,69 +225,76 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 208       ;
+; Estimate of Logic utilization (ALMs needed) ; 229       ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 298       ;
-;     -- 7 input functions                    ; 9         ;
-;     -- 6 input functions                    ; 93        ;
-;     -- 5 input functions                    ; 104       ;
-;     -- 4 input functions                    ; 22        ;
-;     -- <=3 input functions                  ; 70        ;
+; Combinational ALUT usage for logic          ; 338       ;
+;     -- 7 input functions                    ; 8         ;
+;     -- 6 input functions                    ; 97        ;
+;     -- 5 input functions                    ; 87        ;
+;     -- 4 input functions                    ; 28        ;
+;     -- <=3 input functions                  ; 118       ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 201       ;
+; Dedicated logic registers                   ; 177       ;
 ;                                             ;           ;
 ; I/O pins                                    ; 67        ;
 ; Total MLAB memory bits                      ; 0         ;
-; Total block memory bits                     ; 4224      ;
+; Total block memory bits                     ; 4096      ;
 ;                                             ;           ;
 ; Total DSP Blocks                            ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 233       ;
-; Total fan-out                               ; 2451      ;
-; Average fan-out                             ; 3.69      ;
+; Maximum fan-out                             ; 193       ;
+; Total fan-out                               ; 2309      ;
+; Average fan-out                             ; 3.47      ;
 +---------------------------------------------+-----------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                    ;
-+-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------+----------------------+--------------+
-; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                   ; Entity Name          ; Library Name ;
-+-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------+----------------------+--------------+
-; |lab7bonus_top                                  ; 298 (17)            ; 201 (0)                   ; 4224              ; 0          ; 67   ; 0            ; |lab7bonus_top                                                                                        ; lab7bonus_top        ; work         ;
-;    |LED_controller:led_con|                     ; 5 (5)               ; 8 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|LED_controller:led_con                                                                 ; LED_controller       ; work         ;
-;       |vDFFE:LEDR_reg|                          ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|LED_controller:led_con|vDFFE:LEDR_reg                                                  ; vDFFE                ; work         ;
-;    |RAM:MEM|                                    ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |lab7bonus_top|RAM:MEM                                                                                ; RAM                  ; work         ;
-;       |altsyncram:mem_rtl_0|                    ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |lab7bonus_top|RAM:MEM|altsyncram:mem_rtl_0                                                           ; altsyncram           ; work         ;
-;          |altsyncram_hur1:auto_generated|       ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |lab7bonus_top|RAM:MEM|altsyncram:mem_rtl_0|altsyncram_hur1:auto_generated                            ; altsyncram_hur1      ; work         ;
-;    |cpu:CPU|                                    ; 276 (8)             ; 193 (0)                   ; 128               ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU                                                                                ; cpu                  ; work         ;
-;       |data_address:data_addr_reg|              ; 0 (0)               ; 9 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|data_address:data_addr_reg                                                     ; data_address         ; work         ;
-;          |vDFFE:data_addr_DFF|                  ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|data_address:data_addr_reg|vDFFE:data_addr_DFF                                 ; vDFFE                ; work         ;
-;       |datapath:DP|                             ; 182 (52)            ; 154 (0)                   ; 128               ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP                                                                    ; datapath             ; work         ;
-;          |ALU:alu|                              ; 71 (71)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|ALU:alu                                                            ; ALU                  ; work         ;
-;          |regfile:REGFILE|                      ; 58 (58)             ; 151 (151)                 ; 128               ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE                                                    ; regfile              ; work         ;
-;             |altsyncram:R0_rtl_0|               ; 0 (0)               ; 0 (0)                     ; 128               ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|altsyncram:R0_rtl_0                                ; altsyncram           ; work         ;
-;                |altsyncram_bfo1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 128               ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|altsyncram:R0_rtl_0|altsyncram_bfo1:auto_generated ; altsyncram_bfo1      ; work         ;
-;          |shifter:SHIFTER|                      ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|shifter:SHIFTER                                                    ; shifter              ; work         ;
-;          |vDFFE:statusDFF|                      ; 0 (0)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|vDFFE:statusDFF                                                    ; vDFFE                ; work         ;
-;       |instruction_decoder:decode|              ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|instruction_decoder:decode                                                     ; instruction_decoder  ; work         ;
-;       |instruction_register:instruction_reg|    ; 0 (0)               ; 16 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|instruction_register:instruction_reg                                           ; instruction_register ; work         ;
-;          |vDFFE:instr_reg|                      ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|instruction_register:instruction_reg|vDFFE:instr_reg                           ; vDFFE                ; work         ;
-;       |program_counter:PC_reg|                  ; 29 (27)             ; 9 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|program_counter:PC_reg                                                         ; program_counter      ; work         ;
-;          |vDFFE:PC_DFF|                         ; 2 (2)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|program_counter:PC_reg|vDFFE:PC_DFF                                            ; vDFFE                ; work         ;
-;       |state_machine:controller|                ; 51 (51)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|state_machine:controller                                                       ; state_machine        ; work         ;
-+-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------+----------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                       ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                         ; Entity Name          ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+----------------------+--------------+
+; |lab7bonus_top                               ; 338 (18)            ; 177 (0)                   ; 4096              ; 0          ; 67   ; 0            ; |lab7bonus_top                                                              ; lab7bonus_top        ; work         ;
+;    |LED_controller:led_con|                  ; 5 (5)               ; 8 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|LED_controller:led_con                                       ; LED_controller       ; work         ;
+;       |vDFFE:LEDR_reg|                       ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|LED_controller:led_con|vDFFE:LEDR_reg                        ; vDFFE                ; work         ;
+;    |RAM:MEM|                                 ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |lab7bonus_top|RAM:MEM                                                      ; RAM                  ; work         ;
+;       |altsyncram:mem_rtl_0|                 ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |lab7bonus_top|RAM:MEM|altsyncram:mem_rtl_0                                 ; altsyncram           ; work         ;
+;          |altsyncram_hur1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |lab7bonus_top|RAM:MEM|altsyncram:mem_rtl_0|altsyncram_hur1:auto_generated  ; altsyncram_hur1      ; work         ;
+;    |cpu:CPU|                                 ; 315 (8)             ; 169 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU                                                      ; cpu                  ; work         ;
+;       |data_address:data_addr_reg|           ; 0 (0)               ; 9 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|data_address:data_addr_reg                           ; data_address         ; work         ;
+;          |vDFFE:data_addr_DFF|               ; 0 (0)               ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|data_address:data_addr_reg|vDFFE:data_addr_DFF       ; vDFFE                ; work         ;
+;       |datapath:DP|                          ; 220 (88)            ; 131 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP                                          ; datapath             ; work         ;
+;          |ALU:alu|                           ; 70 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|ALU:alu                                  ; ALU                  ; work         ;
+;             |add:adder|                      ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|ALU:alu|add:adder                        ; add                  ; work         ;
+;             |subtract:subtractor|            ; 22 (22)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|ALU:alu|subtract:subtractor              ; subtract             ; work         ;
+;          |regfile:REGFILE|                   ; 58 (58)             ; 128 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE                          ; regfile              ; work         ;
+;             |vDFFE:REG0|                     ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG0               ; vDFFE                ; work         ;
+;             |vDFFE:REG1|                     ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG1               ; vDFFE                ; work         ;
+;             |vDFFE:REG2|                     ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG2               ; vDFFE                ; work         ;
+;             |vDFFE:REG3|                     ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG3               ; vDFFE                ; work         ;
+;             |vDFFE:REG4|                     ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG4               ; vDFFE                ; work         ;
+;             |vDFFE:REG5|                     ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG5               ; vDFFE                ; work         ;
+;             |vDFFE:REG6|                     ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG6               ; vDFFE                ; work         ;
+;             |vDFFE:REG7|                     ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG7               ; vDFFE                ; work         ;
+;          |shifter:SHIFTER|                   ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|shifter:SHIFTER                          ; shifter              ; work         ;
+;          |vDFFE:statusDFF|                   ; 0 (0)               ; 3 (3)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|datapath:DP|vDFFE:statusDFF                          ; vDFFE                ; work         ;
+;       |instruction_decoder:decode|           ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|instruction_decoder:decode                           ; instruction_decoder  ; work         ;
+;       |instruction_register:instruction_reg| ; 0 (0)               ; 16 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|instruction_register:instruction_reg                 ; instruction_register ; work         ;
+;          |vDFFE:instr_reg|                   ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|instruction_register:instruction_reg|vDFFE:instr_reg ; vDFFE                ; work         ;
+;       |program_counter:PC_reg|               ; 34 (32)             ; 8 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|program_counter:PC_reg                               ; program_counter      ; work         ;
+;          |vDFFE:PC_DFF|                      ; 2 (2)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|program_counter:PC_reg|vDFFE:PC_DFF                  ; vDFFE                ; work         ;
+;       |state_machine:controller|             ; 45 (45)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |lab7bonus_top|cpu:CPU|state_machine:controller                             ; state_machine        ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                                            ;
-+---------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
-; Name                                                                                              ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                        ;
-+---------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
-; RAM:MEM|altsyncram:mem_rtl_0|altsyncram_hur1:auto_generated|ALTSYNCRAM                            ; AUTO ; Simple Dual Port ; 256          ; 16           ; 256          ; 16           ; 4096 ; db/lab7bonus_top.ram0_RAM_435e26e7.hdl.mif ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|altsyncram:R0_rtl_0|altsyncram_bfo1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 8            ; 16           ; 8            ; 16           ; 128  ; None                                       ;
-+---------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                 ;
++------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
+; Name                                                                   ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                        ;
++------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
+; RAM:MEM|altsyncram:mem_rtl_0|altsyncram_hur1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 256          ; 16           ; 256          ; 16           ; 4096 ; db/lab7bonus_top.ram0_RAM_435e26e7.hdl.mif ;
++------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -285,12 +302,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 201   ;
-; Number of registers using Synchronous Clear  ; 9     ;
+; Total registers                              ; 177   ;
+; Number of registers using Synchronous Clear  ; 8     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 176   ;
+; Number of registers using Clock Enable       ; 172   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -304,51 +321,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------+-------------------+------+
 
 
-+--------------------------------------------------------------------------------------------------------+
-; Registers Added for RAM Pass-Through Logic                                                             ;
-+---------------------------------------------------------+----------------------------------------------+
-; Register Name                                           ; RAM Name                                     ;
-+---------------------------------------------------------+----------------------------------------------+
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[0]  ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[1]  ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[2]  ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[3]  ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[4]  ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[5]  ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[6]  ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[7]  ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[8]  ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[9]  ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[10] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[11] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[12] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[13] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[14] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[15] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[16] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[17] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[18] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[19] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[20] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[21] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0_bypass[22] ; cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0 ;
-+---------------------------------------------------------+----------------------------------------------+
-
-
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
-; 8:1                ; 9 bits    ; 45 LEs        ; 18 LEs               ; 27 LEs                 ; Yes        ; |lab7bonus_top|cpu:CPU|program_counter:PC_reg|vDFFE:PC_DFF|out[2] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|Ain[0]                         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|ALU:alu|carry1                 ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|Mux1                           ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|Mux15                          ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|Mux21          ;
-; 5:1                ; 14 bits   ; 42 LEs        ; 28 LEs               ; 14 LEs                 ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|Bin[6]                         ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|ALU:alu|out[11]                ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|state_machine:controller|bsel              ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |lab7bonus_top|cpu:CPU|program_counter:PC_reg|vDFFE:PC_DFF|out[2] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|ALU:alu|Mux6                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|Mux5                           ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|Mux12                          ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|regfile:REGFILE|Mux17          ;
+; 5:1                ; 14 bits   ; 42 LEs        ; 28 LEs               ; 14 LEs                 ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|Bin[4]                         ;
+; 9:1                ; 16 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|datapath:DP|Ain[1]                         ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|state_machine:controller|asel              ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|state_machine:controller|allow_branch      ;
 ; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |lab7bonus_top|cpu:CPU|state_machine:controller|load_pc           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
 
@@ -362,13 +348,84 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------+--------------------+------+----------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; Source assignments for cpu:CPU|datapath:DP|regfile:REGFILE|altsyncram:R0_rtl_0|altsyncram_bfo1:auto_generated ;
-+---------------------------------+--------------------+------+-------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                              ;
-+---------------------------------+--------------------+------+-------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                               ;
-+---------------------------------+--------------------+------+-------------------------------------------------+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG0 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG1 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG2 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG3 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG4 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG5 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG6 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG7 ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +----------------------------------------------------------------------------------+
@@ -386,7 +443,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-----------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                            ;
 +----------------+-------+-----------------------------------------------------------------+
-; n              ; 9     ; Signed Integer                                                  ;
+; n              ; 8     ; Signed Integer                                                  ;
 +----------------+-------+-----------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -494,96 +551,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: cpu:CPU|datapath:DP|regfile:REGFILE|altsyncram:R0_rtl_0 ;
-+------------------------------------+----------------------+----------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                         ;
-+------------------------------------+----------------------+----------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                      ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                   ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                 ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                 ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                               ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                      ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                      ;
-; WIDTH_A                            ; 16                   ; Untyped                                      ;
-; WIDTHAD_A                          ; 3                    ; Untyped                                      ;
-; NUMWORDS_A                         ; 8                    ; Untyped                                      ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                      ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                      ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                      ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                      ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                      ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                      ;
-; WIDTH_B                            ; 16                   ; Untyped                                      ;
-; WIDTHAD_B                          ; 3                    ; Untyped                                      ;
-; NUMWORDS_B                         ; 8                    ; Untyped                                      ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                      ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                      ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                      ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                      ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                      ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                      ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                      ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                      ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                      ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                      ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                      ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                      ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                      ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                      ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                      ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                      ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped                                      ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                      ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                      ;
-; INIT_FILE                          ; UNUSED               ; Untyped                                      ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                      ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                      ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                      ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                      ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                      ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                      ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                      ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                      ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                      ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                      ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                      ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                      ;
-; CBXI_PARAMETER                     ; altsyncram_bfo1      ; Untyped                                      ;
-+------------------------------------+----------------------+----------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                                    ;
-+-------------------------------------------+---------------------------------------------------------+
-; Name                                      ; Value                                                   ;
-+-------------------------------------------+---------------------------------------------------------+
-; Number of entity instances                ; 2                                                       ;
-; Entity Instance                           ; RAM:MEM|altsyncram:mem_rtl_0                            ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                               ;
-;     -- WIDTH_A                            ; 16                                                      ;
-;     -- NUMWORDS_A                         ; 256                                                     ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                            ;
-;     -- WIDTH_B                            ; 16                                                      ;
-;     -- NUMWORDS_B                         ; 256                                                     ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                                  ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                            ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                    ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                ;
-; Entity Instance                           ; cpu:CPU|datapath:DP|regfile:REGFILE|altsyncram:R0_rtl_0 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                               ;
-;     -- WIDTH_A                            ; 16                                                      ;
-;     -- NUMWORDS_A                         ; 8                                                       ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                            ;
-;     -- WIDTH_B                            ; 16                                                      ;
-;     -- NUMWORDS_B                         ; 8                                                       ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                                  ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                            ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                    ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                ;
-+-------------------------------------------+---------------------------------------------------------+
++--------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                         ;
++-------------------------------------------+------------------------------+
+; Name                                      ; Value                        ;
++-------------------------------------------+------------------------------+
+; Number of entity instances                ; 1                            ;
+; Entity Instance                           ; RAM:MEM|altsyncram:mem_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                    ;
+;     -- WIDTH_A                            ; 16                           ;
+;     -- NUMWORDS_A                         ; 256                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                 ;
+;     -- WIDTH_B                            ; 16                           ;
+;     -- NUMWORDS_B                         ; 256                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                     ;
++-------------------------------------------+------------------------------+
 
 
 +-----------------------------------------------------+
@@ -591,29 +576,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 201                         ;
-;     ENA               ; 167                         ;
-;     ENA SCLR          ; 9                           ;
-;     plain             ; 25                          ;
-; arriav_lcell_comb     ; 299                         ;
-;     arith             ; 51                          ;
-;         0 data inputs ; 3                           ;
-;         1 data inputs ; 9                           ;
-;         5 data inputs ; 39                          ;
-;     extend            ; 9                           ;
-;         7 data inputs ; 9                           ;
-;     normal            ; 239                         ;
+; arriav_ff             ; 177                         ;
+;     ENA               ; 164                         ;
+;     ENA SCLR          ; 8                           ;
+;     plain             ; 5                           ;
+; arriav_lcell_comb     ; 339                         ;
+;     arith             ; 32                          ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 14                          ;
+;         5 data inputs ; 10                          ;
+;     extend            ; 8                           ;
+;         7 data inputs ; 8                           ;
+;     normal            ; 299                         ;
 ;         0 data inputs ; 1                           ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 51                          ;
-;         4 data inputs ; 22                          ;
-;         5 data inputs ; 65                          ;
-;         6 data inputs ; 93                          ;
+;         2 data inputs ; 15                          ;
+;         3 data inputs ; 81                          ;
+;         4 data inputs ; 28                          ;
+;         5 data inputs ; 77                          ;
+;         6 data inputs ; 97                          ;
 ; boundary_port         ; 67                          ;
-; stratixv_ram_block    ; 32                          ;
+; stratixv_ram_block    ; 16                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 10.30                       ;
-; Average LUT depth     ; 6.85                        ;
+; Max LUT depth         ; 9.70                        ;
+; Average LUT depth     ; 6.36                        ;
 +-----------------------+-----------------------------+
 
 
@@ -632,7 +617,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Mon Dec  4 14:39:31 2023
+    Info: Processing started: Thu Dec  7 15:53:51 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab7bonus_top -c lab7bonus_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
@@ -649,16 +634,20 @@ Info (12021): Found 1 design units, including 1 entities, in source file ram.sv
 Info (12021): Found 1 design units, including 1 entities, in source file regfile.sv
     Info (12023): Found entity 1: regfile File: /home/shihling/git/cpen211-labs/lab7_bonus_best/regfile.sv Line: 1
 Info (12021): Found 5 design units, including 5 entities, in source file cpu.sv
-    Info (12023): Found entity 1: cpu File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 42
-    Info (12023): Found entity 2: instruction_register File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 164
-    Info (12023): Found entity 3: program_counter File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 172
-    Info (12023): Found entity 4: data_address File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 197
-    Info (12023): Found entity 5: state_machine File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 205
-Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
+    Info (12023): Found entity 1: cpu File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 35
+    Info (12023): Found entity 2: instruction_register File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 157
+    Info (12023): Found entity 3: program_counter File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 165
+    Info (12023): Found entity 4: data_address File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 190
+    Info (12023): Found entity 5: state_machine File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 198
+Info (12021): Found 5 design units, including 5 entities, in source file alu.sv
     Info (12023): Found entity 1: ALU File: /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv Line: 1
+    Info (12023): Found entity 2: add File: /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv Line: 26
+    Info (12023): Found entity 3: subtract File: /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv Line: 34
+    Info (12023): Found entity 4: NOT_MOD File: /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv Line: 46
+    Info (12023): Found entity 5: AND_MOD File: /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv Line: 53
 Info (12021): Found 2 design units, including 2 entities, in source file datapath.sv
     Info (12023): Found entity 1: datapath File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 1
-    Info (12023): Found entity 2: vDFFE File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 58
+    Info (12023): Found entity 2: vDFFE File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 53
 Info (12127): Elaborating entity "lab7bonus_top" for the top level hierarchy
 Warning (10034): Output port "LEDR[9]" at lab7_top.sv(11) has no driver File: /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv Line: 11
 Warning (10034): Output port "HEX0" at lab7_top.sv(12) has no driver File: /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv Line: 12
@@ -668,42 +657,46 @@ Warning (10034): Output port "HEX3" at lab7_top.sv(12) has no driver File: /home
 Warning (10034): Output port "HEX4" at lab7_top.sv(12) has no driver File: /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv Line: 12
 Warning (10034): Output port "HEX5" at lab7_top.sv(12) has no driver File: /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv Line: 12
 Info (12128): Elaborating entity "cpu" for hierarchy "cpu:CPU" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv Line: 29
-Info (10264): Verilog HDL Case Statement information at cpu.sv(83): all case item expressions in this case statement are onehot File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 83
-Info (12128): Elaborating entity "datapath" for hierarchy "cpu:CPU|datapath:DP" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 106
-Info (12128): Elaborating entity "regfile" for hierarchy "cpu:CPU|datapath:DP|regfile:REGFILE" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 33
-Info (12128): Elaborating entity "ALU" for hierarchy "cpu:CPU|datapath:DP|ALU:alu" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 34
-Info (12128): Elaborating entity "shifter" for hierarchy "cpu:CPU|datapath:DP|shifter:SHIFTER" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 35
-Info (12128): Elaborating entity "vDFFE" for hierarchy "cpu:CPU|datapath:DP|vDFFE:statusDFF" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 38
-Info (12128): Elaborating entity "program_counter" for hierarchy "cpu:CPU|program_counter:PC_reg" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 114
-Info (12128): Elaborating entity "vDFFE" for hierarchy "cpu:CPU|program_counter:PC_reg|vDFFE:PC_DFF" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 194
-Info (12128): Elaborating entity "data_address" for hierarchy "cpu:CPU|data_address:data_addr_reg" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 119
-Info (12128): Elaborating entity "instruction_register" for hierarchy "cpu:CPU|instruction_register:instruction_reg" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 124
-Info (12128): Elaborating entity "vDFFE" for hierarchy "cpu:CPU|instruction_register:instruction_reg|vDFFE:instr_reg" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 169
-Info (12128): Elaborating entity "instruction_decoder" for hierarchy "cpu:CPU|instruction_decoder:decode" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 137
-Info (12128): Elaborating entity "state_machine" for hierarchy "cpu:CPU|state_machine:controller" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 161
+Info (10264): Verilog HDL Case Statement information at cpu.sv(76): all case item expressions in this case statement are onehot File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 76
+Info (12128): Elaborating entity "datapath" for hierarchy "cpu:CPU|datapath:DP" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 99
+Info (12128): Elaborating entity "regfile" for hierarchy "cpu:CPU|datapath:DP|regfile:REGFILE" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 28
+Info (12128): Elaborating entity "vDFFE" for hierarchy "cpu:CPU|datapath:DP|regfile:REGFILE|vDFFE:REG0" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/regfile.sv Line: 17
+Info (12128): Elaborating entity "ALU" for hierarchy "cpu:CPU|datapath:DP|ALU:alu" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 29
+Info (12128): Elaborating entity "add" for hierarchy "cpu:CPU|datapath:DP|ALU:alu|add:adder" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv Line: 11
+Info (12128): Elaborating entity "subtract" for hierarchy "cpu:CPU|datapath:DP|ALU:alu|subtract:subtractor" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv Line: 12
+Warning (10230): Verilog HDL assignment warning at alu.sv(43): truncated value with size 16 to match size of target (1) File: /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv Line: 43
+Info (12128): Elaborating entity "AND_MOD" for hierarchy "cpu:CPU|datapath:DP|ALU:alu|AND_MOD:ANDER" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv Line: 13
+Info (12128): Elaborating entity "NOT_MOD" for hierarchy "cpu:CPU|datapath:DP|ALU:alu|NOT_MOD:notter" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv Line: 14
+Info (12128): Elaborating entity "shifter" for hierarchy "cpu:CPU|datapath:DP|shifter:SHIFTER" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 30
+Info (12128): Elaborating entity "vDFFE" for hierarchy "cpu:CPU|datapath:DP|vDFFE:statusDFF" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 33
+Info (12128): Elaborating entity "program_counter" for hierarchy "cpu:CPU|program_counter:PC_reg" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 107
+Info (12128): Elaborating entity "vDFFE" for hierarchy "cpu:CPU|program_counter:PC_reg|vDFFE:PC_DFF" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 187
+Info (12128): Elaborating entity "data_address" for hierarchy "cpu:CPU|data_address:data_addr_reg" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 112
+Info (12128): Elaborating entity "vDFFE" for hierarchy "cpu:CPU|data_address:data_addr_reg|vDFFE:data_addr_DFF" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 195
+Info (12128): Elaborating entity "instruction_register" for hierarchy "cpu:CPU|instruction_register:instruction_reg" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 117
+Info (12128): Elaborating entity "instruction_decoder" for hierarchy "cpu:CPU|instruction_decoder:decode" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 130
+Info (12128): Elaborating entity "state_machine" for hierarchy "cpu:CPU|state_machine:controller" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv Line: 154
 Info (12128): Elaborating entity "RAM" for hierarchy "RAM:MEM" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv Line: 30
 Info (12128): Elaborating entity "SW_controller" for hierarchy "SW_controller:sw_con" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv Line: 31
 Info (12128): Elaborating entity "LED_controller" for hierarchy "LED_controller:led_con" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv Line: 32
-Info (12128): Elaborating entity "vDFFE" for hierarchy "LED_controller:led_con|vDFFE:LEDR_reg" File: /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv Line: 46
-Warning (276020): Inferred RAM node "cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13048): Converted tri-state node "read_data[15]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[14]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[13]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[12]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[11]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[10]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[9]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[8]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[7]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[6]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[5]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[4]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[3]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[2]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[1]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-    Warning (13048): Converted tri-state node "read_data[0]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 42
-Info (19000): Inferred 2 megafunctions from design logic
+    Warning (13048): Converted tri-state node "read_data[15]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[14]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[13]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[12]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[11]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[10]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[9]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[8]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[7]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[6]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[5]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[4]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[3]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[2]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[1]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+    Warning (13048): Converted tri-state node "read_data[0]" into a selector File: /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv Line: 37
+Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "RAM:MEM|mem_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 16
@@ -720,22 +713,6 @@ Info (19000): Inferred 2 megafunctions from design logic
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
         Info (286033): Parameter INIT_FILE set to db/lab7bonus_top.ram0_RAM_435e26e7.hdl.mif
-        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "cpu:CPU|datapath:DP|regfile:REGFILE|R0_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 16
-        Info (286033): Parameter WIDTHAD_A set to 3
-        Info (286033): Parameter NUMWORDS_A set to 8
-        Info (286033): Parameter WIDTH_B set to 16
-        Info (286033): Parameter WIDTHAD_B set to 3
-        Info (286033): Parameter NUMWORDS_B set to 8
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
         Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
 Info (12130): Elaborated megafunction instantiation "RAM:MEM|altsyncram:mem_rtl_0"
 Info (12133): Instantiated megafunction "RAM:MEM|altsyncram:mem_rtl_0" with the following parameter:
@@ -757,25 +734,6 @@ Info (12133): Instantiated megafunction "RAM:MEM|altsyncram:mem_rtl_0" with the 
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_hur1.tdf
     Info (12023): Found entity 1: altsyncram_hur1 File: /home/shihling/git/cpen211-labs/lab7_bonus_best/db/altsyncram_hur1.tdf Line: 28
-Info (12130): Elaborated megafunction instantiation "cpu:CPU|datapath:DP|regfile:REGFILE|altsyncram:R0_rtl_0"
-Info (12133): Instantiated megafunction "cpu:CPU|datapath:DP|regfile:REGFILE|altsyncram:R0_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
-    Info (12134): Parameter "WIDTH_A" = "16"
-    Info (12134): Parameter "WIDTHAD_A" = "3"
-    Info (12134): Parameter "NUMWORDS_A" = "8"
-    Info (12134): Parameter "WIDTH_B" = "16"
-    Info (12134): Parameter "WIDTHAD_B" = "3"
-    Info (12134): Parameter "NUMWORDS_B" = "8"
-    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
-    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
-    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_bfo1.tdf
-    Info (12023): Found entity 1: altsyncram_bfo1 File: /home/shihling/git/cpen211-labs/lab7_bonus_best/db/altsyncram_bfo1.tdf Line: 28
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[9]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv Line: 11
     Warning (13410): Pin "HEX0[0]" is stuck at GND File: /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv Line: 12
@@ -832,11 +790,11 @@ Warning (21074): Design contains 5 input pin(s) that do not drive logic
 Info (21057): Implemented 582 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 483 logic cells
-    Info (21064): Implemented 32 RAM segments
+    Info (21061): Implemented 499 logic cells
+    Info (21064): Implemented 16 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 76 warnings
-    Info: Peak virtual memory: 562 megabytes
-    Info: Processing ended: Mon Dec  4 14:39:35 2023
+    Info: Peak virtual memory: 568 megabytes
+    Info: Processing ended: Thu Dec  7 15:53:55 2023
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:14
 

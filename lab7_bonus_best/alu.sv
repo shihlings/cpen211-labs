@@ -4,56 +4,56 @@ module ALU(Ain,Bin,ALUop,out,Z);
    output reg [15:0] out;
    output reg [2:0]  Z;
 
-   reg [16:0]	     temp;
-   reg		     zero, negative, overflow, weird;
-   reg		     carry1, carry2;
-   
-   assign Z = {overflow, negative, zero};
+   wire [15:0] temp_add;
+   wire [15:0] temp_not;
+   wire [15:0] temp_and;
+
+   add adder(Ain, Bin, temp_add);
+   subtract subtractor(Ain, Bin, Z);
+   AND_MOD ANDER(Ain, Bin, temp_and);
+   NOT_MOD notter(Bin, temp_not);
    
    always_comb begin
-      if (ALUop == 2'b00) begin
-         {carry1, out[14:0]} = {1'b0, Ain[14:0]} + {1'b0, Bin[14:0]};
-         {carry2, out[15]} = {1'b0, Ain[15]} + {1'b0, Bin[15]} + {1'b0, carry1};
-      end
-      
-      else if (ALUop == 2'b01) begin
-         {carry1, out[14:0]} = {1'b0, Ain[14:0]} + {1'b0,~Bin[14:0]} + 16'b1;
-         {carry2, out[15]} = {1'b0, Ain[15]} + {1'b0, ~Bin[15]} + {1'b0, carry1};
-      end
-
-      else if (ALUop == 2'b10) begin
-         carry1 = 1'b0;
-         carry2 = 1'b0;
-         out = Ain & Bin;
-      end
-      
-      else if (ALUop == 2'b11) begin
-         carry1 = 1'b0;
-         carry2 = 1'b0;
-         out = ~Bin;
-      end
-
-      else begin
-         carry1 = 1'bx;
-         carry2 = 1'bx;
-         out = {16{1'bx}};
-      end
+      case (ALUop)
+         2'b00: out = temp_add;
+         2'b10: out = temp_and;
+         2'b11: out = temp_not;
+         default: out = {16{1'bx}};
+      endcase
    end
+endmodule
 
-   always_comb begin
-      if (out == 16'b0)
-        zero = 1'b1;
-      else
-        zero = 1'b0;
+module add (Ain, Bin, out);
+   input [15:0] Ain;
+   input [15:0] Bin;
+   output [15:0] out;
+   
+   assign out = Ain + Bin;
+endmodule
 
-      if (out[15] == 1'b1) 
-        negative = 1'b1;
-      else
-        negative = 1'b0;
+module subtract (Ain, Bin, status);
+   input [15:0] Ain;
+   input [15:0] Bin;
+   output [2:0] status;
+
+   wire neg = Ain < Bin;
       
-      if (carry1 != carry2) 
-        overflow = 1'b1;
-      else
-        overflow = 1'b0;
-   end
+   assign status[0] = Ain == Bin ? 1'b1 : 1'b0;
+   assign status[1] = neg;
+   assign status[2] = (Ain[15] ^ Bin[15]) & (neg ^ Ain);
+endmodule
+
+module NOT_MOD (Bin, out);
+   input [15:0] Bin;
+   output [15:0] out;
+   
+   assign out = ~Bin;
+endmodule
+
+module AND_MOD (Ain, Bin, out);
+   input [15:0] Ain;
+   input [15:0] Bin;
+
+   output [15:0] out;
+   assign out = Ain & Bin;
 endmodule

@@ -6,15 +6,13 @@ module datapath (clk, loads, asel, bsel, vsel, write, ALUop, shift, readA, readB
    input [2:0] readA;
    input [2:0] readB;
    input [2:0] writenum;
-   input [8:0] PC;
+   input [7:0] PC;
    input [15:0]	mdata;
    input [15:0]	sximm5;
    input [15:0]	sximm8;
 
    output [15:0] datapath_out;
    output [2:0]	 Z_out;
-
-   wire [15:0]	 C;
 
    wire [15:0]	 sout;
 
@@ -26,12 +24,9 @@ module datapath (clk, loads, asel, bsel, vsel, write, ALUop, shift, readA, readB
 
    wire [15:0]	 out;
    wire [2:0]	 Z;
-   
-   // Output = out
-   assign datapath_out = out;
 
    regfile REGFILE(data_in, writenum, write, readA, readB, clk, A_out, B_out);
-   ALU alu(Ain, Bin, ALUop, out, Z);
+   ALU alu(Ain, Bin, ALUop, datapath_out, Z);
    shifter SHIFTER(B_out, shift, sout);
 
    // Register status
@@ -41,7 +36,7 @@ module datapath (clk, loads, asel, bsel, vsel, write, ALUop, shift, readA, readB
    always_comb begin
       case (vsel)
         2'b00: data_in = datapath_out;
-        2'b01: data_in = {7'b0, PC};
+        2'b01: data_in = {8'b0, PC};
         2'b10: data_in = sximm8;
         2'b11: data_in = mdata;
       endcase

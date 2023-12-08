@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Dec  4 14:39:35 2023
+Analysis & Synthesis Status : Successful - Thu Dec  7 15:53:55 2023
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : lab7bonus_top
 Top-level Entity Name : lab7bonus_top
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 201
+Total registers : 177
 Total pins : 67
 Total virtual pins : 0
-Total block memory bits : 4,224
+Total block memory bits : 4,096
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

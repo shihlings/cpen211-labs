@@ -9,107 +9,158 @@ z2
 !i10f 100
 cModel Technology
 d/home/shihling/intelFPGA_lite/20.1
-vALU
+vadd
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1701729477
+Z1 !s110 1701993235
 !i10b 1
-!s100 LKZa8PYJdS`1@HCz9^JGT1
+!s100 `OI3H@GgZJ40E8I=5dalm0
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IoA8<e_Kl?Ne?`U=BdED:m3
+IC8o974WALLbIRjWf_Ymn?3
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
 Z4 d/home/shihling/git/cpen211-labs/lab7_bonus_best
-Z5 w1701572396
-8/home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv
-F/home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv
-!i122 156
-L0 1 59
-Z6 OV;L;2020.1;71
+Z5 w1701992757
+Z6 8/home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv
+Z7 F/home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv
+!i122 372
+L0 26 7
+Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z7 !s108 1701729477.000000
-!s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv|
-!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv|
+Z9 !s108 1701993235.000000
+Z10 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv|
+Z11 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/alu.sv|
 !i113 1
-Z8 o-work work -sv
-Z9 tCvgOpt 0
-n@a@l@u
-vcpu
+Z12 o-work work -sv
+Z13 tCvgOpt 0
+vALU
 R0
 R1
 !i10b 1
-!s100 _m>Y2gGk59DFzG3V_U]fZ2
+!s100 [_VSePm7QdodQ`9<RdkA71
 R2
-Ic9MeC@YM0mKgUdNM0f69^3
-R3
-S1
-R4
-Z10 w1701729474
-Z11 8/home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv
-Z12 F/home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv
-!i122 157
-L0 42 121
-R6
-r1
-!s85 0
-31
-R7
-Z13 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv|
-Z14 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv|
-!i113 1
-R8
-R9
-vdata_address
-R0
-R1
-!i10b 1
-!s100 fDX5DKK233aNVzz^FAYEH1
-R2
-I][De3UBdAVRR@;6[5VHEi3
-R3
-S1
-R4
-R10
-R11
-R12
-!i122 157
-L0 197 7
-R6
-r1
-!s85 0
-31
-R7
-R13
-R14
-!i113 1
-R8
-R9
-vdatapath
-R0
-R1
-!i10b 1
-!s100 1;>ITYz;kmPI3iioMZ>c22
-R2
-I94K]NmDU:6_MWNGkg6W4W0
+I@3ePi[2`J<=ec_I;flfbi0
 R3
 S1
 R4
 R5
-Z15 8/home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv
-Z16 F/home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv
-!i122 158
-L0 1 56
 R6
+R7
+!i122 372
+L0 1 24
+R8
 r1
 !s85 0
 31
-R7
-Z17 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv|
-Z18 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv|
-!i113 1
-R8
 R9
+R10
+R11
+!i113 1
+R12
+R13
+n@a@l@u
+vAND_MOD
+R0
+R1
+!i10b 1
+!s100 Jhl2[Q12kfBc^L3I5akQI1
+R2
+I0ZD2_XcWcWa]W6`o2e6X91
+R3
+S1
+R4
+R5
+R6
+R7
+!i122 372
+L0 53 7
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+n@a@n@d_@m@o@d
+vcpu
+R0
+R1
+!i10b 1
+!s100 >_Pd@F_6OY`dAezlZO^:Q0
+R2
+IE=ia3e`]bJ@=^>SIj35=E2
+R3
+S1
+R4
+Z14 w1701992866
+Z15 8/home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv
+Z16 F/home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv
+!i122 373
+L0 35 121
+R8
+r1
+!s85 0
+31
+R9
+Z17 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv|
+Z18 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/cpu.sv|
+!i113 1
+R12
+R13
+vdata_address
+R0
+R1
+!i10b 1
+!s100 D<D>HZ>Kj<^J6@7K83OZm3
+R2
+I;1I`SXC=3n7]6?iU_lD250
+R3
+S1
+R4
+R14
+R15
+R16
+!i122 373
+L0 190 7
+R8
+r1
+!s85 0
+31
+R9
+R17
+R18
+!i113 1
+R12
+R13
+vdatapath
+R0
+R1
+!i10b 1
+!s100 K24?Wjo8:ZoE1HZlT_SZ:1
+R2
+I;KDWL2m^1eUa=]_C=6DaH3
+R3
+S1
+R4
+Z19 w1701993102
+Z20 8/home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv
+Z21 F/home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv
+!i122 374
+L0 1 51
+R8
+r1
+!s85 0
+31
+R9
+Z22 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv|
+Z23 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/datapath.sv|
+!i113 1
+R12
+R13
 vinstruction_decoder
 R0
 R1
@@ -120,49 +171,49 @@ IFhKe<8`5Zi@eif;L5lb4z1
 R3
 S1
 R4
-Z19 w1701572397
+w1701993199
 8/home/shihling/git/cpen211-labs/lab7_bonus_best/instruction_decoder.sv
 F/home/shihling/git/cpen211-labs/lab7_bonus_best/instruction_decoder.sv
-!i122 159
+!i122 375
 L0 17 59
-R6
+R8
 r1
 !s85 0
 31
-R7
+R9
 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/instruction_decoder.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/instruction_decoder.sv|
 !i113 1
-R8
-R9
+R12
+R13
 vinstruction_register
 R0
 R1
 !i10b 1
-!s100 PiNBAi_Oo35Ega3Fl3T0m0
+!s100 8oKFQm4lzo:>=3HY58;k33
 R2
-I>g<SzN_Mn[lF:H>h7LRji1
+IIJjFI<69mA2[ChRlH33<^2
 R3
 S1
 R4
-R10
-R11
-R12
-!i122 157
-L0 164 7
-R6
+R14
+R15
+R16
+!i122 373
+L0 157 7
+R8
 r1
 !s85 0
 31
-R7
-R13
-R14
-!i113 1
-R8
 R9
+R17
+R18
+!i113 1
+R12
+R13
 vlab7_check_tb
 R0
-Z20 !s110 1701729478
+R1
 !i10b 1
 !s100 6Ek=Lz4FSDR1G4n_b^D3Z3
 R2
@@ -170,24 +221,24 @@ I_A1z^6J92:YZNz533MnLW1
 R3
 S1
 R4
-R19
+Z24 w1701572397
 8/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_autograder_check.sv
 F/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_autograder_check.sv
-!i122 160
+!i122 376
 L0 7 65
-R6
+R8
 r1
 !s85 0
 31
-R7
+R9
 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_autograder_check.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_autograder_check.sv|
 !i113 1
-R8
-R9
+R12
+R13
 vlab7bonus_check_tb
 R0
-R20
+R1
 !i10b 1
 !s100 kcX=g=Qc<2>HOGo]SFhkI0
 R2
@@ -195,24 +246,24 @@ I=l26bCU<[@RYHS_MAWkba0
 R3
 S1
 R4
-R19
+R24
 8/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7bonus_autograder_check.sv
 F/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7bonus_autograder_check.sv
-!i122 162
+!i122 378
 L0 1 71
-R6
+R8
 r1
 !s85 0
 31
-Z21 !s108 1701729478.000000
+R9
 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7bonus_autograder_check.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7bonus_autograder_check.sv|
 !i113 1
-R8
-R9
+R12
+R13
 vlab7bonus_stage2_tb
 R0
-R20
+R1
 !i10b 1
 !s100 I;N6fI6XXJgl3Dz?6z@6z2
 R2
@@ -220,24 +271,24 @@ IT5dW7akn9H8e_NJD`mn0Y0
 R3
 S1
 R4
-R19
+R24
 8/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7bonus_stage2_tb.sv
 F/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7bonus_stage2_tb.sv
-!i122 163
+!i122 379
 L0 3 35
-R6
+R8
 r1
 !s85 0
 31
-R21
+R9
 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7bonus_stage2_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7bonus_stage2_tb.sv|
 !i113 1
-R8
-R9
+R12
+R13
 vlab7bonus_top
 R0
-R20
+R1
 !i10b 1
 !s100 O<SY<H;g[D=W@NEMAaH<41
 R2
@@ -245,24 +296,24 @@ In59SOQi8DThe`UWRRJ:^N0
 R3
 S1
 R4
-Z22 w1701729339
-Z23 8/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv
-Z24 F/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv
-!i122 161
+Z25 w1701992346
+Z26 8/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv
+Z27 F/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv
+!i122 377
 L0 8 26
-R6
+R8
 r1
 !s85 0
 31
-R21
-Z25 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv|
-Z26 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv|
-!i113 1
-R8
 R9
+Z28 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv|
+Z29 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/lab7_top.sv|
+!i113 1
+R12
+R13
 vLED_controller
 R0
-R20
+R1
 !i10b 1
 !s100 C_O0HDHC:XDRD8c]]`]2>0
 R2
@@ -270,50 +321,76 @@ IINMgANFPm]X:aEYB68NJ<3
 R3
 S1
 R4
-R22
-R23
-R24
-!i122 161
+R25
+R26
+R27
+!i122 377
 L0 35 13
-R6
+R8
 r1
 !s85 0
 31
-R21
-R25
-R26
-!i113 1
-R8
 R9
+R28
+R29
+!i113 1
+R12
+R13
 n@l@e@d_controller
+vNOT_MOD
+R0
+R1
+!i10b 1
+!s100 HjL^cPO4Nah4GM5g:;8QL2
+R2
+I`3S_c<mcCoO25zfC_`Q5Q0
+R3
+S1
+R4
+R5
+R6
+R7
+!i122 372
+L0 46 6
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+n@n@o@t_@m@o@d
 vprogram_counter
 R0
 R1
 !i10b 1
-!s100 :@?0IjQ7D4XDKg1lPh5AE3
+!s100 J8@oW[HE8ka9k8D9kzDRJ1
 R2
-IT?TSDBHXRjo8oB^gM[G[@1
+Ii91[_c[;60^I5UnXFOWL>0
 R3
 S1
 R4
-R10
-R11
-R12
-!i122 157
-L0 172 24
-R6
+R14
+R15
+R16
+!i122 373
+L0 165 24
+R8
 r1
 !s85 0
 31
-R7
-R13
-R14
-!i113 1
-R8
 R9
+R17
+R18
+!i113 1
+R12
+R13
 vRAM
 R0
-R20
+R1
 !i10b 1
 !s100 S?mn05lEI1cXMFdKgS4[[0
 R2
@@ -321,50 +398,50 @@ IUj:`8M0n0H59M99VKE>2A0
 R3
 S1
 R4
-R19
+w1701730460
 8/home/shihling/git/cpen211-labs/lab7_bonus_best/ram.sv
 F/home/shihling/git/cpen211-labs/lab7_bonus_best/ram.sv
-!i122 164
+!i122 380
 L0 2 23
-R6
+R8
 r1
 !s85 0
 31
-R21
+R9
 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/ram.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/ram.sv|
 !i113 1
-R8
-R9
+R12
+R13
 n@r@a@m
 vregfile
 R0
-R20
+R1
 !i10b 1
-!s100 V]0<VkHf4B<9eCLR<bW]O2
+!s100 SOCNUT=hCbFUBY0Y60>];1
 R2
-I1d3OIDj20QJ?6QW1TbD8a1
+IScSa7Ul4G@QUY3YkcMzCe1
 R3
 S1
 R4
-R19
+w1701986310
 8/home/shihling/git/cpen211-labs/lab7_bonus_best/regfile.sv
 F/home/shihling/git/cpen211-labs/lab7_bonus_best/regfile.sv
-!i122 165
-L0 1 57
-R6
+!i122 381
+L0 1 69
+R8
 r1
 !s85 0
 31
-R21
+R9
 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/regfile.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/regfile.sv|
 !i113 1
-R8
-R9
+R12
+R13
 vshifter
 R0
-R20
+R1
 !i10b 1
 !s100 MC^zS54=cM?GIX?GmWa=N3
 R2
@@ -372,49 +449,74 @@ I`92:7XE9nLVjNl6IAd@[V2
 R3
 S1
 R4
-R19
+R24
 8/home/shihling/git/cpen211-labs/lab7_bonus_best/shifter.sv
 F/home/shihling/git/cpen211-labs/lab7_bonus_best/shifter.sv
-!i122 166
+!i122 382
 L0 1 15
-R6
+R8
 r1
 !s85 0
 31
-R21
+R9
 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/shifter.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/shifter.sv|
 !i113 1
-R8
-R9
+R12
+R13
 vstate_machine
 R0
 R1
 !i10b 1
-!s100 6`Sz`0XgUWin;`X<Vj[423
+!s100 B9NGnl5WYRoABbXa[78en3
 R2
-IjEUATCLAj0[bBHQ;hnRZL0
+IP^CC0=?NmgO]11Ac5S56m1
 R3
 S1
 R4
-R10
-R11
-R12
-!i122 157
-L0 205 369
-R6
+R14
+R15
+R16
+!i122 373
+L0 198 355
+R8
 r1
 !s85 0
 31
-R7
-R13
-R14
-!i113 1
-R8
 R9
+R17
+R18
+!i113 1
+R12
+R13
+vsubtract
+R0
+R1
+!i10b 1
+!s100 Q9V08PM3CXfTfBRJ2[:4k3
+R2
+Id_?<1IBo_fX]@VN?gPnj53
+R3
+S1
+R4
+R5
+R6
+R7
+!i122 372
+L0 34 11
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
 vSW_controller
 R0
-R20
+R1
 !i10b 1
 !s100 M33QB_^4f8QcP2:3`VRTe0
 R2
@@ -422,25 +524,25 @@ I@082MO5ePj`?<MH4aS2;T0
 R3
 S1
 R4
-R22
-R23
-R24
-!i122 161
+R25
+R26
+R27
+!i122 377
 L0 49 8
-R6
+R8
 r1
 !s85 0
 31
-R21
-R25
-R26
-!i113 1
-R8
 R9
+R28
+R29
+!i113 1
+R12
+R13
 n@s@w_controller
 vultimate_test
 R0
-R20
+R1
 !i10b 1
 !s100 B>hakT`@WOjb^z:n7SFK51
 R2
@@ -451,41 +553,41 @@ R4
 w1701727097
 8/home/shihling/git/cpen211-labs/lab7_bonus_best/ultimate_test.sv
 F/home/shihling/git/cpen211-labs/lab7_bonus_best/ultimate_test.sv
-!i122 167
+!i122 383
 L0 1 33
-R6
+R8
 r1
 !s85 0
 31
-R21
+R9
 !s107 /home/shihling/git/cpen211-labs/lab7_bonus_best/ultimate_test.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/shihling/git/cpen211-labs/lab7_bonus_best/ultimate_test.sv|
 !i113 1
-R8
-R9
+R12
+R13
 vvDFFE
 R0
 R1
 !i10b 1
-!s100 @9PW8:J^=PYGgg8:5R?hF3
+!s100 z@?GZ^iNR7?2[ZaDUlkoc0
 R2
-Ia35<_MaVg:[5b<N3jX^RG3
+I<1Q@PQjk1OR8ccCDfG00W0
 R3
 S1
 R4
-R5
-R15
-R16
-!i122 158
-L0 58 12
-R6
+R19
+R20
+R21
+!i122 374
+L0 53 12
+R8
 r1
 !s85 0
 31
-R7
-R17
-R18
-!i113 1
-R8
 R9
+R22
+R23
+!i113 1
+R12
+R13
 nv@d@f@f@e

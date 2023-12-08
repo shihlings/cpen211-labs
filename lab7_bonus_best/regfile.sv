@@ -4,28 +4,40 @@ module regfile(data_in,writenum,write,readA,readB,clk,A_out,B_out);
    input	write, clk;
    output reg [15:0] A_out, B_out;
 
-   reg [15:0]	     R0;
-   reg [15:0]	     R1;
-   reg [15:0]	     R2;
-   reg [15:0]	     R3;
-   reg [15:0]	     R4;
-   reg [15:0]	     R5;
-   reg [15:0]	     R6;
-   reg [15:0]	     R7;
+   wire [15:0]	     R0;
+   wire [15:0]	     R1;
+   wire [15:0]	     R2;
+   wire [15:0]	     R3;
+   wire [15:0]	     R4;
+   wire [15:0]	     R5;
+   wire [15:0]	     R6;
+   wire [15:0]	     R7;
+   reg [7:0] writenum_onehot;
    
-   always_ff @(posedge clk) begin
-      if (write) begin
+   vDFFE #(16) REG0(clk, writenum_onehot[0], data_in, R0);
+   vDFFE #(16) REG1(clk, writenum_onehot[1], data_in, R1);
+   vDFFE #(16) REG2(clk, writenum_onehot[2], data_in, R2);
+   vDFFE #(16) REG3(clk, writenum_onehot[3], data_in, R3);
+   vDFFE #(16) REG4(clk, writenum_onehot[4], data_in, R4);
+   vDFFE #(16) REG5(clk, writenum_onehot[5], data_in, R5);
+   vDFFE #(16) REG6(clk, writenum_onehot[6], data_in, R6);
+   vDFFE #(16) REG7(clk, writenum_onehot[7], data_in, R7);
+
+   always_comb begin
+      if (write)
          case (writenum)
-           3'b000: R0 = data_in;
-           3'b001: R1 = data_in;
-           3'b010: R2 = data_in;
-           3'b011: R3 = data_in;
-           3'b100: R4 = data_in;
-           3'b101: R5 = data_in;
-           3'b110: R6 = data_in;
-           3'b111: R7 = data_in;   
-	 endcase // case (writenum)
-      end // if (write)
+            3'b000: writenum_onehot = 8'b00000001;
+            3'b001: writenum_onehot = 8'b00000010;
+            3'b010: writenum_onehot = 8'b00000100;
+            3'b011: writenum_onehot = 8'b00001000;
+            3'b100: writenum_onehot = 8'b00010000;
+            3'b101: writenum_onehot = 8'b00100000;
+            3'b110: writenum_onehot = 8'b01000000;
+            3'b111: writenum_onehot = 8'b10000000;   
+            default: writenum_onehot = {8{1'bx}};
+         endcase // case (writenum)
+      else
+         writenum_onehot = 8'b00000000;
    end
 
    always_comb begin

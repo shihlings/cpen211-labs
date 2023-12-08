@@ -1,29 +1,22 @@
 // Common States
 `define Reset 5'b00000
-`define Decode 5'b00001
-// Formerly GetReg
-// Formerly GetB
-`define AddReg 5'b00100
-// Formerly WriteReg
-`define WriteImm 5'b00110
-`define ALUNoOp_toReg 5'b00111
-`define CMP 5'b01000
-`define BitwiseAND 5'b01001
-`define BitwiseNOT 5'b01010
-`define IF1 5'b01011
-`define UpdatePC 5'b01101
-`define Halt 5'b01110
-// Formerly WriteDataAddress
-`define AddImm 5'b10000
-`define RegFromMem 5'b10001
-// Formerly RegToMem
-`define ALUNoOp_RdToMem 5'b10011
-//Formerly Delay
-`define ALUNoOp_RdToPC 5'b10100
-`define PCtoRn 5'b10101
-`define Delay 5'b10110
-// Formerly RdToPC
-`define Branch 5'b10111
+`define IF1 5'b00001
+`define Decode 5'b00011
+`define UpdatePC 5'b00010
+`define AddReg 5'b00110
+`define WriteImm 5'b00111
+`define ALUNoOp_toReg 5'b00101
+`define CMP 5'b01101
+`define BitwiseAND 5'b01111
+`define BitwiseNOT 5'b01001
+`define Halt 5'b10000
+`define AddImm 5'b11000
+`define RegFromMem 5'b11100
+`define ALUNoOp_RdToMem 5'b11110
+`define ALUNoOp_RdToPC 5'b11111
+`define PCtoRn 5'b10111
+`define Delay 5'b10011
+`define Branch 5'b10001
 
 // Opcode macros
 `define ALU_instruction 3'b101
@@ -61,7 +54,7 @@ module cpu(clk,reset, mem_cmd, mem_addr, read_data, write_data, halt);
    reg [15:0]	 sximm5;
    reg [15:0]	 sximm8;
    wire		 reset_pc, load_pc, load_ir, load_addr;
-   wire [8:0]	 PC;
+   wire [7:0]	 PC;
 
    wire [2:0]	 Z_out;
    wire [15:0]	 instruction_reg_out;
@@ -75,15 +68,15 @@ module cpu(clk,reset, mem_cmd, mem_addr, read_data, write_data, halt);
    wire		 addr_sel;
    wire [8:0]	 data_addr;
    // Address select multiplexer
-   assign mem_addr = addr_sel ? PC : data_addr;
+   assign mem_addr = addr_sel ? {1'b0, PC} : data_addr;
    
-   reg [8:0] PC_branch_addr_in;
+   reg [7:0] PC_branch_addr_in;
    
    always_comb begin
       case (branch_en)
-         2'b01: PC_branch_addr_in = sximm8[8:0];
-         2'b10: PC_branch_addr_in = write_data[8:0];  
-         default: PC_branch_addr_in = {9{1'bx}};
+         2'b01: PC_branch_addr_in = sximm8[7:0];
+         2'b10: PC_branch_addr_in = write_data[7:0];  
+         default: PC_branch_addr_in = {8{1'bx}};
       endcase
    end
 
@@ -170,28 +163,28 @@ module instruction_register (clk, load, in, out);
 endmodule
 
 module program_counter (clk, load_pc, reset_pc, PC, branch_en, PC_branch_addr_in, allow_branch);
-   output [8:0] PC;
+   output [7:0] PC;
    input	reset_pc;
    input allow_branch;
    input [1:0] branch_en;
-   input [8:0] PC_branch_addr_in;
+   input [7:0] PC_branch_addr_in;
    input	load_pc, clk;
-   reg [8:0] next_pc;
-
+   reg [7:0] next_pc;
+   
    always_comb begin
       if (reset_pc)
-         next_pc = 9'b0;
+         next_pc = 8'b0;
       else begin
          casex ({allow_branch, branch_en})
-            {1'b0, 2'bxx}: next_pc = PC + 9'b1;
+            {1'b0, 2'bxx}: next_pc = PC + 8'b1;
             {1'b1, 2'b00}: next_pc = PC;
             {1'b1, 2'b01}: next_pc = PC + PC_branch_addr_in;
             {1'b1, 2'b10}: next_pc = PC_branch_addr_in;
-            default: next_pc = {9{1'bx}};
+            default: next_pc = {8{1'bx}};
          endcase
       end
    end
-   vDFFE #(9) PC_DFF(clk, load_pc, next_pc, PC);
+   vDFFE #(8) PC_DFF(clk, load_pc, next_pc, PC);
 endmodule
 
 module data_address (clk, load_addr, in, out);
@@ -245,10 +238,6 @@ module state_machine (clk, reset, opcode, op, Rn, Rd, Rm, readA, readB, writenum
           {`Decode, `Branch_link_instruction, 2'b00}: state = `ALUNoOp_RdToPC;
           {`Decode, `Branch_link_instruction, 2'b10}: state = `PCtoRn;
                     
-          // Pas the value through the datapath
-          //{`ALUNoOp_Rd, `Store_instruction, 2'b00}: state = `RegToMem;
-          //{`ALUNoOp_Rd, `Branch_link_instruction, 2'bxx}: state = `RdtoPC;
-          
           // Stored the calculated address in the data address register
           {`AddImm, `Load_instruction, 2'b00}: state = `RegFromMem;
           {`AddImm, `Store_instruction, 2'b00}: state = `ALUNoOp_RdToMem;
@@ -263,30 +252,20 @@ module state_machine (clk, reset, opcode, op, Rn, Rd, Rm, readA, readB, writenum
           {`BitwiseAND, {5{1'bx}}}: state = `IF1;
           {`BitwiseNOT, {5{1'bx}}}: state = `IF1;
           {`ALUNoOp_toReg, `Move_instruction, 2'bxx}: state = `IF1;
-          //{`ALUNoOp, `Branch_link_instruction, 2'bxx}: state = `RdtoPC;
 
-          // Write the value to memory
-          //{`ALUNoOp, `Store_instruction, 2'b00}: state = `RegToMem;
-
-          // Get the value to be stored in memory
-          //{`WriteDataAddress, `Store_instruction, 2'b00}: state = `ALUNoOp_Rd;
-          
           // This only writes the status register
           {`CMP, {5{1'bx}}}: state = `IF1;
 
           // Go back to fetch after memory operation
           {`RegFromMem, `Load_instruction, 2'b00}: state = `Delay;
           {`Delay, `Load_instruction, 2'b00}: state = `IF1;
-          //{`RegToMem, `Store_instruction, 2'b00}: state = `IF1;
           
           // Once finished writing, always go back to fetch
-          //{`WriteReg, {5{1'bx}}}: state = `IF1;
           {`WriteImm, {5{1'bx}}}: state = `IF1;
 
           {`PCtoRn, `Branch_link_instruction, 2'b11}: state = `Branch;
           {`PCtoRn, `Branch_link_instruction, 2'b10}: state = `ALUNoOp_RdToPC;
           
-          //{`RdtoPC, `Branch_link_instruction, 2'bxx}: state = `IF1;
           {`Branch, {5{1'bx}}}: state = `IF1;
 
           // should not end up here
